@@ -1,0 +1,143 @@
+\hypertarget{reloadModule_8cpp}{}\section{reload\+Module.\+cpp File Reference}
+\label{reloadModule_8cpp}\index{reload\+Module.\+cpp@{reload\+Module.\+cpp}}
+{\ttfamily \#include \char`\"{}Environment.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Species.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Simulation.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Eco\+Simulation.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Evo\+Simulation.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}E2\+Simulation.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Multi\+Simulation.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Multi\+Eco\+Simulation.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Multi\+Evo\+Simulation.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}E2\+M\+Simulation.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}helpers.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}interface.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}reload\+Module.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Change.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Std\+Change.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Eco\+Change.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Evo.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Std\+Evo.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Eco\+Evo.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}No\+Evo.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Save.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Next\+Gen.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Std\+Next\+Gen.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Eco\+Next\+Gen.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Evo\+Next\+Gen.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}E2\+Next\+Gen.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Std\+Multi\+Next\+Gen.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Eco\+Multi\+Next\+Gen.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Evo\+Multi\+Next\+Gen.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}E2\+Multi\+Next\+Gen.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$numeric$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$sys/stat.\+h$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classEnvironment}{Environment} \hyperlink{reloadModule_8cpp_add03f0089f30181930d6e37c45deb412}{load\+Env} (string new\+Save\+Path, vector$<$ \hyperlink{classEnvironment}{Environment} $>$ $\ast$all\+Envs, \hyperlink{structsimParams}{sim\+Params} $\ast$params, \hyperlink{structsimValues}{sim\+Values} $\ast$values, int num\+Self, string save\+Path)
+\begin{DoxyCompactList}\small\item\em Method used to recreate an \hyperlink{classEnvironment}{Environment} with the same attribute values than that of the previous simulation. \end{DoxyCompactList}\item 
+void \hyperlink{reloadModule_8cpp_a73f90558975483fd3b001a7c4f8fb7aa}{load\+Specs} (vector$<$ unique\+\_\+ptr$<$ \hyperlink{classSpecies}{Species} $>$$>$ $\ast$species\+List, \hyperlink{structsimParams}{sim\+Params} $\ast$params, \hyperlink{structsimValues}{sim\+Values} $\ast$values, double $\ast$env\+Const)
+\begin{DoxyCompactList}\small\item\em Method used to recreate \hyperlink{classSpecies}{Species} based on the values of the previous simulation (will also add the specified numbers of \hyperlink{classSpecies}{Species} with parameter values generated from the ranges in \hyperlink{structsimParams}{sim\+Params}) \end{DoxyCompactList}\item 
+int \hyperlink{reloadModule_8cpp_aa5cb2950860c2cc11e527945c4707194}{re\+Run\+Sim} (string old\+Save\+Path, string new\+Save\+Path, int add\+Spec, int num\+Runs)
+\begin{DoxyCompactList}\small\item\em Controller method that takes care of loading a simulation, creating the right Environment/\+Species, and launching the simulation. \end{DoxyCompactList}\item 
+int \hyperlink{reloadModule_8cpp_ad14bcb94952cea99b43d2d887019d395}{load\+Sim\+Values} (\hyperlink{structsimParams}{sim\+Params} $\ast$params, \hyperlink{structsimValues}{sim\+Values} $\ast$values, string save\+Path)
+\begin{DoxyCompactList}\small\item\em Parser method used to populate a \hyperlink{structsimValues}{sim\+Values} instance with values form a previous simulation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{reloadModule_8cpp_add03f0089f30181930d6e37c45deb412}{}\label{reloadModule_8cpp_add03f0089f30181930d6e37c45deb412} 
+\index{reload\+Module.\+cpp@{reload\+Module.\+cpp}!load\+Env@{load\+Env}}
+\index{load\+Env@{load\+Env}!reload\+Module.\+cpp@{reload\+Module.\+cpp}}
+\subsubsection{\texorpdfstring{load\+Env()}{loadEnv()}}
+{\footnotesize\ttfamily \hyperlink{classEnvironment}{Environment} load\+Env (\begin{DoxyParamCaption}\item[{string}]{new\+Save\+Path,  }\item[{vector$<$ \hyperlink{classEnvironment}{Environment} $>$ $\ast$}]{all\+Envs,  }\item[{\hyperlink{structsimParams}{sim\+Params} $\ast$}]{params,  }\item[{\hyperlink{structsimValues}{sim\+Values} $\ast$}]{values,  }\item[{int}]{num\+Self,  }\item[{string}]{save\+Path }\end{DoxyParamCaption})}
+
+
+
+Method used to recreate an \hyperlink{classEnvironment}{Environment} with the same attribute values than that of the previous simulation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Save\+Path} & Folder where results of the new simulation will be saved \\
+\hline
+{\em all\+Envs} & Pointer to vector of \hyperlink{classEnvironment}{Environment}\textquotesingle{}s owned by the \hyperlink{classSimulation}{Simulation} object \\
+\hline
+{\em params} & Pointer to the \hyperlink{structsimParams}{sim\+Params} object from previous simulation \\
+\hline
+{\em values} & Pointer to the \hyperlink{structsimValues}{sim\+Values} object containing values of the previous simulation \\
+\hline
+{\em num\+Self} & ID of the \hyperlink{classEnvironment}{Environment} to create \\
+\hline
+{\em save\+Path} & Path to the folder where results/parameters of the new simulation will be saved \\
+\hline
+\end{DoxyParams}
+\hypertarget{reloadModule_8cpp_ad14bcb94952cea99b43d2d887019d395}{}\label{reloadModule_8cpp_ad14bcb94952cea99b43d2d887019d395} 
+\index{reload\+Module.\+cpp@{reload\+Module.\+cpp}!load\+Sim\+Values@{load\+Sim\+Values}}
+\index{load\+Sim\+Values@{load\+Sim\+Values}!reload\+Module.\+cpp@{reload\+Module.\+cpp}}
+\subsubsection{\texorpdfstring{load\+Sim\+Values()}{loadSimValues()}}
+{\footnotesize\ttfamily int load\+Sim\+Values (\begin{DoxyParamCaption}\item[{\hyperlink{structsimParams}{sim\+Params} $\ast$}]{params,  }\item[{\hyperlink{structsimValues}{sim\+Values} $\ast$}]{values,  }\item[{string}]{save\+Path }\end{DoxyParamCaption})}
+
+
+
+Parser method used to populate a \hyperlink{structsimValues}{sim\+Values} instance with values form a previous simulation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em params} & \hyperlink{classSimulation}{Simulation} parameters of the simulation we are loading \\
+\hline
+{\em value} & \hyperlink{structsimValues}{sim\+Values} object to populate \\
+\hline
+{\em Path} & to the complete save used to load simulation \\
+\hline
+\end{DoxyParams}
+\hypertarget{reloadModule_8cpp_a73f90558975483fd3b001a7c4f8fb7aa}{}\label{reloadModule_8cpp_a73f90558975483fd3b001a7c4f8fb7aa} 
+\index{reload\+Module.\+cpp@{reload\+Module.\+cpp}!load\+Specs@{load\+Specs}}
+\index{load\+Specs@{load\+Specs}!reload\+Module.\+cpp@{reload\+Module.\+cpp}}
+\subsubsection{\texorpdfstring{load\+Specs()}{loadSpecs()}}
+{\footnotesize\ttfamily void load\+Specs (\begin{DoxyParamCaption}\item[{vector$<$ unique\+\_\+ptr$<$ \hyperlink{classSpecies}{Species} $>$$>$ $\ast$}]{species\+List,  }\item[{\hyperlink{structsimParams}{sim\+Params} $\ast$}]{params,  }\item[{\hyperlink{structsimValues}{sim\+Values} $\ast$}]{values,  }\item[{double $\ast$}]{env\+Const }\end{DoxyParamCaption})}
+
+
+
+Method used to recreate \hyperlink{classSpecies}{Species} based on the values of the previous simulation (will also add the specified numbers of \hyperlink{classSpecies}{Species} with parameter values generated from the ranges in \hyperlink{structsimParams}{sim\+Params}) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em species\+List} & Pointer to the vector of species owned by \hyperlink{classEnvironment}{Environment} \\
+\hline
+{\em params} & Pointer to the \hyperlink{structsimParams}{sim\+Params} object \\
+\hline
+{\em values} & Pointer to the \hyperlink{structsimValues}{sim\+Values} object containing values of the previous simulation \\
+\hline
+{\em env\+Const} & Pointer to env\+Const of the \hyperlink{classEnvironment}{Environment} \\
+\hline
+\end{DoxyParams}
+\hypertarget{reloadModule_8cpp_aa5cb2950860c2cc11e527945c4707194}{}\label{reloadModule_8cpp_aa5cb2950860c2cc11e527945c4707194} 
+\index{reload\+Module.\+cpp@{reload\+Module.\+cpp}!re\+Run\+Sim@{re\+Run\+Sim}}
+\index{re\+Run\+Sim@{re\+Run\+Sim}!reload\+Module.\+cpp@{reload\+Module.\+cpp}}
+\subsubsection{\texorpdfstring{re\+Run\+Sim()}{reRunSim()}}
+{\footnotesize\ttfamily int re\+Run\+Sim (\begin{DoxyParamCaption}\item[{string}]{old\+Save\+Path,  }\item[{string}]{new\+Save\+Path,  }\item[{int}]{add\+Spec,  }\item[{int}]{num\+Runs }\end{DoxyParamCaption})}
+
+
+
+Controller method that takes care of loading a simulation, creating the right Environment/\+Species, and launching the simulation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em old\+Save\+Path} & The path to the folder containing the complete save/sim\+Param file of the simulation we want to load \\
+\hline
+{\em new\+Save\+Path} & The path to the folder where results of the new simulation will be saved \\
+\hline
+{\em add\+Spec} & The number of newly generated \hyperlink{classSpecies}{Species} that will be added to the simulation \\
+\hline
+{\em num\+Runs} & The number of runs we will execute on the new simulation \\
+\hline
+\end{DoxyParams}

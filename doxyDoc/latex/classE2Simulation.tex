@@ -1,0 +1,76 @@
+\hypertarget{classE2Simulation}{}\section{E2\+Simulation Class Reference}
+\label{classE2Simulation}\index{E2\+Simulation@{E2\+Simulation}}
+
+
+Class containing all \hyperlink{classEnvironment}{Environment} objects, as well control-\/flow attributes for the simulation.  
+
+
+
+
+{\ttfamily \#include $<$E2\+Simulation.\+hpp$>$}
+
+Inheritance diagram for E2\+Simulation\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classE2Simulation}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classE2Simulation_a489002277b77dde3163f335eeb174a9c}{}\label{classE2Simulation_a489002277b77dde3163f335eeb174a9c} 
+{\bfseries E2\+Simulation} (vector$<$ \hyperlink{classEnvironment}{Environment} $>$ \+\_\+env)
+\item 
+\hypertarget{classE2Simulation_aa814d76fc89318c950e936ba98adad7c}{}\label{classE2Simulation_aa814d76fc89318c950e936ba98adad7c} 
+int {\bfseries get\+Inter\+Save\+Div} ()
+\item 
+\hypertarget{classE2Simulation_a440ebe2b5d56c6c3c7d67e6463347752}{}\label{classE2Simulation_a440ebe2b5d56c6c3c7d67e6463347752} 
+void {\bfseries set\+Inter\+Save\+Div} (int new\+Val)
+\item 
+\hypertarget{classE2Simulation_a5f07ce9232d20974595ea8191fb93bfe}{}\label{classE2Simulation_a5f07ce9232d20974595ea8191fb93bfe} 
+vector$<$ \hyperlink{classEnvironment}{Environment} $>$ $\ast$ {\bfseries get\+Envs} ()
+\item 
+\hypertarget{classE2Simulation_ad7ce5318a2850d7a73df94aec1c7e15f}{}\label{classE2Simulation_ad7ce5318a2850d7a73df94aec1c7e15f} 
+void {\bfseries add\+Env} (\hyperlink{classEnvironment}{Environment} new\+Val)
+\item 
+int \hyperlink{classE2Simulation_a28028881fd443d2445b562512cb2169c}{run\+Sim} (int run\+Number)
+\begin{DoxyCompactList}\small\item\em Method that runs the main loop of the simulation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classE2Simulation_a72c3fa1a40648aeb904c6afb74dbb700}{}\label{classE2Simulation_a72c3fa1a40648aeb904c6afb74dbb700} 
+vector$<$ \hyperlink{classEnvironment}{Environment} $>$ {\bfseries envs}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class containing all \hyperlink{classEnvironment}{Environment} objects, as well control-\/flow attributes for the simulation. 
+
+The E2\+Simulaiton class is very similar to the simulation class, except that it has the extra functionality of both \hyperlink{classEcoSimulation}{Eco\+Simulation} and \hyperlink{classEvoSimulation}{Evo\+Simulation}. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classE2Simulation_a28028881fd443d2445b562512cb2169c}{}\label{classE2Simulation_a28028881fd443d2445b562512cb2169c} 
+\index{E2\+Simulation@{E2\+Simulation}!run\+Sim@{run\+Sim}}
+\index{run\+Sim@{run\+Sim}!E2\+Simulation@{E2\+Simulation}}
+\subsubsection{\texorpdfstring{run\+Sim()}{runSim()}}
+{\footnotesize\ttfamily int E2\+Simulation\+::run\+Sim (\begin{DoxyParamCaption}\item[{int}]{run\+Number }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Method that runs the main loop of the simulation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em run\+Number} & ID of the current run of the simulation. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classEvoSimulation_aa43aa351dec24c638e56995a67a4f0f5}{Evo\+Simulation}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{E2Simulation_8hpp}{E2\+Simulation.\+hpp}\item 
+E2\+Simulation.\+cpp\end{DoxyCompactItemize}

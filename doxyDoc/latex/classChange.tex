@@ -1,0 +1,58 @@
+\hypertarget{classChange}{}\section{Change Class Reference}
+\label{classChange}\index{Change@{Change}}
+
+
+Class containing just one function, used to calculate change in species density (virtual).  
+
+
+
+
+{\ttfamily \#include $<$Change.\+hpp$>$}
+
+Inheritance diagram for Change\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classChange}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual double \hyperlink{classChange_a59b9108e42a0aef74f735c1f82d4f014}{get\+Change} (\hyperlink{classSpecies}{Species} $\ast$spec, double delta, vector$<$ unique\+\_\+ptr$<$ \hyperlink{classSpecies}{Species} $>$$>$ $\ast$species\+List)=0
+\begin{DoxyCompactList}\small\item\em Method to calculate change in species density. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class containing just one function, used to calculate change in species density (virtual). 
+
+The \hyperlink{classChange}{Change} class has no attributes and only one method, used to calculate change in species density. For now, there are only two implemented versions of that method, with and without taking the environmental constant and species optimum into account (\hyperlink{classEcoChange}{Eco\+Change} and \hyperlink{classStdChange}{Std\+Change}). 
+
+\subsection{Member Function Documentation}
+\hypertarget{classChange_a59b9108e42a0aef74f735c1f82d4f014}{}\label{classChange_a59b9108e42a0aef74f735c1f82d4f014} 
+\index{Change@{Change}!get\+Change@{get\+Change}}
+\index{get\+Change@{get\+Change}!Change@{Change}}
+\subsubsection{\texorpdfstring{get\+Change()}{getChange()}}
+{\footnotesize\ttfamily virtual double Change\+::get\+Change (\begin{DoxyParamCaption}\item[{\hyperlink{classSpecies}{Species} $\ast$}]{spec,  }\item[{double}]{delta,  }\item[{vector$<$ unique\+\_\+ptr$<$ \hyperlink{classSpecies}{Species} $>$$>$ $\ast$}]{species\+List }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Method to calculate change in species density. 
+
+This method uses the explicit Euler scheme to resolve a Lotka-\/\+Volterra-\/like differential equation we use to calculate the evolution of the system. 
+\begin{DoxyParams}{Parameters}
+{\em spec} & \hyperlink{classSpecies}{Species} for which we will calculate change in density. \\
+\hline
+{\em delta} & size of step used in explicit Euler. \\
+\hline
+{\em species\+List} & List containing all (alive) species present in the environment. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{classStdChange_a25fd1a3828d026e902bae809278c6dbc}{Std\+Change}, and \hyperlink{classEcoChange_a963a6e9a77b2c7df7cf25bb8931dbe5c}{Eco\+Change}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Change_8hpp}{Change.\+hpp}\end{DoxyCompactItemize}

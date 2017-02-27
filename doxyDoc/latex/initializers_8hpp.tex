@@ -1,0 +1,54 @@
+\hypertarget{initializers_8hpp}{}\section{initializers.\+hpp File Reference}
+\label{initializers_8hpp}\index{initializers.\+hpp@{initializers.\+hpp}}
+
+
+File containing methods to initialize Environment/\+Species with values from \hyperlink{structsimParams}{sim\+Params}.  
+
+
+{\ttfamily \#include \char`\"{}Environment.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Species.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}interface.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{initializers_8hpp_a8fd7f8510d1193c0657c5abdd1721e29}{init\+Specs} (vector$<$ unique\+\_\+ptr$<$ \hyperlink{classSpecies}{Species} $>$$>$ $\ast$species\+List, \hyperlink{structsimParams}{sim\+Params} params, double $\ast$env\+Const)
+\begin{DoxyCompactList}\small\item\em Populates species\+List with \hyperlink{classSpecies}{Species} having attributes generated from the ranges contained in \hyperlink{structsimParams}{sim\+Params}. \end{DoxyCompactList}\item 
+\hyperlink{classEnvironment}{Environment} \hyperlink{initializers_8hpp_a722ddd1fb4b350e03d4a19811e94d1fb}{get\+Env} (string save\+Path, \hyperlink{structsimParams}{sim\+Params} params, int num\+Self, vector$<$ \hyperlink{classEnvironment}{Environment} $>$ $\ast$all\+Envs)
+\begin{DoxyCompactList}\small\item\em Populates \hyperlink{classEnvironment}{Environment} with all parameters, based on informaiton in \hyperlink{structsimParams}{sim\+Params} (see \hyperlink{structsimParams}{sim\+Params} in \hyperlink{interface_8hpp}{interface.\+hpp}) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+File containing methods to initialize Environment/\+Species with values from \hyperlink{structsimParams}{sim\+Params}. 
+
+\begin{DoxyAuthor}{Author}
+Melchior Zimmermann 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+24 Dec 2016 The two methods of this file are used to generate Environment/\+Species with attributes specified in \hyperlink{structsimParams}{sim\+Params}. \hyperlink{initializers_8hpp_a722ddd1fb4b350e03d4a19811e94d1fb}{get\+Env()} calls \hyperlink{initializers_8hpp_a8fd7f8510d1193c0657c5abdd1721e29}{init\+Specs()} to populate the \hyperlink{classEnvironment}{Environment}\textquotesingle{}s species\+List. 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\hypertarget{initializers_8hpp_a722ddd1fb4b350e03d4a19811e94d1fb}{}\label{initializers_8hpp_a722ddd1fb4b350e03d4a19811e94d1fb} 
+\index{initializers.\+hpp@{initializers.\+hpp}!get\+Env@{get\+Env}}
+\index{get\+Env@{get\+Env}!initializers.\+hpp@{initializers.\+hpp}}
+\subsubsection{\texorpdfstring{get\+Env()}{getEnv()}}
+{\footnotesize\ttfamily \hyperlink{classEnvironment}{Environment} get\+Env (\begin{DoxyParamCaption}\item[{string}]{save\+Path,  }\item[{\hyperlink{structsimParams}{sim\+Params}}]{params,  }\item[{int}]{num\+Self,  }\item[{vector$<$ \hyperlink{classEnvironment}{Environment} $>$ $\ast$}]{all\+Envs }\end{DoxyParamCaption})}
+
+
+
+Populates \hyperlink{classEnvironment}{Environment} with all parameters, based on informaiton in \hyperlink{structsimParams}{sim\+Params} (see \hyperlink{structsimParams}{sim\+Params} in \hyperlink{interface_8hpp}{interface.\+hpp}) 
+
+save\+Path Path to folder in which to save simulation results  params Instance of \hyperlink{structsimParams}{sim\+Params} containing ranges from which to generate values for species attributes  num\+Self ID of environment being initiated  all\+Envs List of all environments in the simulation \hypertarget{initializers_8hpp_a8fd7f8510d1193c0657c5abdd1721e29}{}\label{initializers_8hpp_a8fd7f8510d1193c0657c5abdd1721e29} 
+\index{initializers.\+hpp@{initializers.\+hpp}!init\+Specs@{init\+Specs}}
+\index{init\+Specs@{init\+Specs}!initializers.\+hpp@{initializers.\+hpp}}
+\subsubsection{\texorpdfstring{init\+Specs()}{initSpecs()}}
+{\footnotesize\ttfamily int init\+Specs (\begin{DoxyParamCaption}\item[{vector$<$ unique\+\_\+ptr$<$ \hyperlink{classSpecies}{Species} $>$$>$ $\ast$}]{species\+List,  }\item[{\hyperlink{structsimParams}{sim\+Params}}]{params,  }\item[{double $\ast$}]{env\+Const }\end{DoxyParamCaption})}
+
+
+
+Populates species\+List with \hyperlink{classSpecies}{Species} having attributes generated from the ranges contained in \hyperlink{structsimParams}{sim\+Params}. 
+
+species\+List List to be populated  params Instance of \hyperlink{structsimParams}{sim\+Params} containing ranges from which to generate values for species attributes  env\+Const pointer to attribute env\+Const of the \hyperlink{classEnvironment}{Environment} for which we are generating species 

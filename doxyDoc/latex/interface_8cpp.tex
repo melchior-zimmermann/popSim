@@ -1,0 +1,89 @@
+\hypertarget{interface_8cpp}{}\section{interface.\+cpp File Reference}
+\label{interface_8cpp}\index{interface.\+cpp@{interface.\+cpp}}
+{\ttfamily \#include \char`\"{}Environment.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Species.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Simulation.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Eco\+Simulation.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Evo\+Simulation.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}E2\+Simulation.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Multi\+Simulation.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Multi\+Eco\+Simulation.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Multi\+Evo\+Simulation.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}E2\+M\+Simulation.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}helpers.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}interface.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}initializers.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$numeric$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{interface_8cpp_aeca29304aa386bf972eae6dfbf3a7fc2}{get\+Sim\+Params} (string save\+Path, \hyperlink{structsimParams}{sim\+Params} $\ast$params)
+\begin{DoxyCompactList}\small\item\em The simulation parameter wizard, guides the user through defining simulation parametersS. \end{DoxyCompactList}\item 
+void \hyperlink{interface_8cpp_a4d73a8b7e273caac16021c38bc0e7c81}{make\+Template} (string path)
+\begin{DoxyCompactList}\small\item\em Saves a template of simulation parameters in file \hyperlink{structsimParams}{sim\+Params} in folder described by path (current folder if path is an empty string) \end{DoxyCompactList}\item 
+int \hyperlink{interface_8cpp_a573faab2db8e508d0a7189d2bd3fdb4d}{save\+Sim\+Params} (string save\+Path, \hyperlink{structsimParams}{sim\+Params} $\ast$params)
+\begin{DoxyCompactList}\small\item\em Saves the simulation parameters contained in params into a file \hyperlink{structsimParams}{sim\+Params} in folder path. \end{DoxyCompactList}\item 
+int \hyperlink{interface_8cpp_aa59b3cbdd4c60d2d0bc2a5e3aca33305}{load\+Sim\+Params} (string save\+Path, \hyperlink{structsimParams}{sim\+Params} $\ast$params)
+\begin{DoxyCompactList}\small\item\em Loads the simulation parameters contained in the file \hyperlink{structsimParams}{sim\+Params} in folder path into a \hyperlink{structsimParams}{sim\+Params} struct. \end{DoxyCompactList}\item 
+int \hyperlink{interface_8cpp_abb820d41f264863137c338f01420bf44}{launch\+Sim} (string save\+Path, int run\+Number, \hyperlink{structsimParams}{sim\+Params} params)
+\begin{DoxyCompactList}\small\item\em Launches a sim defined by params. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{interface_8cpp_aeca29304aa386bf972eae6dfbf3a7fc2}{}\label{interface_8cpp_aeca29304aa386bf972eae6dfbf3a7fc2} 
+\index{interface.\+cpp@{interface.\+cpp}!get\+Sim\+Params@{get\+Sim\+Params}}
+\index{get\+Sim\+Params@{get\+Sim\+Params}!interface.\+cpp@{interface.\+cpp}}
+\subsubsection{\texorpdfstring{get\+Sim\+Params()}{getSimParams()}}
+{\footnotesize\ttfamily int get\+Sim\+Params (\begin{DoxyParamCaption}\item[{string}]{save\+Path,  }\item[{\hyperlink{structsimParams}{sim\+Params} $\ast$}]{params }\end{DoxyParamCaption})}
+
+
+
+The simulation parameter wizard, guides the user through defining simulation parametersS. 
+
+\hypertarget{interface_8cpp_abb820d41f264863137c338f01420bf44}{}\label{interface_8cpp_abb820d41f264863137c338f01420bf44} 
+\index{interface.\+cpp@{interface.\+cpp}!launch\+Sim@{launch\+Sim}}
+\index{launch\+Sim@{launch\+Sim}!interface.\+cpp@{interface.\+cpp}}
+\subsubsection{\texorpdfstring{launch\+Sim()}{launchSim()}}
+{\footnotesize\ttfamily int launch\+Sim (\begin{DoxyParamCaption}\item[{string}]{save\+Path,  }\item[{int}]{run\+Number,  }\item[{\hyperlink{structsimParams}{sim\+Params}}]{params }\end{DoxyParamCaption})}
+
+
+
+Launches a sim defined by params. 
+
+This method takes care of creating a Simulaiton object, initiating all its \hyperlink{classEnvironment}{Environment}\textquotesingle{}s with their respective \hyperlink{classSpecies}{Species}, and running the \hyperlink{classSimulation}{Simulation} for the appropriate number of steps. \hypertarget{interface_8cpp_aa59b3cbdd4c60d2d0bc2a5e3aca33305}{}\label{interface_8cpp_aa59b3cbdd4c60d2d0bc2a5e3aca33305} 
+\index{interface.\+cpp@{interface.\+cpp}!load\+Sim\+Params@{load\+Sim\+Params}}
+\index{load\+Sim\+Params@{load\+Sim\+Params}!interface.\+cpp@{interface.\+cpp}}
+\subsubsection{\texorpdfstring{load\+Sim\+Params()}{loadSimParams()}}
+{\footnotesize\ttfamily int load\+Sim\+Params (\begin{DoxyParamCaption}\item[{string}]{save\+Path,  }\item[{\hyperlink{structsimParams}{sim\+Params} $\ast$}]{params }\end{DoxyParamCaption})}
+
+
+
+Loads the simulation parameters contained in the file \hyperlink{structsimParams}{sim\+Params} in folder path into a \hyperlink{structsimParams}{sim\+Params} struct. 
+
+\hypertarget{interface_8cpp_a4d73a8b7e273caac16021c38bc0e7c81}{}\label{interface_8cpp_a4d73a8b7e273caac16021c38bc0e7c81} 
+\index{interface.\+cpp@{interface.\+cpp}!make\+Template@{make\+Template}}
+\index{make\+Template@{make\+Template}!interface.\+cpp@{interface.\+cpp}}
+\subsubsection{\texorpdfstring{make\+Template()}{makeTemplate()}}
+{\footnotesize\ttfamily void make\+Template (\begin{DoxyParamCaption}\item[{string}]{path }\end{DoxyParamCaption})}
+
+
+
+Saves a template of simulation parameters in file \hyperlink{structsimParams}{sim\+Params} in folder described by path (current folder if path is an empty string) 
+
+\hypertarget{interface_8cpp_a573faab2db8e508d0a7189d2bd3fdb4d}{}\label{interface_8cpp_a573faab2db8e508d0a7189d2bd3fdb4d} 
+\index{interface.\+cpp@{interface.\+cpp}!save\+Sim\+Params@{save\+Sim\+Params}}
+\index{save\+Sim\+Params@{save\+Sim\+Params}!interface.\+cpp@{interface.\+cpp}}
+\subsubsection{\texorpdfstring{save\+Sim\+Params()}{saveSimParams()}}
+{\footnotesize\ttfamily int save\+Sim\+Params (\begin{DoxyParamCaption}\item[{string}]{save\+Path,  }\item[{\hyperlink{structsimParams}{sim\+Params} $\ast$}]{params }\end{DoxyParamCaption})}
+
+
+
+Saves the simulation parameters contained in params into a file \hyperlink{structsimParams}{sim\+Params} in folder path. 
+

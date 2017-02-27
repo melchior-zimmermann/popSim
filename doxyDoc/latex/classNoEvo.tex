@@ -1,0 +1,113 @@
+\hypertarget{classNoEvo}{}\section{No\+Evo Class Reference}
+\label{classNoEvo}\index{No\+Evo@{No\+Evo}}
+
+
+Dummy implementation of the \hyperlink{classEvo}{Evo} class.  
+
+
+
+
+{\ttfamily \#include $<$No\+Evo.\+hpp$>$}
+
+Inheritance diagram for No\+Evo\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classNoEvo}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classNoEvo_ad43cc958ff310c4767725c5f4a7e7ac4}{get\+Evo} (vector$<$ unique\+\_\+ptr$<$ \hyperlink{classSpecies}{Species} $>$$>$ $\ast$species\+List, \hyperlink{classSpecies}{Species} $\ast$spec, int resolution)
+\begin{DoxyCompactList}\small\item\em Controller method for updating species interactions/optimum. \end{DoxyCompactList}\item 
+vector$<$ unique\+\_\+ptr$<$ \hyperlink{classIndividual}{Individual} $>$ $>$ \hyperlink{classNoEvo_a9545e4f14c2038b8b7cab9362cb5fa9a}{get\+Inds} (vector$<$ unique\+\_\+ptr$<$ \hyperlink{classSpecies}{Species} $>$$>$ $\ast$species\+List, \hyperlink{classSpecies}{Species} $\ast$spec, int resolution)
+\begin{DoxyCompactList}\small\item\em Method for creating individuals from species. \end{DoxyCompactList}\item 
+vector$<$ int $>$ \hyperlink{classNoEvo_ae404207f48accfa7ea9f0022ed1af187}{run\+Selection} (vector$<$ unique\+\_\+ptr$<$ \hyperlink{classIndividual}{Individual} $>$$>$ $\ast$inds, vector$<$ unique\+\_\+ptr$<$ \hyperlink{classSpecies}{Species} $>$$>$ $\ast$species\+List)
+\begin{DoxyCompactList}\small\item\em Method that selects surviving/reproducing individuals. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Dummy implementation of the \hyperlink{classEvo}{Evo} class. 
+
+Dummy implementaiton of the \hyperlink{classEvo}{Evo} class, given to species in simulations where no evolution occurs. (could also be used to disable evolution in some species) 
+
+\subsection{Member Function Documentation}
+\hypertarget{classNoEvo_ad43cc958ff310c4767725c5f4a7e7ac4}{}\label{classNoEvo_ad43cc958ff310c4767725c5f4a7e7ac4} 
+\index{No\+Evo@{No\+Evo}!get\+Evo@{get\+Evo}}
+\index{get\+Evo@{get\+Evo}!No\+Evo@{No\+Evo}}
+\subsubsection{\texorpdfstring{get\+Evo()}{getEvo()}}
+{\footnotesize\ttfamily void No\+Evo\+::get\+Evo (\begin{DoxyParamCaption}\item[{vector$<$ unique\+\_\+ptr$<$ \hyperlink{classSpecies}{Species} $>$$>$ $\ast$}]{species\+List,  }\item[{\hyperlink{classSpecies}{Species} $\ast$}]{spec,  }\item[{int}]{resolution }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Controller method for updating species interactions/optimum. 
+
+This method controls the evolutionary process, dividing the species into the right amount of individuals, selecting among them, and updating species interactions and optimum accordingly (for a more detailed description, see implementations).
+
+
+\begin{DoxyParams}{Parameters}
+{\em species\+List} & List containing all (alive) species present in the environment (used to calculate survival/reproduction probability of indivduals). \\
+\hline
+{\em spec} & \hyperlink{classSpecies}{Species} for which we will calculate evolutionary change (parameters are automatically updated during call). \\
+\hline
+{\em resolution} & How many discrete individuals are contained in one unit of density. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classEvo_a8c5208c00d1ee2fe9bef41bdd7fe0ab7}{Evo}.
+
+\hypertarget{classNoEvo_a9545e4f14c2038b8b7cab9362cb5fa9a}{}\label{classNoEvo_a9545e4f14c2038b8b7cab9362cb5fa9a} 
+\index{No\+Evo@{No\+Evo}!get\+Inds@{get\+Inds}}
+\index{get\+Inds@{get\+Inds}!No\+Evo@{No\+Evo}}
+\subsubsection{\texorpdfstring{get\+Inds()}{getInds()}}
+{\footnotesize\ttfamily vector$<$unique\+\_\+ptr$<$\hyperlink{classIndividual}{Individual}$>$ $>$ No\+Evo\+::get\+Inds (\begin{DoxyParamCaption}\item[{vector$<$ unique\+\_\+ptr$<$ \hyperlink{classSpecies}{Species} $>$$>$ $\ast$}]{species\+List,  }\item[{\hyperlink{classSpecies}{Species} $\ast$}]{spec,  }\item[{int}]{resolution }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Method for creating individuals from species. 
+
+This method divides a species with continous density into a discrete number of individuals {\ttfamily num\+Inds = round(species.\+density) $\ast$ resolution + 1$<$$>$ (+1 to avoid divide-\/by-\/zero errors. For a more detailed description, see implementations).}
+
+{\ttfamily 
+\begin{DoxyParams}{Parameters}
+{\em species\+List} & List containing all (alive) species present in the environment (used to calculate survival/reproduction probability of indivduals). \\
+\hline
+{\em spec} & \hyperlink{classSpecies}{Species} from which we will generate individuals. \\
+\hline
+{\em resolution} & How many discrete individuals are contained in one unit of density. \\
+\hline
+\end{DoxyParams}
+}
+
+Implements \hyperlink{classEvo_a88b5e0b1053cf1b4b473a08e2f03db92}{Evo}.
+
+\hypertarget{classNoEvo_ae404207f48accfa7ea9f0022ed1af187}{}\label{classNoEvo_ae404207f48accfa7ea9f0022ed1af187} 
+\index{No\+Evo@{No\+Evo}!run\+Selection@{run\+Selection}}
+\index{run\+Selection@{run\+Selection}!No\+Evo@{No\+Evo}}
+\subsubsection{\texorpdfstring{run\+Selection()}{runSelection()}}
+{\footnotesize\ttfamily vector$<$int$>$ No\+Evo\+::run\+Selection (\begin{DoxyParamCaption}\item[{vector$<$ unique\+\_\+ptr$<$ \hyperlink{classIndividual}{Individual} $>$$>$ $\ast$}]{inds,  }\item[{vector$<$ unique\+\_\+ptr$<$ \hyperlink{classSpecies}{Species} $>$$>$ $\ast$}]{species\+List }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Method that selects surviving/reproducing individuals. 
+
+This method calculates survival/reproduction probability for each individual, and puts the number of existing copies of them in the vector it returns (for a more detailed description, see implementations).
+
+
+\begin{DoxyParams}{Parameters}
+{\em inds} & List containing all individuals that were generated from evolving species. \\
+\hline
+{\em species\+List} & List containing all (alive) species present in the environment (used to calculate survival/reproduction probability of indivduals). \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classEvo_a10ff4eefe3967ff5cf5f820890c18079}{Evo}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{NoEvo_8hpp}{No\+Evo.\+hpp}\end{DoxyCompactItemize}

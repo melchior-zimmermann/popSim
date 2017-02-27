@@ -1,0 +1,59 @@
+\hypertarget{classE2NextGen}{}\section{E2\+Next\+Gen Class Reference}
+\label{classE2NextGen}\index{E2\+Next\+Gen@{E2\+Next\+Gen}}
+
+
+Class containing a single method, used to control transition from one step to the next, and update Species/\+Environemnt attributes.  
+
+
+
+
+{\ttfamily \#include $<$E2\+Next\+Gen.\+hpp$>$}
+
+Inheritance diagram for E2\+Next\+Gen\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classE2NextGen}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classE2NextGen_a2c5d35d9c8f9395cbd58d8fb837a08da}{get\+Next\+Gen} (int step\+Num, std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \hyperlink{classSpecies}{Species} $>$$>$ $\ast$species\+List, \hyperlink{classEnvironment}{Environment} $\ast$env)
+\begin{DoxyCompactList}\small\item\em Method used to update \hyperlink{classSpecies}{Species} density and interactions, as wel as environmental constant at each timestep. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class containing a single method, used to control transition from one step to the next, and update Species/\+Environemnt attributes. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classE2NextGen_a2c5d35d9c8f9395cbd58d8fb837a08da}{}\label{classE2NextGen_a2c5d35d9c8f9395cbd58d8fb837a08da} 
+\index{E2\+Next\+Gen@{E2\+Next\+Gen}!get\+Next\+Gen@{get\+Next\+Gen}}
+\index{get\+Next\+Gen@{get\+Next\+Gen}!E2\+Next\+Gen@{E2\+Next\+Gen}}
+\subsubsection{\texorpdfstring{get\+Next\+Gen()}{getNextGen()}}
+{\footnotesize\ttfamily void E2\+Next\+Gen\+::get\+Next\+Gen (\begin{DoxyParamCaption}\item[{int}]{step\+Num,  }\item[{std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \hyperlink{classSpecies}{Species} $>$$>$ $\ast$}]{species\+List,  }\item[{\hyperlink{classEnvironment}{Environment} $\ast$}]{env }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Method used to update \hyperlink{classSpecies}{Species} density and interactions, as wel as environmental constant at each timestep. 
+
+This method works much in the same way as that of \hyperlink{classStdNextGen}{Std\+Next\+Gen}, but with the added functionality of both \hyperlink{classEcoNextGen}{Eco\+Next\+Gen} and \hyperlink{classEvoNextGen}{Evo\+Next\+Gen}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em step\+Num} & Values of the current step \\
+\hline
+{\em species\+List} & List containing all \hyperlink{classSpecies}{Species} of the environment \\
+\hline
+{\em env} & Pointer to current environment \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classNextGen_aa70da77e0ac03da1bd5414c5e3fd70c0}{Next\+Gen}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{E2NextGen_8hpp}{E2\+Next\+Gen.\+hpp}\item 
+E2\+Next\+Gen.\+cpp\end{DoxyCompactItemize}

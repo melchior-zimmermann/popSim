@@ -1,0 +1,94 @@
+\hypertarget{classEvoSimulation}{}\section{Evo\+Simulation Class Reference}
+\label{classEvoSimulation}\index{Evo\+Simulation@{Evo\+Simulation}}
+
+
+Class containing all \hyperlink{classEnvironment}{Environment} objects, as well control-\/flow attributes for the simulation.  
+
+
+
+
+{\ttfamily \#include $<$Evo\+Simulation.\+hpp$>$}
+
+Inheritance diagram for Evo\+Simulation\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classEvoSimulation}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classEvoSimulation_ad9c067c5d931cef3485671c652340fed}{}\label{classEvoSimulation_ad9c067c5d931cef3485671c652340fed} 
+{\bfseries Evo\+Simulation} (vector$<$ \hyperlink{classEnvironment}{Environment} $>$ \+\_\+env)
+\item 
+\hypertarget{classEvoSimulation_ad355ec692640389831d0f70ee5336371}{}\label{classEvoSimulation_ad355ec692640389831d0f70ee5336371} 
+int {\bfseries get\+Inter\+Save\+Div} ()
+\item 
+\hypertarget{classEvoSimulation_afcd50bb904037e0ed92f82db5bce4706}{}\label{classEvoSimulation_afcd50bb904037e0ed92f82db5bce4706} 
+void {\bfseries set\+Inter\+Save\+Div} (int new\+Val)
+\item 
+\hypertarget{classEvoSimulation_abc143157a5ee313cd04375e0b11fd25d}{}\label{classEvoSimulation_abc143157a5ee313cd04375e0b11fd25d} 
+vector$<$ \hyperlink{classEnvironment}{Environment} $>$ $\ast$ {\bfseries get\+Envs} ()
+\item 
+\hypertarget{classEvoSimulation_ae2c4e68c8181696f5c524c9f09f29421}{}\label{classEvoSimulation_ae2c4e68c8181696f5c524c9f09f29421} 
+void {\bfseries add\+Env} (\hyperlink{classEnvironment}{Environment} new\+Val)
+\item 
+\hypertarget{classEvoSimulation_ae075e1877fb4c1132f4630a85ed5fcbf}{}\label{classEvoSimulation_ae075e1877fb4c1132f4630a85ed5fcbf} 
+void {\bfseries set\+Env} (\hyperlink{classEnvironment}{Environment} new\+Val)
+\item 
+virtual int \hyperlink{classEvoSimulation_aa43aa351dec24c638e56995a67a4f0f5}{run\+Sim} (int run\+Number)
+\begin{DoxyCompactList}\small\item\em Method that runs the main loop of the simulation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classEvoSimulation_ac75fd2b2c9fb588adb138c0c0aaebe4d}{}\label{classEvoSimulation_ac75fd2b2c9fb588adb138c0c0aaebe4d} 
+vector$<$ \hyperlink{classEnvironment}{Environment} $>$ {\bfseries envs}
+\item 
+int \hyperlink{classEvoSimulation_aced0330991a4c4ed3bf726e5909fbd31}{inter\+Save\+Div}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class containing all \hyperlink{classEnvironment}{Environment} objects, as well control-\/flow attributes for the simulation. 
+
+The Evo\+Simulaiton class is very similar to the simulation class, except that it can also save interaction values of species during simulaiton execution (to track changes due to evolution). 
+
+\subsection{Member Function Documentation}
+\hypertarget{classEvoSimulation_aa43aa351dec24c638e56995a67a4f0f5}{}\label{classEvoSimulation_aa43aa351dec24c638e56995a67a4f0f5} 
+\index{Evo\+Simulation@{Evo\+Simulation}!run\+Sim@{run\+Sim}}
+\index{run\+Sim@{run\+Sim}!Evo\+Simulation@{Evo\+Simulation}}
+\subsubsection{\texorpdfstring{run\+Sim()}{runSim()}}
+{\footnotesize\ttfamily int Evo\+Simulation\+::run\+Sim (\begin{DoxyParamCaption}\item[{int}]{run\+Number }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Method that runs the main loop of the simulation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em run\+Number} & ID of the current run of the simulation. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classSimulation_a7eb16da89581b496d33b77efbb63b9cd}{Simulation}.
+
+
+
+Reimplemented in \hyperlink{classE2Simulation_a28028881fd443d2445b562512cb2169c}{E2\+Simulation}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classEvoSimulation_aced0330991a4c4ed3bf726e5909fbd31}{}\label{classEvoSimulation_aced0330991a4c4ed3bf726e5909fbd31} 
+\index{Evo\+Simulation@{Evo\+Simulation}!inter\+Save\+Div@{inter\+Save\+Div}}
+\index{inter\+Save\+Div@{inter\+Save\+Div}!Evo\+Simulation@{Evo\+Simulation}}
+\subsubsection{\texorpdfstring{inter\+Save\+Div}{interSaveDiv}}
+{\footnotesize\ttfamily int Evo\+Simulation\+::inter\+Save\+Div\hspace{0.3cm}{\ttfamily [protected]}}
+
+Each how many timesteps interaction values are saved for species (in raw\+Save file) 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{EvoSimulation_8hpp}{Evo\+Simulation.\+hpp}\item 
+Evo\+Simulation.\+cpp\end{DoxyCompactItemize}

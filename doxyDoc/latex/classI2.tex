@@ -1,0 +1,86 @@
+\hypertarget{classI2}{}\section{I2 Class Reference}
+\label{classI2}\index{I2@{I2}}
+
+
+Class used to discretize continous species density, so as to select from during evolution events.  
+
+
+
+
+{\ttfamily \#include $<$I2.\+hpp$>$}
+
+Inheritance diagram for I2\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classI2}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classI2_a6b6f833683560c884852c507d489d99e}{}\label{classI2_a6b6f833683560c884852c507d489d99e} 
+{\bfseries I2} (double $\ast$const \+\_\+env\+Const)
+\item 
+double \hyperlink{classI2_ac747249e352a954b96a530537c60d3b1}{get\+Survival} (vector$<$ unique\+\_\+ptr$<$ \hyperlink{classSpecies}{Species} $>$$>$ $\ast$all\+Specs, double delta)
+\begin{DoxyCompactList}\small\item\em Method to calculate survival/reproduction probability of individual. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double $\ast$const \hyperlink{classI2_a16f94b60e5a6c02c67a46500798fd7cf}{env\+Const}
+\item 
+double \hyperlink{classI2_a5f022bb4d32b5ee96e117b72e17b262a}{optimum}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class used to discretize continous species density, so as to select from during evolution events. 
+
+The \hyperlink{classI2}{I2} class is used much like its parent class, but \hyperlink{classI2_ac747249e352a954b96a530537c60d3b1}{get\+Survival()} takes the environmental constant into account when calculating survival/reproduction probability. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classI2_ac747249e352a954b96a530537c60d3b1}{}\label{classI2_ac747249e352a954b96a530537c60d3b1} 
+\index{I2@{I2}!get\+Survival@{get\+Survival}}
+\index{get\+Survival@{get\+Survival}!I2@{I2}}
+\subsubsection{\texorpdfstring{get\+Survival()}{getSurvival()}}
+{\footnotesize\ttfamily double I2\+::get\+Survival (\begin{DoxyParamCaption}\item[{vector$<$ unique\+\_\+ptr$<$ \hyperlink{classSpecies}{Species} $>$$>$ $\ast$}]{all\+Specs,  }\item[{double}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Method to calculate survival/reproduction probability of individual. 
+
+Much the same as in \hyperlink{classIndividual}{Individual}, except that, if survival/reproduction probability is higher than 0.\+5, then\+:
+
+$survivalProb = 0.5 + (survivalProb - 0.5)*e^{-(optimum-(*envConst))^2}$
+
+
+\begin{DoxyParams}{Parameters}
+{\em species\+List} & List containing all (alive) species in the environment \\
+\hline
+{\em delta} & Size of timestep of simulation \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classIndividual_a895954f2c3a683dd3bd7475651a38160}{Individual}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classI2_a16f94b60e5a6c02c67a46500798fd7cf}{}\label{classI2_a16f94b60e5a6c02c67a46500798fd7cf} 
+\index{I2@{I2}!env\+Const@{env\+Const}}
+\index{env\+Const@{env\+Const}!I2@{I2}}
+\subsubsection{\texorpdfstring{env\+Const}{envConst}}
+{\footnotesize\ttfamily double$\ast$ const I2\+::env\+Const}
+
+Pointer to the environmental constant (owned by \hyperlink{classEnvironment}{Environment}) \hypertarget{classI2_a5f022bb4d32b5ee96e117b72e17b262a}{}\label{classI2_a5f022bb4d32b5ee96e117b72e17b262a} 
+\index{I2@{I2}!optimum@{optimum}}
+\index{optimum@{optimum}!I2@{I2}}
+\subsubsection{\texorpdfstring{optimum}{optimum}}
+{\footnotesize\ttfamily double I2\+::optimum}
+
+\hyperlink{classIndividual}{Individual} optimum (value for env\+Const at which it thrives best) 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{I2_8hpp}{I2.\+hpp}\item 
+I2.\+cpp\end{DoxyCompactItemize}

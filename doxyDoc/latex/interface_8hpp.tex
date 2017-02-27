@@ -1,0 +1,55 @@
+\hypertarget{interface_8hpp}{}\section{interface.\+hpp File Reference}
+\label{interface_8hpp}\index{interface.\+hpp@{interface.\+hpp}}
+
+
+File containing simulation parameters wizard, as well as methods to load/save simulation parameters and execute simulations.  
+
+
+{\ttfamily \#include $<$vector$>$}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structsimParams}{sim\+Params}
+\begin{DoxyCompactList}\small\item\em A structure that contains all the information necessary to generate a simulation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{interface_8hpp_aeca29304aa386bf972eae6dfbf3a7fc2}{}\label{interface_8hpp_aeca29304aa386bf972eae6dfbf3a7fc2} 
+int \hyperlink{interface_8hpp_aeca29304aa386bf972eae6dfbf3a7fc2}{get\+Sim\+Params} (string save\+Path, \hyperlink{structsimParams}{sim\+Params} $\ast$params)
+\begin{DoxyCompactList}\small\item\em The simulation parameter wizard, guides the user through defining simulation parametersS. \end{DoxyCompactList}\item 
+\hypertarget{interface_8hpp_a4d73a8b7e273caac16021c38bc0e7c81}{}\label{interface_8hpp_a4d73a8b7e273caac16021c38bc0e7c81} 
+void \hyperlink{interface_8hpp_a4d73a8b7e273caac16021c38bc0e7c81}{make\+Template} (string path)
+\begin{DoxyCompactList}\small\item\em Saves a template of simulation parameters in file \hyperlink{structsimParams}{sim\+Params} in folder described by path (current folder if path is an empty string) \end{DoxyCompactList}\item 
+\hypertarget{interface_8hpp_aa59b3cbdd4c60d2d0bc2a5e3aca33305}{}\label{interface_8hpp_aa59b3cbdd4c60d2d0bc2a5e3aca33305} 
+int \hyperlink{interface_8hpp_aa59b3cbdd4c60d2d0bc2a5e3aca33305}{load\+Sim\+Params} (string save\+Path, \hyperlink{structsimParams}{sim\+Params} $\ast$params)
+\begin{DoxyCompactList}\small\item\em Loads the simulation parameters contained in the file \hyperlink{structsimParams}{sim\+Params} in folder path into a \hyperlink{structsimParams}{sim\+Params} struct. \end{DoxyCompactList}\item 
+\hypertarget{interface_8hpp_a573faab2db8e508d0a7189d2bd3fdb4d}{}\label{interface_8hpp_a573faab2db8e508d0a7189d2bd3fdb4d} 
+int \hyperlink{interface_8hpp_a573faab2db8e508d0a7189d2bd3fdb4d}{save\+Sim\+Params} (string save\+Path, \hyperlink{structsimParams}{sim\+Params} $\ast$params)
+\begin{DoxyCompactList}\small\item\em Saves the simulation parameters contained in params into a file \hyperlink{structsimParams}{sim\+Params} in folder path. \end{DoxyCompactList}\item 
+int \hyperlink{interface_8hpp_abb820d41f264863137c338f01420bf44}{launch\+Sim} (string save\+Path, int run\+Number, \hyperlink{structsimParams}{sim\+Params} params)
+\begin{DoxyCompactList}\small\item\em Launches a sim defined by params. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+File containing simulation parameters wizard, as well as methods to load/save simulation parameters and execute simulations. 
+
+\begin{DoxyAuthor}{Author}
+Melchior Zimmermann 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+24 Dec 2016 The two methods of this file are used to generate Environment/\+Species with attributes specified in \hyperlink{structsimParams}{sim\+Params}. \hyperlink{initializers_8hpp_a722ddd1fb4b350e03d4a19811e94d1fb}{get\+Env()} calls \hyperlink{initializers_8hpp_a8fd7f8510d1193c0657c5abdd1721e29}{init\+Specs()} to populate the \hyperlink{classEnvironment}{Environment}\textquotesingle{}s species\+List. 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\hypertarget{interface_8hpp_abb820d41f264863137c338f01420bf44}{}\label{interface_8hpp_abb820d41f264863137c338f01420bf44} 
+\index{interface.\+hpp@{interface.\+hpp}!launch\+Sim@{launch\+Sim}}
+\index{launch\+Sim@{launch\+Sim}!interface.\+hpp@{interface.\+hpp}}
+\subsubsection{\texorpdfstring{launch\+Sim()}{launchSim()}}
+{\footnotesize\ttfamily int launch\+Sim (\begin{DoxyParamCaption}\item[{string}]{save\+Path,  }\item[{int}]{run\+Number,  }\item[{\hyperlink{structsimParams}{sim\+Params}}]{params }\end{DoxyParamCaption})}
+
+
+
+Launches a sim defined by params. 
+
+This method takes care of creating a Simulaiton object, initiating all its \hyperlink{classEnvironment}{Environment}\textquotesingle{}s with their respective \hyperlink{classSpecies}{Species}, and running the \hyperlink{classSimulation}{Simulation} for the appropriate number of steps. 

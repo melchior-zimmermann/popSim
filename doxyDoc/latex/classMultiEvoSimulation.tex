@@ -1,0 +1,94 @@
+\hypertarget{classMultiEvoSimulation}{}\section{Multi\+Evo\+Simulation Class Reference}
+\label{classMultiEvoSimulation}\index{Multi\+Evo\+Simulation@{Multi\+Evo\+Simulation}}
+
+
+Class containing all \hyperlink{classEnvironment}{Environment} objects, as well control-\/flow attributes for the simulation.  
+
+
+
+
+{\ttfamily \#include $<$Multi\+Evo\+Simulation.\+hpp$>$}
+
+Inheritance diagram for Multi\+Evo\+Simulation\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classMultiEvoSimulation}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classMultiEvoSimulation_a39ba876ac0a8771dca1773b37de567dd}{}\label{classMultiEvoSimulation_a39ba876ac0a8771dca1773b37de567dd} 
+{\bfseries Multi\+Evo\+Simulation} (vector$<$ \hyperlink{classEnvironment}{Environment} $>$ \+\_\+envs)
+\item 
+\hypertarget{classMultiEvoSimulation_a965cbb6a21b59b1dcb69a8f7a5cdc63f}{}\label{classMultiEvoSimulation_a965cbb6a21b59b1dcb69a8f7a5cdc63f} 
+void {\bfseries set\+Envs} (vector$<$ \hyperlink{classEnvironment}{Environment} $>$ new\+Val)
+\item 
+\hypertarget{classMultiEvoSimulation_ad15f986cabbba30190e44c503bb02dbd}{}\label{classMultiEvoSimulation_ad15f986cabbba30190e44c503bb02dbd} 
+vector$<$ \hyperlink{classEnvironment}{Environment} $>$ $\ast$ {\bfseries get\+Envs} ()
+\item 
+\hypertarget{classMultiEvoSimulation_af1ed90eb8f214164e5944fa599bebc0f}{}\label{classMultiEvoSimulation_af1ed90eb8f214164e5944fa599bebc0f} 
+void {\bfseries add\+Env} (\hyperlink{classEnvironment}{Environment} env)
+\item 
+\hypertarget{classMultiEvoSimulation_a38cb7774707b70d9d2b08f25132a2ca2}{}\label{classMultiEvoSimulation_a38cb7774707b70d9d2b08f25132a2ca2} 
+int {\bfseries get\+Inter\+Save\+Div} ()
+\item 
+\hypertarget{classMultiEvoSimulation_a325406773501841bbfb51b737ef4fdaf}{}\label{classMultiEvoSimulation_a325406773501841bbfb51b737ef4fdaf} 
+void {\bfseries set\+Inter\+Save\+Div} (int new\+Val)
+\item 
+virtual int \hyperlink{classMultiEvoSimulation_a89c9806ac998c06230cdd41cc6a532bf}{run\+Sim} (int run\+Number)
+\begin{DoxyCompactList}\small\item\em Method that runs the main loop of the simulation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classMultiEvoSimulation_ac9389b3f03afb6195da67337cd1f1957}{inter\+Save\+Div}
+\item 
+\hypertarget{classMultiEvoSimulation_a17a397017c8b5ea23810bd2f06fac253}{}\label{classMultiEvoSimulation_a17a397017c8b5ea23810bd2f06fac253} 
+vector$<$ \hyperlink{classEnvironment}{Environment} $>$ {\bfseries envs}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class containing all \hyperlink{classEnvironment}{Environment} objects, as well control-\/flow attributes for the simulation. 
+
+Same as \hyperlink{classEvoSimulation}{Evo\+Simulation}, but for simulations with multiple environments (see also \hyperlink{classMultiSimulation}{Multi\+Simulation}) 
+
+\subsection{Member Function Documentation}
+\hypertarget{classMultiEvoSimulation_a89c9806ac998c06230cdd41cc6a532bf}{}\label{classMultiEvoSimulation_a89c9806ac998c06230cdd41cc6a532bf} 
+\index{Multi\+Evo\+Simulation@{Multi\+Evo\+Simulation}!run\+Sim@{run\+Sim}}
+\index{run\+Sim@{run\+Sim}!Multi\+Evo\+Simulation@{Multi\+Evo\+Simulation}}
+\subsubsection{\texorpdfstring{run\+Sim()}{runSim()}}
+{\footnotesize\ttfamily int Multi\+Evo\+Simulation\+::run\+Sim (\begin{DoxyParamCaption}\item[{int}]{run\+Number }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Method that runs the main loop of the simulation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em run\+Number} & ID of the current run of the simulation. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classMultiSimulation_a235347d04fd0c7e1a2e35d7a39e77583}{Multi\+Simulation}.
+
+
+
+Reimplemented in \hyperlink{classE2MSimulation_aeac4e92c10f89a5c953ace5b1327d20b}{E2\+M\+Simulation}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classMultiEvoSimulation_ac9389b3f03afb6195da67337cd1f1957}{}\label{classMultiEvoSimulation_ac9389b3f03afb6195da67337cd1f1957} 
+\index{Multi\+Evo\+Simulation@{Multi\+Evo\+Simulation}!inter\+Save\+Div@{inter\+Save\+Div}}
+\index{inter\+Save\+Div@{inter\+Save\+Div}!Multi\+Evo\+Simulation@{Multi\+Evo\+Simulation}}
+\subsubsection{\texorpdfstring{inter\+Save\+Div}{interSaveDiv}}
+{\footnotesize\ttfamily int Multi\+Evo\+Simulation\+::inter\+Save\+Div\hspace{0.3cm}{\ttfamily [protected]}}
+
+Each how many timestep \hyperlink{classSpecies}{Species} interaction values are saved (in raw\+Save file) 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{MultiEvoSimulation_8hpp}{Multi\+Evo\+Simulation.\+hpp}\item 
+Multi\+Evo\+Simulation.\+cpp\end{DoxyCompactItemize}

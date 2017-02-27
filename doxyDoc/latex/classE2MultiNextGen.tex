@@ -1,0 +1,59 @@
+\hypertarget{classE2MultiNextGen}{}\section{E2\+Multi\+Next\+Gen Class Reference}
+\label{classE2MultiNextGen}\index{E2\+Multi\+Next\+Gen@{E2\+Multi\+Next\+Gen}}
+
+
+Class containing a single method, used to control transition from one step to the next, and update Species/\+Environemnt attributes.  
+
+
+
+
+{\ttfamily \#include $<$E2\+Multi\+Next\+Gen.\+hpp$>$}
+
+Inheritance diagram for E2\+Multi\+Next\+Gen\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classE2MultiNextGen}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classE2MultiNextGen_a22721fa0e9c2cbe1de3d0d6bb78932f0}{get\+Next\+Gen} (int step\+Num, std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \hyperlink{classSpecies}{Species} $>$$>$ $\ast$species\+List, \hyperlink{classEnvironment}{Environment} $\ast$env)
+\begin{DoxyCompactList}\small\item\em Method used to update \hyperlink{classSpecies}{Species} density at each timestep. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class containing a single method, used to control transition from one step to the next, and update Species/\+Environemnt attributes. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classE2MultiNextGen_a22721fa0e9c2cbe1de3d0d6bb78932f0}{}\label{classE2MultiNextGen_a22721fa0e9c2cbe1de3d0d6bb78932f0} 
+\index{E2\+Multi\+Next\+Gen@{E2\+Multi\+Next\+Gen}!get\+Next\+Gen@{get\+Next\+Gen}}
+\index{get\+Next\+Gen@{get\+Next\+Gen}!E2\+Multi\+Next\+Gen@{E2\+Multi\+Next\+Gen}}
+\subsubsection{\texorpdfstring{get\+Next\+Gen()}{getNextGen()}}
+{\footnotesize\ttfamily void E2\+Multi\+Next\+Gen\+::get\+Next\+Gen (\begin{DoxyParamCaption}\item[{int}]{step\+Num,  }\item[{std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \hyperlink{classSpecies}{Species} $>$$>$ $\ast$}]{species\+List,  }\item[{\hyperlink{classEnvironment}{Environment} $\ast$}]{env }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Method used to update \hyperlink{classSpecies}{Species} density at each timestep. 
+
+This method works exactly like the one in \hyperlink{classE2NextGen}{E2\+Next\+Gen}, except that species with {\ttfamily density == 0} are not moved to env.\+dead\+Species, to avoid having to recreate them if a population from said species migrates into environment from somewhere. If migration probability is very low for all species, it might be worth to delete/introduce them each time, since this might take less time than the increased loop time caused by a higher number of species (I\textquotesingle{}d say it depends on the simulation parameters, but I haven\textquotesingle{}t done any performance tests to compare the two methods).
+
+
+\begin{DoxyParams}{Parameters}
+{\em step\+Num} & Values of the current step \\
+\hline
+{\em species\+List} & List containing all \hyperlink{classSpecies}{Species} of the environment \\
+\hline
+{\em env} & Pointer to current environment \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classNextGen_aa70da77e0ac03da1bd5414c5e3fd70c0}{Next\+Gen}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{E2MultiNextGen_8hpp}{E2\+Multi\+Next\+Gen.\+hpp}\item 
+E2\+Multi\+Next\+Gen.\+cpp\end{DoxyCompactItemize}

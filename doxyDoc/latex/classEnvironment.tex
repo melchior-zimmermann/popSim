@@ -1,0 +1,300 @@
+\hypertarget{classEnvironment}{}\section{Environment Class Reference}
+\label{classEnvironment}\index{Environment@{Environment}}
+
+
+Class containing (unique\+\_\+ptrs to) all \hyperlink{classSpecies}{Species}, as well as everything relating to updating simulation and saves.  
+
+
+
+
+{\ttfamily \#include $<$Environment.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classEnvironment_ac4921c1240e7674ac81860afb5df0272}{}\label{classEnvironment_ac4921c1240e7674ac81860afb5df0272} 
+{\bfseries Environment} (int \+\_\+init\+Num\+Specs, int \+\_\+num\+Self, int \+\_\+num\+Envs, double \+\_\+delta, double \+\_\+death\+Threshold, double \+\_\+env\+Const, double \+\_\+pert\+Prob, string \+\_\+path, string \+\_\+filename, vector$<$ double $>$ \+\_\+change, vector$<$ double $>$ \+\_\+pert\+Range, vector$<$ unique\+\_\+ptr$<$ \hyperlink{classSpecies}{Species} $>$$>$ \+\_\+species\+List, vector$<$ \hyperlink{classEnvironment}{Environment} $>$ $\ast$\+\_\+all\+Envs, unique\+\_\+ptr$<$ \hyperlink{classSave}{Save} $>$ \+\_\+save, unique\+\_\+ptr$<$ \hyperlink{classNextGen}{Next\+Gen} $>$ \+\_\+next\+Gen)
+\item 
+\hypertarget{classEnvironment_a58c5fa5e6b682d47fd22f1475410266d}{}\label{classEnvironment_a58c5fa5e6b682d47fd22f1475410266d} 
+double {\bfseries get\+Delta} ()
+\item 
+\hypertarget{classEnvironment_a14802408594d924c478c7a102706a32e}{}\label{classEnvironment_a14802408594d924c478c7a102706a32e} 
+double {\bfseries get\+Death\+Threshold} ()
+\item 
+\hypertarget{classEnvironment_a0451300ebededfab5643fbfc8b3fa114}{}\label{classEnvironment_a0451300ebededfab5643fbfc8b3fa114} 
+void {\bfseries set\+Filename} (string new\+Val)
+\item 
+\hypertarget{classEnvironment_abedd295a12a1e2f3c1b5823ca03018c8}{}\label{classEnvironment_abedd295a12a1e2f3c1b5823ca03018c8} 
+string {\bfseries get\+Filename} ()
+\item 
+\hypertarget{classEnvironment_a9580cfadeda1d3324d57d5eab4da3233}{}\label{classEnvironment_a9580cfadeda1d3324d57d5eab4da3233} 
+string {\bfseries get\+Path} ()
+\item 
+\hypertarget{classEnvironment_ad3dfa6b6f2ac53b34f74f5bf98b8950c}{}\label{classEnvironment_ad3dfa6b6f2ac53b34f74f5bf98b8950c} 
+void {\bfseries init\+Change} ()
+\item 
+\hypertarget{classEnvironment_a91642353776e84f047b22187376b6256}{}\label{classEnvironment_a91642353776e84f047b22187376b6256} 
+double {\bfseries get\+Env\+Const} ()
+\item 
+\hypertarget{classEnvironment_a64370cd6a8a8a6566b1c2ba4f6110da5}{}\label{classEnvironment_a64370cd6a8a8a6566b1c2ba4f6110da5} 
+void {\bfseries set\+Env\+Const} (double new\+Val)
+\item 
+\hypertarget{classEnvironment_a8c08bc7c12ca0723a6c193cea1fb410b}{}\label{classEnvironment_a8c08bc7c12ca0723a6c193cea1fb410b} 
+double $\ast$ {\bfseries get\+Env\+Const\+Ptr} ()
+\item 
+\hypertarget{classEnvironment_a6ca4de7b3ebbb69101495521e1968d46}{}\label{classEnvironment_a6ca4de7b3ebbb69101495521e1968d46} 
+int {\bfseries get\+Init\+Num\+Specs} ()
+\item 
+\hypertarget{classEnvironment_a32f16eeef4845b0eeee279150ea41d41}{}\label{classEnvironment_a32f16eeef4845b0eeee279150ea41d41} 
+double {\bfseries get\+Pert\+Prob} ()
+\item 
+\hypertarget{classEnvironment_abfdac9a32355c2d6e2ec116b8083f547}{}\label{classEnvironment_abfdac9a32355c2d6e2ec116b8083f547} 
+int {\bfseries get\+Num\+Envs} ()
+\item 
+\hypertarget{classEnvironment_a6537d76b9554e3e446b4f526f43cf789}{}\label{classEnvironment_a6537d76b9554e3e446b4f526f43cf789} 
+int {\bfseries get\+Num\+Self} ()
+\item 
+\hypertarget{classEnvironment_a6189ca3dfc6d753f2f5b67d81ce18446}{}\label{classEnvironment_a6189ca3dfc6d753f2f5b67d81ce18446} 
+vector$<$ vector$<$ double $>$ $>$ $\ast$ {\bfseries get\+Perts} ()
+\item 
+\hypertarget{classEnvironment_a03dc590008d258f3d4af9571ded4f8bb}{}\label{classEnvironment_a03dc590008d258f3d4af9571ded4f8bb} 
+vector$<$ double $>$ $\ast$ {\bfseries get\+Change} ()
+\item 
+\hypertarget{classEnvironment_a83a09396d74d60ca17b8ce5a827f16af}{}\label{classEnvironment_a83a09396d74d60ca17b8ce5a827f16af} 
+void {\bfseries set\+Change} (vector$<$ double $>$ new\+Val)
+\item 
+\hypertarget{classEnvironment_a7d5f09922d4c02518be599943f6db94e}{}\label{classEnvironment_a7d5f09922d4c02518be599943f6db94e} 
+vector$<$ double $>$ {\bfseries get\+Pert\+Range} ()
+\item 
+\hypertarget{classEnvironment_aa9ff28ff3f0ce5f72ae3dbe5fc7dbf65}{}\label{classEnvironment_aa9ff28ff3f0ce5f72ae3dbe5fc7dbf65} 
+vector$<$ unique\+\_\+ptr$<$ \hyperlink{classSpecies}{Species} $>$ $>$ $\ast$ {\bfseries get\+Species\+List} ()
+\item 
+\hypertarget{classEnvironment_ae44837215bf9b1c90d6de8e389ec848a}{}\label{classEnvironment_ae44837215bf9b1c90d6de8e389ec848a} 
+vector$<$ unique\+\_\+ptr$<$ \hyperlink{classSpecies}{Species} $>$ $>$ $\ast$ {\bfseries get\+Dead\+Species} ()
+\item 
+\hypertarget{classEnvironment_a21eb43b92f03975bfe06a926f5b617f0}{}\label{classEnvironment_a21eb43b92f03975bfe06a926f5b617f0} 
+void \hyperlink{classEnvironment_a21eb43b92f03975bfe06a926f5b617f0}{get\+Next\+Gen} (int step\+Num)
+\begin{DoxyCompactList}\small\item\em Wrapper for call to \hyperlink{classNextGen}{Next\+Gen} object. \end{DoxyCompactList}\item 
+\hypertarget{classEnvironment_a2304277f44f6ea8b9823e587a6a425a5}{}\label{classEnvironment_a2304277f44f6ea8b9823e587a6a425a5} 
+void \hyperlink{classEnvironment_a2304277f44f6ea8b9823e587a6a425a5}{save\+Header} (int run\+Number)
+\begin{DoxyCompactList}\small\item\em Wrapper for call to \hyperlink{classSave}{Save} object. \end{DoxyCompactList}\item 
+\hypertarget{classEnvironment_a92a30d51a7921a6db5d67e7a119668c8}{}\label{classEnvironment_a92a30d51a7921a6db5d67e7a119668c8} 
+void \hyperlink{classEnvironment_a92a30d51a7921a6db5d67e7a119668c8}{save\+All} (int step)
+\begin{DoxyCompactList}\small\item\em Wrapper for call to \hyperlink{classSave}{Save} object. \end{DoxyCompactList}\item 
+\hypertarget{classEnvironment_a245836153a84d7b10a84b8ebec9a5919}{}\label{classEnvironment_a245836153a84d7b10a84b8ebec9a5919} 
+void \hyperlink{classEnvironment_a245836153a84d7b10a84b8ebec9a5919}{save\+Dens} (int step)
+\begin{DoxyCompactList}\small\item\em Wrapper for call to \hyperlink{classSave}{Save} object. \end{DoxyCompactList}\item 
+\hypertarget{classEnvironment_ad49f40f77cab783a92471c484674ed18}{}\label{classEnvironment_ad49f40f77cab783a92471c484674ed18} 
+void \hyperlink{classEnvironment_ad49f40f77cab783a92471c484674ed18}{save\+Final\+Dens} (int step)
+\begin{DoxyCompactList}\small\item\em Wrapper for call to \hyperlink{classSave}{Save} object. \end{DoxyCompactList}\item 
+\hypertarget{classEnvironment_a2553967a88515a8ae4cee82b80589b91}{}\label{classEnvironment_a2553967a88515a8ae4cee82b80589b91} 
+void \hyperlink{classEnvironment_a2553967a88515a8ae4cee82b80589b91}{save\+Cc} (int step)
+\begin{DoxyCompactList}\small\item\em Wrapper for call to \hyperlink{classSave}{Save} object. \end{DoxyCompactList}\item 
+\hypertarget{classEnvironment_aebacfbdd35afd911a6236871052210bc}{}\label{classEnvironment_aebacfbdd35afd911a6236871052210bc} 
+void \hyperlink{classEnvironment_aebacfbdd35afd911a6236871052210bc}{save\+Inter} (int step)
+\begin{DoxyCompactList}\small\item\em Wrapper for call to \hyperlink{classSave}{Save} object. \end{DoxyCompactList}\item 
+\hypertarget{classEnvironment_a57ec147b0d9e47560cd4abf29bf77f38}{}\label{classEnvironment_a57ec147b0d9e47560cd4abf29bf77f38} 
+void \hyperlink{classEnvironment_a57ec147b0d9e47560cd4abf29bf77f38}{save\+Opts} (int step)
+\begin{DoxyCompactList}\small\item\em Wrapper for call to \hyperlink{classSave}{Save} object. \end{DoxyCompactList}\item 
+\hypertarget{classEnvironment_a046f5210a982f23d76704a79ccb0ae5b}{}\label{classEnvironment_a046f5210a982f23d76704a79ccb0ae5b} 
+void \hyperlink{classEnvironment_a046f5210a982f23d76704a79ccb0ae5b}{complete\+Save} (int run\+Number, int step, int se)
+\begin{DoxyCompactList}\small\item\em Wrapper for call to \hyperlink{classSave}{Save} object. \end{DoxyCompactList}\item 
+\hypertarget{classEnvironment_a3669a1ce6df9cb2a49dbc68ffaf85b2c}{}\label{classEnvironment_a3669a1ce6df9cb2a49dbc68ffaf85b2c} 
+void \hyperlink{classEnvironment_a3669a1ce6df9cb2a49dbc68ffaf85b2c}{save\+Routes} ()
+\begin{DoxyCompactList}\small\item\em Wrapper for call to \hyperlink{classSave}{Save} object. \end{DoxyCompactList}\item 
+\hypertarget{classEnvironment_ae193c6a2dad17c1ac291463bd15f92d2}{}\label{classEnvironment_ae193c6a2dad17c1ac291463bd15f92d2} 
+void \hyperlink{classEnvironment_ae193c6a2dad17c1ac291463bd15f92d2}{save\+Perturbations} ()
+\begin{DoxyCompactList}\small\item\em Wrapper for call to \hyperlink{classSave}{Save} object. \end{DoxyCompactList}\item 
+\hypertarget{classEnvironment_a90223f9c71fd01fac21476959823571f}{}\label{classEnvironment_a90223f9c71fd01fac21476959823571f} 
+void \hyperlink{classEnvironment_a90223f9c71fd01fac21476959823571f}{save\+Last\+Turn\+Change} ()
+\begin{DoxyCompactList}\small\item\em Wrapper for call to \hyperlink{classSave}{Save} object. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ double $>$ $>$ \hyperlink{classEnvironment_af85970e5c7ad4c80b9432cacbf6c2d2b}{get\+Migrants} ()
+\begin{DoxyCompactList}\small\item\em Method to get size of migrations from this \hyperlink{classEnvironment}{Environment} to all others for each \hyperlink{classSpecies}{Species}. \end{DoxyCompactList}\item 
+void \hyperlink{classEnvironment_ae2fd5fc149c2eaf2a2e41af008fc5515}{integrate\+Migrants} (vector$<$ vector$<$ double $>$$>$ migrants)
+\begin{DoxyCompactList}\small\item\em Method to integrate migrants from other environments into this one. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classEnvironment_a5c1c5043ec7885eb05d88590f405c02b}{init\+Num\+Specs}
+\item 
+int \hyperlink{classEnvironment_a2563f570023ff1e17f87549bcf2fab59}{num\+Self}
+\item 
+int \hyperlink{classEnvironment_ab9b14bfdd2e25805a6e67463e948da4a}{num\+Envs}
+\item 
+double \hyperlink{classEnvironment_ab21bc1c8553a1649b306dc80f7db558b}{delta}
+\item 
+double \hyperlink{classEnvironment_a79a718ed66d6e70b38763150b4245064}{death\+Threshold}
+\item 
+double \hyperlink{classEnvironment_a664313c95d2a9afc397ab4bf6f4f1457}{env\+Const}
+\item 
+double \hyperlink{classEnvironment_ae56ec7b378c091a2173281b01d87249b}{pert\+Prob}
+\item 
+string \hyperlink{classEnvironment_a27a1684288d74f2cabb8cfbd0848b14e}{path}
+\item 
+string \hyperlink{classEnvironment_afefeccf87332c116006372e3ee197452}{filename}
+\item 
+vector$<$ double $>$ \hyperlink{classEnvironment_a4dac7620968f061a62c2b51f4a29e402}{change}
+\item 
+vector$<$ double $>$ \hyperlink{classEnvironment_af1c4ab4f5795e5c789bcd76f80736c5c}{pert\+Range}
+\item 
+vector$<$ vector$<$ double $>$ $>$ \hyperlink{classEnvironment_a9339f48bc16de4c77313f70d4f201458}{perturbations}
+\item 
+vector$<$ unique\+\_\+ptr$<$ \hyperlink{classSpecies}{Species} $>$ $>$ \hyperlink{classEnvironment_ac27d43c32a9db69a4115d09b3145831a}{species\+List}
+\item 
+vector$<$ unique\+\_\+ptr$<$ \hyperlink{classSpecies}{Species} $>$ $>$ \hyperlink{classEnvironment_a5ff095d15af0aaf954a0ad9afe5d8a01}{dead\+Species}
+\item 
+vector$<$ \hyperlink{classEnvironment}{Environment} $>$ $\ast$ \hyperlink{classEnvironment_a429ca4342b5a89b28be803c166a48c71}{all\+Envs}
+\item 
+\hypertarget{classEnvironment_a65ccaef280fcfcfc20eef204c5d190ef}{}\label{classEnvironment_a65ccaef280fcfcfc20eef204c5d190ef} 
+unique\+\_\+ptr$<$ \hyperlink{classSave}{Save} $>$ {\bfseries save}
+\item 
+unique\+\_\+ptr$<$ \hyperlink{classNextGen}{Next\+Gen} $>$ \hyperlink{classEnvironment_ad696c5a7be91ffc89586abb10281e181}{next\+Gen}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class containing (unique\+\_\+ptrs to) all \hyperlink{classSpecies}{Species}, as well as everything relating to updating simulation and saves. 
+
+The \hyperlink{classEnvironment}{Environment} class is the main controller/container class of our simulations. It contains (unique\+\_\+ptrs to) all \hyperlink{classSpecies}{Species} objects, and coordinates updates of \hyperlink{classSpecies}{Species} density, as well as evolution, and changes in the \hyperlink{classEnvironment}{Environment}. It also contains the methods necessary to save simulation output, and associated attributes (e.\+g. path to the save files). As with the \hyperlink{classSpecies}{Species} class, for ease of use the \hyperlink{classEnvironment}{Environment} class contains all information necessary for all types of simulation, and thus in standard simulations will take up more space in memory than strictly necessary. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classEnvironment_af85970e5c7ad4c80b9432cacbf6c2d2b}{}\label{classEnvironment_af85970e5c7ad4c80b9432cacbf6c2d2b} 
+\index{Environment@{Environment}!get\+Migrants@{get\+Migrants}}
+\index{get\+Migrants@{get\+Migrants}!Environment@{Environment}}
+\subsubsection{\texorpdfstring{get\+Migrants()}{getMigrants()}}
+{\footnotesize\ttfamily vector$<$ vector$<$ double $>$ $>$ Environment\+::get\+Migrants (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Method to get size of migrations from this \hyperlink{classEnvironment}{Environment} to all others for each \hyperlink{classSpecies}{Species}. 
+
+This method coordinates the call to get\+Migration() in each \hyperlink{classSpecies}{Species}, and returns a vector \mbox{[}num\+Env\mbox{]}\mbox{[}num\+Spec\mbox{]} = size of migration of num\+Spec to num\+Env. Migrations are then distributed to the correct \hyperlink{classEnvironment}{Environment} object by \hyperlink{classSimulation}{Simulation}.
+
+\begin{DoxyNote}{Note}
+Only used in simulations with multiple environments 
+\end{DoxyNote}
+\hypertarget{classEnvironment_ae2fd5fc149c2eaf2a2e41af008fc5515}{}\label{classEnvironment_ae2fd5fc149c2eaf2a2e41af008fc5515} 
+\index{Environment@{Environment}!integrate\+Migrants@{integrate\+Migrants}}
+\index{integrate\+Migrants@{integrate\+Migrants}!Environment@{Environment}}
+\subsubsection{\texorpdfstring{integrate\+Migrants()}{integrateMigrants()}}
+{\footnotesize\ttfamily void Environment\+::integrate\+Migrants (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ double $>$$>$}]{migrants }\end{DoxyParamCaption})}
+
+
+
+Method to integrate migrants from other environments into this one. 
+
+This method integrates all migrants from other environments into this one. \hyperlink{classSpecies}{Species} attributes are changed, and become the weighted mean of already present population and the migrating one.
+
+
+\begin{DoxyParams}{Parameters}
+{\em migrants} & A vector containing size of migrations\+: \mbox{[}num\+Env\mbox{]}\mbox{[}num\+Spec\mbox{]} = size of migration of num\+Spec from num\+Env \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Only used in simulations with multiple environments 
+\end{DoxyNote}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classEnvironment_a429ca4342b5a89b28be803c166a48c71}{}\label{classEnvironment_a429ca4342b5a89b28be803c166a48c71} 
+\index{Environment@{Environment}!all\+Envs@{all\+Envs}}
+\index{all\+Envs@{all\+Envs}!Environment@{Environment}}
+\subsubsection{\texorpdfstring{all\+Envs}{allEnvs}}
+{\footnotesize\ttfamily vector$<$\hyperlink{classEnvironment}{Environment}$>$$\ast$ Environment\+::all\+Envs\hspace{0.3cm}{\ttfamily [protected]}}
+
+Pointer to list of all environments in simulation (only used in simulations with multiple environments) \hypertarget{classEnvironment_a4dac7620968f061a62c2b51f4a29e402}{}\label{classEnvironment_a4dac7620968f061a62c2b51f4a29e402} 
+\index{Environment@{Environment}!change@{change}}
+\index{change@{change}!Environment@{Environment}}
+\subsubsection{\texorpdfstring{change}{change}}
+{\footnotesize\ttfamily vector$<$double$>$ Environment\+::change\hspace{0.3cm}{\ttfamily [protected]}}
+
+Vector containing the change in density of all (live) species of the environment \hypertarget{classEnvironment_a5ff095d15af0aaf954a0ad9afe5d8a01}{}\label{classEnvironment_a5ff095d15af0aaf954a0ad9afe5d8a01} 
+\index{Environment@{Environment}!dead\+Species@{dead\+Species}}
+\index{dead\+Species@{dead\+Species}!Environment@{Environment}}
+\subsubsection{\texorpdfstring{dead\+Species}{deadSpecies}}
+{\footnotesize\ttfamily vector$<$unique\+\_\+ptr$<$\hyperlink{classSpecies}{Species}$>$ $>$ Environment\+::dead\+Species\hspace{0.3cm}{\ttfamily [protected]}}
+
+List of all \hyperlink{classSpecies}{Species} where {\ttfamily density == 0} (only in single environment simulations) \hypertarget{classEnvironment_a79a718ed66d6e70b38763150b4245064}{}\label{classEnvironment_a79a718ed66d6e70b38763150b4245064} 
+\index{Environment@{Environment}!death\+Threshold@{death\+Threshold}}
+\index{death\+Threshold@{death\+Threshold}!Environment@{Environment}}
+\subsubsection{\texorpdfstring{death\+Threshold}{deathThreshold}}
+{\footnotesize\ttfamily double Environment\+::death\+Threshold\hspace{0.3cm}{\ttfamily [protected]}}
+
+Threshold below which species are considered extinct (-\/$>$ their density is set to 0) \hypertarget{classEnvironment_ab21bc1c8553a1649b306dc80f7db558b}{}\label{classEnvironment_ab21bc1c8553a1649b306dc80f7db558b} 
+\index{Environment@{Environment}!delta@{delta}}
+\index{delta@{delta}!Environment@{Environment}}
+\subsubsection{\texorpdfstring{delta}{delta}}
+{\footnotesize\ttfamily double Environment\+::delta\hspace{0.3cm}{\ttfamily [protected]}}
+
+Stepsize for the ecplicit Euler scheme (only used in simulations with multiple environments) \hypertarget{classEnvironment_a664313c95d2a9afc397ab4bf6f4f1457}{}\label{classEnvironment_a664313c95d2a9afc397ab4bf6f4f1457} 
+\index{Environment@{Environment}!env\+Const@{env\+Const}}
+\index{env\+Const@{env\+Const}!Environment@{Environment}}
+\subsubsection{\texorpdfstring{env\+Const}{envConst}}
+{\footnotesize\ttfamily double Environment\+::env\+Const\hspace{0.3cm}{\ttfamily [protected]}}
+
+The value of the environmental constant of the \hyperlink{classEnvironment}{Environment} (only used when simulation takes environmental constant into account) \hypertarget{classEnvironment_afefeccf87332c116006372e3ee197452}{}\label{classEnvironment_afefeccf87332c116006372e3ee197452} 
+\index{Environment@{Environment}!filename@{filename}}
+\index{filename@{filename}!Environment@{Environment}}
+\subsubsection{\texorpdfstring{filename}{filename}}
+{\footnotesize\ttfamily string Environment\+::filename\hspace{0.3cm}{\ttfamily [protected]}}
+
+Path to the file were regular saves (raw\+Save) are written to \hypertarget{classEnvironment_a5c1c5043ec7885eb05d88590f405c02b}{}\label{classEnvironment_a5c1c5043ec7885eb05d88590f405c02b} 
+\index{Environment@{Environment}!init\+Num\+Specs@{init\+Num\+Specs}}
+\index{init\+Num\+Specs@{init\+Num\+Specs}!Environment@{Environment}}
+\subsubsection{\texorpdfstring{init\+Num\+Specs}{initNumSpecs}}
+{\footnotesize\ttfamily int Environment\+::init\+Num\+Specs\hspace{0.3cm}{\ttfamily [protected]}}
+
+Initial number of live species in \hyperlink{classEnvironment}{Environment} (in single environment simulations) \hypertarget{classEnvironment_ad696c5a7be91ffc89586abb10281e181}{}\label{classEnvironment_ad696c5a7be91ffc89586abb10281e181} 
+\index{Environment@{Environment}!next\+Gen@{next\+Gen}}
+\index{next\+Gen@{next\+Gen}!Environment@{Environment}}
+\subsubsection{\texorpdfstring{next\+Gen}{nextGen}}
+{\footnotesize\ttfamily unique\+\_\+ptr$<$\hyperlink{classNextGen}{Next\+Gen}$>$ Environment\+::next\+Gen\hspace{0.3cm}{\ttfamily [protected]}}
+
+Unique\+\_\+ptr to object containing all methods to save state of \hyperlink{classEnvironment}{Environment} Unique\+\_\+ptr to object containing methods to calculate change in \hyperlink{classSpecies}{Species} density/parameters from one time step to the next \hypertarget{classEnvironment_ab9b14bfdd2e25805a6e67463e948da4a}{}\label{classEnvironment_ab9b14bfdd2e25805a6e67463e948da4a} 
+\index{Environment@{Environment}!num\+Envs@{num\+Envs}}
+\index{num\+Envs@{num\+Envs}!Environment@{Environment}}
+\subsubsection{\texorpdfstring{num\+Envs}{numEnvs}}
+{\footnotesize\ttfamily int Environment\+::num\+Envs\hspace{0.3cm}{\ttfamily [protected]}}
+
+Total number of environments in simulation (only used in simulations with multiple environments) \hypertarget{classEnvironment_a2563f570023ff1e17f87549bcf2fab59}{}\label{classEnvironment_a2563f570023ff1e17f87549bcf2fab59} 
+\index{Environment@{Environment}!num\+Self@{num\+Self}}
+\index{num\+Self@{num\+Self}!Environment@{Environment}}
+\subsubsection{\texorpdfstring{num\+Self}{numSelf}}
+{\footnotesize\ttfamily int Environment\+::num\+Self\hspace{0.3cm}{\ttfamily [protected]}}
+
+ID of the \hyperlink{classEnvironment}{Environment} \hypertarget{classEnvironment_a27a1684288d74f2cabb8cfbd0848b14e}{}\label{classEnvironment_a27a1684288d74f2cabb8cfbd0848b14e} 
+\index{Environment@{Environment}!path@{path}}
+\index{path@{path}!Environment@{Environment}}
+\subsubsection{\texorpdfstring{path}{path}}
+{\footnotesize\ttfamily string Environment\+::path\hspace{0.3cm}{\ttfamily [protected]}}
+
+Path to folder where simulation parameters/results are written to (used for complete saves) \hypertarget{classEnvironment_ae56ec7b378c091a2173281b01d87249b}{}\label{classEnvironment_ae56ec7b378c091a2173281b01d87249b} 
+\index{Environment@{Environment}!pert\+Prob@{pert\+Prob}}
+\index{pert\+Prob@{pert\+Prob}!Environment@{Environment}}
+\subsubsection{\texorpdfstring{pert\+Prob}{pertProb}}
+{\footnotesize\ttfamily double Environment\+::pert\+Prob\hspace{0.3cm}{\ttfamily [protected]}}
+
+Probability that the \hyperlink{classEnvironment}{Environment} experiences an abiotical perturbation (= change in the value of env\+Const, only used when simulation takes environmental constant into account) \hypertarget{classEnvironment_af1c4ab4f5795e5c789bcd76f80736c5c}{}\label{classEnvironment_af1c4ab4f5795e5c789bcd76f80736c5c} 
+\index{Environment@{Environment}!pert\+Range@{pert\+Range}}
+\index{pert\+Range@{pert\+Range}!Environment@{Environment}}
+\subsubsection{\texorpdfstring{pert\+Range}{pertRange}}
+{\footnotesize\ttfamily vector$<$double$>$ Environment\+::pert\+Range\hspace{0.3cm}{\ttfamily [protected]}}
+
+The range from which change in the value of env\+Const is drawn when a perturbation happens (only used when simulation takes environmental constant into account) \hypertarget{classEnvironment_a9339f48bc16de4c77313f70d4f201458}{}\label{classEnvironment_a9339f48bc16de4c77313f70d4f201458} 
+\index{Environment@{Environment}!perturbations@{perturbations}}
+\index{perturbations@{perturbations}!Environment@{Environment}}
+\subsubsection{\texorpdfstring{perturbations}{perturbations}}
+{\footnotesize\ttfamily vector$<$vector$<$double$>$ $>$ Environment\+::perturbations\hspace{0.3cm}{\ttfamily [protected]}}
+
+Vector containing information on all perturbation events (of this \hyperlink{classEnvironment}{Environment}) that happened during simulation (\mbox{[}pert\+Num\mbox{]}\mbox{[}0\mbox{]} = step at which the perturbation happened, \mbox{[}pert\+Num\mbox{]}\mbox{[}1\mbox{]} = new value of env\+Const). (Only used when simulation takes environmental constant into account) \hypertarget{classEnvironment_ac27d43c32a9db69a4115d09b3145831a}{}\label{classEnvironment_ac27d43c32a9db69a4115d09b3145831a} 
+\index{Environment@{Environment}!species\+List@{species\+List}}
+\index{species\+List@{species\+List}!Environment@{Environment}}
+\subsubsection{\texorpdfstring{species\+List}{speciesList}}
+{\footnotesize\ttfamily vector$<$unique\+\_\+ptr$<$\hyperlink{classSpecies}{Species}$>$ $>$ Environment\+::species\+List\hspace{0.3cm}{\ttfamily [protected]}}
+
+List of unique\+\_\+ptrs to each \hyperlink{classSpecies}{Species} object present in this \hyperlink{classEnvironment}{Environment} (in single environment simulations, only contains \hyperlink{classSpecies}{Species} where {\ttfamily density != 0} 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Environment_8hpp}{Environment.\+hpp}\item 
+Environment.\+cpp\end{DoxyCompactItemize}

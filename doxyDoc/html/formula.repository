@@ -1,0 +1,13 @@
+\form#0:$\dot{x_i} = \delta * x_i * (\alpha + (1 - (cc/x_i)^2) + \beta + \sum_{j \neq i}^numTotal I_{ij} * x_j)$
+\form#1:$\delta$
+\form#2:$x_i, x_j$
+\form#3:$ \dot{x_i} = \dot{x_i} * e^(-(envConst - opt)^2)$
+\form#4:$ \dot{x_i} = \dot{x_i} * e^{-(envConst - opt)^2}$
+\form#5:$\mathcal{N}(\mu , \sigma^2)$
+\form#6:$\mu$
+\form#7:$\sigma^2$
+\form#8:$survivalProb = 0.5 + (survivalProb - 0.5)*e^{-(optimum-(*envConst))^2}$
+\form#9:$P(S_i) = \sum_{j \neg i} II_{ij}*x_j$
+\form#10:$II_{ij}$
+\form#11:$x_j$
+\form#12:$P(S_i) = \delta \cdot \sum_{j \neg i} II_{ij}*x_j +0.5$

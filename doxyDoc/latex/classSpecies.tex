@@ -1,0 +1,262 @@
+\hypertarget{classSpecies}{}\section{Species Class Reference}
+\label{classSpecies}\index{Species@{Species}}
+
+
+Class containing all parameters\&methods that define a species \& it\textquotesingle{}s interactions with other species/the environment.  
+
+
+
+
+{\ttfamily \#include $<$Species.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classSpecies_a385a49104d5d6d6aee34a983e589832b}{}\label{classSpecies_a385a49104d5d6d6aee34a983e589832b} 
+{\bfseries Species} (int \+\_\+num\+Self, int \+\_\+num\+Total, int \+\_\+gen\+Time, int \+\_\+ind\+To\+Dens, double \+\_\+alpha, double \+\_\+beta, double \+\_\+dens, double \+\_\+cc, double \+\_\+opt, double \+\_\+opt\+Range, double $\ast$\+\_\+env\+Const, vector$<$ double $>$ \+\_\+interactions, vector$<$ double $>$ \+\_\+range, vector$<$ vector$<$ vector$<$ double $>$$>$$>$ \+\_\+migration\+Routes, unique\+\_\+ptr$<$ \hyperlink{classChange}{Change} $>$ \+\_\+change, unique\+\_\+ptr$<$ \hyperlink{classEvo}{Evo} $>$ \+\_\+evo)
+\item 
+\hypertarget{classSpecies_acdddfb4cb6f496fee642b7c58f39d3f1}{}\label{classSpecies_acdddfb4cb6f496fee642b7c58f39d3f1} 
+int {\bfseries get\+Num\+Self} ()
+\item 
+\hypertarget{classSpecies_a31566bcf2f8647e9498ee2fec28531fb}{}\label{classSpecies_a31566bcf2f8647e9498ee2fec28531fb} 
+int {\bfseries get\+Num\+Total} ()
+\item 
+\hypertarget{classSpecies_af15e54343492700ff8841c3563bd9a0c}{}\label{classSpecies_af15e54343492700ff8841c3563bd9a0c} 
+int {\bfseries get\+Gen\+Time} ()
+\item 
+\hypertarget{classSpecies_a9951ad56ce265722c633b461f00bbb66}{}\label{classSpecies_a9951ad56ce265722c633b461f00bbb66} 
+double {\bfseries get\+Alpha} ()
+\item 
+\hypertarget{classSpecies_ae7a743e1bd001b01d17384763cdfbdee}{}\label{classSpecies_ae7a743e1bd001b01d17384763cdfbdee} 
+double {\bfseries get\+Beta} ()
+\item 
+\hypertarget{classSpecies_acb9612a527b867219571604e06a9b96a}{}\label{classSpecies_acb9612a527b867219571604e06a9b96a} 
+double {\bfseries get\+Density} ()
+\item 
+\hypertarget{classSpecies_a638225fa251d88eb8fefe25575791df9}{}\label{classSpecies_a638225fa251d88eb8fefe25575791df9} 
+void {\bfseries set\+Density} (double new\+Val)
+\item 
+\hypertarget{classSpecies_abe2828fd01669eac6359b1fb30d02f96}{}\label{classSpecies_abe2828fd01669eac6359b1fb30d02f96} 
+double {\bfseries get\+Cc} ()
+\item 
+\hypertarget{classSpecies_a5f2ab7671a625cc25bbfee399b4a388a}{}\label{classSpecies_a5f2ab7671a625cc25bbfee399b4a388a} 
+double {\bfseries get\+Opt\+Range} ()
+\item 
+\hypertarget{classSpecies_aa7f142ce10d699c3e222aed1e9527153}{}\label{classSpecies_aa7f142ce10d699c3e222aed1e9527153} 
+int {\bfseries get\+Ind\+To\+Dens} ()
+\item 
+\hypertarget{classSpecies_a972f259afd0683125f29ab396afe7b90}{}\label{classSpecies_a972f259afd0683125f29ab396afe7b90} 
+vector$<$ double $>$ {\bfseries get\+Range} ()
+\item 
+\hypertarget{classSpecies_abf5450485f6027d93c969cf5aa310239}{}\label{classSpecies_abf5450485f6027d93c969cf5aa310239} 
+double $\ast$const {\bfseries get\+Env\+Const} ()
+\item 
+\hypertarget{classSpecies_a77083a8913e501f92abfdfdc0b376249}{}\label{classSpecies_a77083a8913e501f92abfdfdc0b376249} 
+double {\bfseries get\+Optimum} ()
+\item 
+\hypertarget{classSpecies_ad800e8f89d4ea0b68644d58ba4796d88}{}\label{classSpecies_ad800e8f89d4ea0b68644d58ba4796d88} 
+void {\bfseries set\+Optimum} (double new\+Val)
+\item 
+\hypertarget{classSpecies_a0f1fb546bb844fbeb9486888bddfd666}{}\label{classSpecies_a0f1fb546bb844fbeb9486888bddfd666} 
+vector$<$ double $>$ $\ast$ {\bfseries get\+Interactions} ()
+\item 
+\hypertarget{classSpecies_a13bd812c3a366cf4a3bf9bd3e1e4d3fa}{}\label{classSpecies_a13bd812c3a366cf4a3bf9bd3e1e4d3fa} 
+double {\bfseries get\+Interaction} (int index)
+\item 
+\hypertarget{classSpecies_a3cf0a84408e2e0e6981654dc4a9f4eeb}{}\label{classSpecies_a3cf0a84408e2e0e6981654dc4a9f4eeb} 
+void {\bfseries set\+Interactions} (vector$<$ double $>$ new\+Val)
+\item 
+\hypertarget{classSpecies_a2158c22a9098d6591c829fb54611fc03}{}\label{classSpecies_a2158c22a9098d6591c829fb54611fc03} 
+void {\bfseries set\+Interaction} (int index, double new\+Val)
+\item 
+\hypertarget{classSpecies_ab219377e317d2c8d07a0a207f52cf3f4}{}\label{classSpecies_ab219377e317d2c8d07a0a207f52cf3f4} 
+void {\bfseries delete\+Interaction} (int index)
+\item 
+\hypertarget{classSpecies_a3eeef473f91fe468ffd4d76964bb5f6f}{}\label{classSpecies_a3eeef473f91fe468ffd4d76964bb5f6f} 
+double {\bfseries get\+One\+Range} (int index)
+\item 
+vector$<$ double $>$ \hyperlink{classSpecies_a306aaa396cc99e223d46a577b14e1faf}{get\+Migration} (int env\+Num, int num\+Envs)
+\begin{DoxyCompactList}\small\item\em Index of return value is the ID of environment, value is the size of the migration to that environment. \end{DoxyCompactList}\item 
+\hypertarget{classSpecies_a43a78cb3d46d2c02669ca80c9d0ede7b}{}\label{classSpecies_a43a78cb3d46d2c02669ca80c9d0ede7b} 
+vector$<$ vector$<$ double $>$ $>$ {\bfseries get\+Routes\+One\+Env} (int env\+Num)
+\item 
+\hypertarget{classSpecies_a9a0c31d84cac35b7525b38919b8ad963}{}\label{classSpecies_a9a0c31d84cac35b7525b38919b8ad963} 
+vector$<$ vector$<$ vector$<$ double $>$ $>$ $>$ {\bfseries get\+All\+Routes} ()
+\item 
+\hypertarget{classSpecies_ac64bd2c5d579d513cca4502dddbdd484}{}\label{classSpecies_ac64bd2c5d579d513cca4502dddbdd484} 
+void {\bfseries set\+All\+Routes} (vector$<$ vector$<$ vector$<$ double $>$$>$$>$ routes)
+\item 
+\hypertarget{classSpecies_a766219b52815e5f25206084de418385e}{}\label{classSpecies_a766219b52815e5f25206084de418385e} 
+double \hyperlink{classSpecies_a766219b52815e5f25206084de418385e}{get\+Change} (double delta, vector$<$ unique\+\_\+ptr$<$ \hyperlink{classSpecies}{Species} $>$$>$ $\ast$species\+List)
+\begin{DoxyCompactList}\small\item\em Calls function of the \hyperlink{classChange}{Change} object with the required parameters to calculate species density change (density remains unchanged after call). \end{DoxyCompactList}\item 
+\hypertarget{classSpecies_afce47f18aa0a770ddcb53dd985cf5758}{}\label{classSpecies_afce47f18aa0a770ddcb53dd985cf5758} 
+void \hyperlink{classSpecies_afce47f18aa0a770ddcb53dd985cf5758}{get\+Evo} (vector$<$ unique\+\_\+ptr$<$ \hyperlink{classSpecies}{Species} $>$$>$ $\ast$species\+List, int resolution)
+\begin{DoxyCompactList}\small\item\em Calls function of the \hyperlink{classEvo}{Evo} object with the required parameters to calculate the change in interction values/optimums (interaction/optimum values changed after call). This method is only needed in simulations with evolution. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classSpecies_a11e7aac3c4a85723e8a9d00d00452508}{num\+Self}
+\item 
+int \hyperlink{classSpecies_af13ccb1fc01cff22d7a47201c1002fbc}{num\+Total}
+\item 
+int \hyperlink{classSpecies_a17c9e5d56923d9800bd9b2cfacbcba8b}{gen\+Time}
+\item 
+int \hyperlink{classSpecies_a3a11f42cb341349dadb706fff06f301d}{ind\+To\+Dens}
+\item 
+double \hyperlink{classSpecies_a28a22a5a1eef97867bd6e5d7db2c0c6a}{alpha}
+\item 
+double \hyperlink{classSpecies_ae4f30dc0bf280e80601fc39a0150f8f2}{beta}
+\item 
+double \hyperlink{classSpecies_a2d5f0b6b799578963257416fa5ad0630}{density}
+\item 
+double \hyperlink{classSpecies_afbf0d05fd5e3904c1ce62833942ef935}{cc}
+\item 
+double \hyperlink{classSpecies_a234d375e63c9be61d756b7e70d7d9397}{optimum}
+\item 
+double \hyperlink{classSpecies_ab7103281892ef74944f3f10df5ecbe69}{opt\+Range}
+\item 
+double $\ast$const \hyperlink{classSpecies_a95c7dd87e88653b245d52400b4134b68}{env\+Const}
+\item 
+vector$<$ double $>$ \hyperlink{classSpecies_a2ea9ab3b36448426b237f40dd4a1a18d}{interactions}
+\item 
+vector$<$ double $>$ \hyperlink{classSpecies_af95c9259381c434919dd4e9041a65bc7}{range}
+\item 
+vector$<$ vector$<$ vector$<$ double $>$ $>$ $>$ \hyperlink{classSpecies_a732dd85466e7156e8e51c7b44ea00f24}{migration\+Routes}
+\item 
+unique\+\_\+ptr$<$ \hyperlink{classChange}{Change} $>$ \hyperlink{classSpecies_a6517dbf3b05112b50baadc9479856dda}{change}
+\item 
+unique\+\_\+ptr$<$ \hyperlink{classEvo}{Evo} $>$ \hyperlink{classSpecies_a25d6cad0391b8d98c986e17bcb5c2586}{evo}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class containing all parameters\&methods that define a species \& it\textquotesingle{}s interactions with other species/the environment. 
+
+The species class is the most important class of this program, since it contains all the information necessary to evolve the system over time. To simplify the use of polymorphism in conjunction with c++ vectors, species contain all attributes and methods needed for every type of simulation, which means that species used in basic simulations use more memory than strictly necessary. If you want to strip down the species definition to limit memory usage, adapting the \hyperlink{initializers_8hpp_a8fd7f8510d1193c0657c5abdd1721e29}{init\+Specs()} function in initializers.\+cpp is necessary, but the rest should work fine. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classSpecies_a306aaa396cc99e223d46a577b14e1faf}{}\label{classSpecies_a306aaa396cc99e223d46a577b14e1faf} 
+\index{Species@{Species}!get\+Migration@{get\+Migration}}
+\index{get\+Migration@{get\+Migration}!Species@{Species}}
+\subsubsection{\texorpdfstring{get\+Migration()}{getMigration()}}
+{\footnotesize\ttfamily vector$<$ double $>$ Species\+::get\+Migration (\begin{DoxyParamCaption}\item[{int}]{env\+Num,  }\item[{int}]{num\+Envs }\end{DoxyParamCaption})}
+
+
+
+Index of return value is the ID of environment, value is the size of the migration to that environment. 
+
+Calculates size of migrations of this species to each envrionment (up to but not including num\+Envs) from env\+Num. Total migration size can, depending on migration parameters, be bigger than species density (but species density won\textquotesingle{}t become negative as a result). Co-\/ordinated by get\+Migrants() in \hyperlink{classEnvironment}{Environment} class. 
+\begin{DoxyParams}{Parameters}
+{\em env\+Num} & ID of the environment in which the species resides \\
+\hline
+{\em num\+Envs} & Number of environments in the simulation in total \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This method is only called when there are multiple environments 
+\end{DoxyNote}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classSpecies_a28a22a5a1eef97867bd6e5d7db2c0c6a}{}\label{classSpecies_a28a22a5a1eef97867bd6e5d7db2c0c6a} 
+\index{Species@{Species}!alpha@{alpha}}
+\index{alpha@{alpha}!Species@{Species}}
+\subsubsection{\texorpdfstring{alpha}{alpha}}
+{\footnotesize\ttfamily double Species\+::alpha\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hyperlink{classSpecies}{Species} growth rate \hypertarget{classSpecies_ae4f30dc0bf280e80601fc39a0150f8f2}{}\label{classSpecies_ae4f30dc0bf280e80601fc39a0150f8f2} 
+\index{Species@{Species}!beta@{beta}}
+\index{beta@{beta}!Species@{Species}}
+\subsubsection{\texorpdfstring{beta}{beta}}
+{\footnotesize\ttfamily double Species\+::beta\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hyperlink{classSpecies}{Species} mortality rate \hypertarget{classSpecies_afbf0d05fd5e3904c1ce62833942ef935}{}\label{classSpecies_afbf0d05fd5e3904c1ce62833942ef935} 
+\index{Species@{Species}!cc@{cc}}
+\index{cc@{cc}!Species@{Species}}
+\subsubsection{\texorpdfstring{cc}{cc}}
+{\footnotesize\ttfamily double Species\+::cc\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hyperlink{classSpecies}{Species} carrying capacity (can be exceeded due to interactions with other species) \hypertarget{classSpecies_a6517dbf3b05112b50baadc9479856dda}{}\label{classSpecies_a6517dbf3b05112b50baadc9479856dda} 
+\index{Species@{Species}!change@{change}}
+\index{change@{change}!Species@{Species}}
+\subsubsection{\texorpdfstring{change}{change}}
+{\footnotesize\ttfamily unique\+\_\+ptr$<$\hyperlink{classChange}{Change}$>$ Species\+::change\hspace{0.3cm}{\ttfamily [protected]}}
+
+Points to class that defines the way in which density change from one step to the next is calculated (see class \hyperlink{classChange}{Change} and its children for details) \hypertarget{classSpecies_a2d5f0b6b799578963257416fa5ad0630}{}\label{classSpecies_a2d5f0b6b799578963257416fa5ad0630} 
+\index{Species@{Species}!density@{density}}
+\index{density@{density}!Species@{Species}}
+\subsubsection{\texorpdfstring{density}{density}}
+{\footnotesize\ttfamily double Species\+::density\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hyperlink{classSpecies}{Species} density \hypertarget{classSpecies_a95c7dd87e88653b245d52400b4134b68}{}\label{classSpecies_a95c7dd87e88653b245d52400b4134b68} 
+\index{Species@{Species}!env\+Const@{env\+Const}}
+\index{env\+Const@{env\+Const}!Species@{Species}}
+\subsubsection{\texorpdfstring{env\+Const}{envConst}}
+{\footnotesize\ttfamily double$\ast$ const Species\+::env\+Const\hspace{0.3cm}{\ttfamily [protected]}}
+
+Points to the environmental constant of the environment (only needed in simulations with an environmental constant) \hypertarget{classSpecies_a25d6cad0391b8d98c986e17bcb5c2586}{}\label{classSpecies_a25d6cad0391b8d98c986e17bcb5c2586} 
+\index{Species@{Species}!evo@{evo}}
+\index{evo@{evo}!Species@{Species}}
+\subsubsection{\texorpdfstring{evo}{evo}}
+{\footnotesize\ttfamily unique\+\_\+ptr$<$\hyperlink{classEvo}{Evo}$>$ Species\+::evo\hspace{0.3cm}{\ttfamily [protected]}}
+
+Points to class that defines how evolution happens (only needed in simulations with evolution). See class \hyperlink{classEvo}{Evo} and its children for more details. \hypertarget{classSpecies_a17c9e5d56923d9800bd9b2cfacbcba8b}{}\label{classSpecies_a17c9e5d56923d9800bd9b2cfacbcba8b} 
+\index{Species@{Species}!gen\+Time@{gen\+Time}}
+\index{gen\+Time@{gen\+Time}!Species@{Species}}
+\subsubsection{\texorpdfstring{gen\+Time}{genTime}}
+{\footnotesize\ttfamily int Species\+::gen\+Time\hspace{0.3cm}{\ttfamily [protected]}}
+
+Each how many time\+Steps an evolution event occurs (only needed in simulations with evolution) \hypertarget{classSpecies_a3a11f42cb341349dadb706fff06f301d}{}\label{classSpecies_a3a11f42cb341349dadb706fff06f301d} 
+\index{Species@{Species}!ind\+To\+Dens@{ind\+To\+Dens}}
+\index{ind\+To\+Dens@{ind\+To\+Dens}!Species@{Species}}
+\subsubsection{\texorpdfstring{ind\+To\+Dens}{indToDens}}
+{\footnotesize\ttfamily int Species\+::ind\+To\+Dens\hspace{0.3cm}{\ttfamily [protected]}}
+
+How many individuals are generated per unit of density (only needed in simulations with evolution) \hypertarget{classSpecies_a2ea9ab3b36448426b237f40dd4a1a18d}{}\label{classSpecies_a2ea9ab3b36448426b237f40dd4a1a18d} 
+\index{Species@{Species}!interactions@{interactions}}
+\index{interactions@{interactions}!Species@{Species}}
+\subsubsection{\texorpdfstring{interactions}{interactions}}
+{\footnotesize\ttfamily vector$<$double$>$ Species\+::interactions\hspace{0.3cm}{\ttfamily [protected]}}
+
+Vector containing interaction values for all species, index = species ID \hypertarget{classSpecies_a732dd85466e7156e8e51c7b44ea00f24}{}\label{classSpecies_a732dd85466e7156e8e51c7b44ea00f24} 
+\index{Species@{Species}!migration\+Routes@{migration\+Routes}}
+\index{migration\+Routes@{migration\+Routes}!Species@{Species}}
+\subsubsection{\texorpdfstring{migration\+Routes}{migrationRoutes}}
+{\footnotesize\ttfamily vector$<$vector$<$vector$<$double$>$ $>$ $>$ Species\+::migration\+Routes\hspace{0.3cm}{\ttfamily [protected]}}
+
+Routes from each env to each other, containing migration probability (\mbox{[}env\mbox{]}\mbox{[}env\mbox{]}\mbox{[}0\mbox{]}) and size(\mbox{[}env\mbox{]}\mbox{[}env\mbox{]}\mbox{[}1\mbox{]}). Only needed in simulations with multiple environments. \hypertarget{classSpecies_a11e7aac3c4a85723e8a9d00d00452508}{}\label{classSpecies_a11e7aac3c4a85723e8a9d00d00452508} 
+\index{Species@{Species}!num\+Self@{num\+Self}}
+\index{num\+Self@{num\+Self}!Species@{Species}}
+\subsubsection{\texorpdfstring{num\+Self}{numSelf}}
+{\footnotesize\ttfamily int Species\+::num\+Self\hspace{0.3cm}{\ttfamily [protected]}}
+
+ID of species \hypertarget{classSpecies_af13ccb1fc01cff22d7a47201c1002fbc}{}\label{classSpecies_af13ccb1fc01cff22d7a47201c1002fbc} 
+\index{Species@{Species}!num\+Total@{num\+Total}}
+\index{num\+Total@{num\+Total}!Species@{Species}}
+\subsubsection{\texorpdfstring{num\+Total}{numTotal}}
+{\footnotesize\ttfamily int Species\+::num\+Total\hspace{0.3cm}{\ttfamily [protected]}}
+
+Total number of species (all envrionments) \hypertarget{classSpecies_a234d375e63c9be61d756b7e70d7d9397}{}\label{classSpecies_a234d375e63c9be61d756b7e70d7d9397} 
+\index{Species@{Species}!optimum@{optimum}}
+\index{optimum@{optimum}!Species@{Species}}
+\subsubsection{\texorpdfstring{optimum}{optimum}}
+{\footnotesize\ttfamily double Species\+::optimum\hspace{0.3cm}{\ttfamily [protected]}}
+
+Value of the environmental constant at which species thrives best (only needed in simulations with an environmental constant) \hypertarget{classSpecies_ab7103281892ef74944f3f10df5ecbe69}{}\label{classSpecies_ab7103281892ef74944f3f10df5ecbe69} 
+\index{Species@{Species}!opt\+Range@{opt\+Range}}
+\index{opt\+Range@{opt\+Range}!Species@{Species}}
+\subsubsection{\texorpdfstring{opt\+Range}{optRange}}
+{\footnotesize\ttfamily double Species\+::opt\+Range\hspace{0.3cm}{\ttfamily [protected]}}
+
+Sigma parameter for generating optimums in indivudals (only needed in simulations with both evolution and environmental constant) \hypertarget{classSpecies_af95c9259381c434919dd4e9041a65bc7}{}\label{classSpecies_af95c9259381c434919dd4e9041a65bc7} 
+\index{Species@{Species}!range@{range}}
+\index{range@{range}!Species@{Species}}
+\subsubsection{\texorpdfstring{range}{range}}
+{\footnotesize\ttfamily vector$<$double$>$ Species\+::range\hspace{0.3cm}{\ttfamily [protected]}}
+
+sigma parameter for generating interactions in individuals (only needed in simulations with evolution) 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Species_8hpp}{Species.\+hpp}\item 
+Species.\+cpp\end{DoxyCompactItemize}

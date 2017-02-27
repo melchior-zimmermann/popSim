@@ -1,0 +1,85 @@
+\hypertarget{classE2MSimulation}{}\section{E2\+M\+Simulation Class Reference}
+\label{classE2MSimulation}\index{E2\+M\+Simulation@{E2\+M\+Simulation}}
+
+
+Class containing all \hyperlink{classEnvironment}{Environment} objects, as well control-\/flow attributes for the simulation.  
+
+
+
+
+{\ttfamily \#include $<$E2\+M\+Simulation.\+hpp$>$}
+
+Inheritance diagram for E2\+M\+Simulation\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classE2MSimulation}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classE2MSimulation_addbbeb65c91d569a20ddd01ff251fb05}{}\label{classE2MSimulation_addbbeb65c91d569a20ddd01ff251fb05} 
+{\bfseries E2\+M\+Simulation} (vector$<$ \hyperlink{classEnvironment}{Environment} $>$ \+\_\+envs)
+\item 
+\hypertarget{classE2MSimulation_afbbbc3eb05c8e6a9f88c906a95c33ffd}{}\label{classE2MSimulation_afbbbc3eb05c8e6a9f88c906a95c33ffd} 
+vector$<$ \hyperlink{classEnvironment}{Environment} $>$ $\ast$ {\bfseries get\+Envs} ()
+\item 
+\hypertarget{classE2MSimulation_a9fc625c0e66768b4b70cc2b682a3316a}{}\label{classE2MSimulation_a9fc625c0e66768b4b70cc2b682a3316a} 
+void {\bfseries set\+Envs} (vector$<$ \hyperlink{classEnvironment}{Environment} $>$ new\+Val)
+\item 
+\hypertarget{classE2MSimulation_a3cc272d636e0ce6cec2a55cc5cd7970d}{}\label{classE2MSimulation_a3cc272d636e0ce6cec2a55cc5cd7970d} 
+void {\bfseries add\+Env} (\hyperlink{classEnvironment}{Environment} env)
+\item 
+\hypertarget{classE2MSimulation_a433cdd06ccf6fce0636e9c05a1f6eb3a}{}\label{classE2MSimulation_a433cdd06ccf6fce0636e9c05a1f6eb3a} 
+void {\bfseries set\+Num\+Envs} (int new\+Val)
+\item 
+\hypertarget{classE2MSimulation_a04040a96efb80654c6ab3d71c55e43df}{}\label{classE2MSimulation_a04040a96efb80654c6ab3d71c55e43df} 
+int {\bfseries get\+Num\+Envs} ()
+\item 
+\hypertarget{classE2MSimulation_a08698e0fb7b4be7f1e9369aeeec85ca2}{}\label{classE2MSimulation_a08698e0fb7b4be7f1e9369aeeec85ca2} 
+void {\bfseries set\+Num\+Specs} (int new\+Val)
+\item 
+\hypertarget{classE2MSimulation_a113e3427b21a4a6151026d35dc258110}{}\label{classE2MSimulation_a113e3427b21a4a6151026d35dc258110} 
+int {\bfseries get\+Num\+Specs} ()
+\item 
+int \hyperlink{classE2MSimulation_aeac4e92c10f89a5c953ace5b1327d20b}{run\+Sim} (int run\+Number)
+\begin{DoxyCompactList}\small\item\em Method that runs the main loop of the simulation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classE2MSimulation_ae77494b8c30893e459c995f95f671e4b}{}\label{classE2MSimulation_ae77494b8c30893e459c995f95f671e4b} 
+vector$<$ \hyperlink{classEnvironment}{Environment} $>$ {\bfseries envs}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class containing all \hyperlink{classEnvironment}{Environment} objects, as well control-\/flow attributes for the simulation. 
+
+Same as \hyperlink{classE2Simulation}{E2\+Simulation}, but for simulations with multiple environments (see also \hyperlink{classMultiSimulation}{Multi\+Simulation}) 
+
+\subsection{Member Function Documentation}
+\hypertarget{classE2MSimulation_aeac4e92c10f89a5c953ace5b1327d20b}{}\label{classE2MSimulation_aeac4e92c10f89a5c953ace5b1327d20b} 
+\index{E2\+M\+Simulation@{E2\+M\+Simulation}!run\+Sim@{run\+Sim}}
+\index{run\+Sim@{run\+Sim}!E2\+M\+Simulation@{E2\+M\+Simulation}}
+\subsubsection{\texorpdfstring{run\+Sim()}{runSim()}}
+{\footnotesize\ttfamily int E2\+M\+Simulation\+::run\+Sim (\begin{DoxyParamCaption}\item[{int}]{run\+Number }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Method that runs the main loop of the simulation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em run\+Number} & ID of the current run of the simulation. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classMultiEvoSimulation_a89c9806ac998c06230cdd41cc6a532bf}{Multi\+Evo\+Simulation}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{E2MSimulation_8hpp}{E2\+M\+Simulation.\+hpp}\item 
+E2\+M\+Simulation.\+cpp\end{DoxyCompactItemize}

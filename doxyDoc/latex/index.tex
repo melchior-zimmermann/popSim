@@ -1,0 +1,25 @@
+\hypertarget{index_intro_sec}{}\section{Introduction}\label{index_intro_sec}
+pop\+Sim was developped as a simulation software for population dynamics. It uses generalized Lotka-\/\+Volterra equations to simulate species interactions, and solves them usng the explicit Euler scheme. pop\+Sim can simulate multiple species in multiple environments, with evolution, and taking into account an environmental constant which represents abiotic factors of the environent. pop\+Sim comes with no warranty whatsoever, and I recommend that you do some simple tests with it before using it for any serious work, to make sure it suits your needs. pop\+Sim is open source, and is published under a (insert licence here) licence.
+
+pop\+Sim was developped on Arch Linux (www.\+archlinux.\+org)\hypertarget{index_doc_sec}{}\section{Documentation}\label{index_doc_sec}
+This documentation describes most methods used in pop\+Sim. Getters and setters, as well as constructors, are not commented in detail, and neither are wrapper functions for library methods. Instead, this documentation focues more on the role of each method, and the logic underpinning the inner workings of the pogram. If you are interested by the details of implementations, refer to the source code you can find on (link to github here). If you have questions or remarks, please send them to melchior.\+zimmermann $<$at$>$ etu.\+unige.\+ch, or post them on the github comment section/forum.\hypertarget{index_doc_compo}{}\section{Class composition}\label{index_doc_compo}
+The classes documented here interact in the following manner\+:
+
+The \hyperlink{classSpecies}{Species} class contains a pointer to a \hyperlink{classChange}{Change} object to calculate its change in density form one step to the next, and a pointer to an \hyperlink{classEvo}{Evo} object to calculate evolution (when required).
+
+The \hyperlink{classEnvironment}{Environment} object contains a list of pointers to \hyperlink{classSpecies}{Species} objects, as well as a pointer to a \hyperlink{classNextGen}{Next\+Gen} object that is used to update \hyperlink{classSpecies}{Species} densities in a coordinatedd manner. \hyperlink{classEnvironment}{Environment} objects also contain a pointer to a \hyperlink{classSave}{Save} object that is in charge of saving results.
+
+The \hyperlink{classSimulation}{Simulation} object contains a pointer to an \hyperlink{classEnvironment}{Environment} object (or a list of pointers to \hyperlink{classEnvironment}{Environment} objects), and is in charge of executing the simulation loop while calling the appropriate methods.\hypertarget{index_doc_files}{}\section{Files}\label{index_doc_files}
+Files containing the implementaiton of a class have the same name as that class (e.\+g. the class \hyperlink{classSpecies}{Species} is implemented in \hyperlink{Species_8hpp}{Species.\+hpp} and Species.\+cpp).
+
+The \hyperlink{interface_8hpp}{interface.\+hpp} file contains methods to get simulation parameters from the user and load/save those parameters, and is also in charge of launchin simulations.
+
+The \hyperlink{initializers_8hpp}{initializers.\+hpp} file contains methods to create \hyperlink{classSpecies}{Species} and \hyperlink{classEnvironment}{Environment} objects from simulation parameters.
+
+The \hyperlink{reloadModule_8hpp}{reload\+Module.\+hpp} contains all methods used for loading a simularion form a save file, and running that simulation again, eventually after adding some species.
+
+The \hyperlink{helpers_8hpp}{helpers.\+hpp} file contains wrapper functions for library calls.
+
+The \hyperlink{main_8cpp}{main.\+cpp} file parses user arguments, and calls the appropriate methods.
+
+The basic\+Stats.\+py file contains methods to output some basic statistics about simulation results, to get a quick overview of the results (this should not be considered an alternative to conducting detailed statistics). 
