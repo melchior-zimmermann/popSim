@@ -49,18 +49,26 @@ int main(int argc , char* argv[]){
 	}
 	srand(time(NULL));
 
-	string paramPath;
-	int numRuns, addSpec;
+	
 
 	if(argv[2] == NULL ){
 		cout<<"Missing arg 2 (savePath)!\n(Need at least 2 args)\n";
 		exit(EXIT_FAILURE);
 	}
-	string savePath(argv[2]);
+	string paramPath;
+	string savePath;
+	savePath.assign(argv[2]);
+	int numRuns, addSpec;
 	numRuns = atoi(argv[3]);
 
-    
-	if(choice1 == 2){
+    if (choice1 == 1){
+    	if (argc != 4){
+    		cout<<"Usage:\n 'popSim <choice> <savePath> <numRuns> [loadPath] [numSpecsToAdd]'\n";
+			exit(EXIT_FAILURE);
+    	}
+    	paramPath.assign(argv[2]);
+    }
+	else if(choice1 == 2){
 		if(argv[4] == NULL ){
 			cout<<"Missing arg 4 (loadPath)!\n(Need at least 4 argv)\n";
 			exit(EXIT_FAILURE);
@@ -107,21 +115,21 @@ int main(int argc , char* argv[]){
 		cout<<"Failed to load params!\n";
 		cout<<strerror(errno)<<endl;
 		exit(EXIT_FAILURE);
+	}
 
-		if (stat(savePath.c_str(), &st) == -1) {
-		    mkdir(savePath.c_str(), 0700);
-		}
+	if (stat(savePath.c_str(), &st) == -1) {
+	    mkdir(savePath.c_str(), 0700);
+	}
 
-		if(stat(savePath.c_str(), &st) == -1){
-			cout<<"Could not create save directory:\n";
-			cout<<strerror(errno);
-			exit(EXIT_FAILURE);
-		}
+	if(stat(savePath.c_str(), &st) == -1){
+		cout<<"Could not create save directory:\n";
+		cout<<strerror(errno);
+		exit(EXIT_FAILURE);
 	}
 
 	if(params.multi == 'n'){
 		if(initSave(savePath+"/rawSave") != 0){
-			cout<<"Could no init saveFile "<<savePath+"/rawSave"<<endl;
+			cout<<"Could not init saveFile "<<savePath+"/rawSave"<<endl;
 			exit(EXIT_FAILURE);
 		}
 		if(params.completeEnd){
