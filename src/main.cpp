@@ -59,6 +59,7 @@ int main(int argc , char* argv[]){
 	string savePath(argv[2]);
 	numRuns = atoi(argv[3]);
 
+    
 	if(choice1 == 2){
 		if(argv[4] == NULL ){
 			cout<<"Missing arg 4 (loadPath)!\n(Need at least 4 argv)\n";
