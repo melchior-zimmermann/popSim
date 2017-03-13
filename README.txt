@@ -8,5 +8,6 @@ Compiler flags: -std=c++14 -Wall -Wextra -g
 
 Known issues:
 
+    - Folders are not created recursively
     - Fragile parsing
     
