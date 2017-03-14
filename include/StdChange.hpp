@@ -3,7 +3,8 @@
 #include "Change.hpp"
 
 
-using namespace std;
+using std::vector;
+using std::unique_ptr;
 
 
 /**

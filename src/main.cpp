@@ -28,6 +28,12 @@ using namespace std;
 
 int main(int argc , char* argv[]){
 
+	// simParams testParams;
+	// loadSimParams(".", &testParams);
+	// saveSimParams("test", &testParams);
+	// return 0;
+
+
 	if(argv[1] == NULL){
 		cout<<"Usage:\n 'popSim <choice> <savePath> <numRuns> [loadPath] [numSpecsToAdd]'\n";
 		exit(EXIT_SUCCESS);

@@ -33,6 +33,16 @@ int getSimParams(string savePath, simParams* params){
 	char eco = 'n';
 	char evo = 'n';
 	char multi = 'n';
+	char method = 'x';
+	cout<<"Do you want to use the explicit euler scheme or RK4 ('e' or 'r')?\n";
+	method = getChar();
+	while(method != 'e' && method != 'r'){
+		cout<<"Invalid answer. Please type 'e' or 'r':\n";
+		method = getChar();
+	}
+	if(method == 'r'){
+		params->rk = true;
+	}
 
 	cout<<"Will there be an environmental constant in this simulation ('y' or 'n')?\n";
 	eco = getChar();
@@ -203,7 +213,8 @@ void makeTemplate(string path){
 		return;
 	}
 
-
+	saveFile<<"rk:\n";
+	saveFile<<"n"<<endl;
 	saveFile<<"Eco:\n";
 	saveFile<<"y"<<endl;
 	saveFile<<"Species optimum Range:\n";
@@ -232,7 +243,7 @@ void makeTemplate(string path){
 	saveFile<<"10"<<endl;
 	saveFile<<"100"<<endl;
 	saveFile<<"Inter save Div:\n";
-	saveFile<<"2000"<<endl;
+	saveFile<<"100000"<<endl;
 	saveFile<<"Number species:\n";
 	saveFile<<"27"<<endl;
 	saveFile<<"Multi:\n";
@@ -296,7 +307,14 @@ int saveSimParams(string savePath, simParams* params){
 		return -1;
 	}
 
-
+	saveFile<<"rk:\n";
+	if(params->rk){
+		saveFile<<"y"<<endl;
+	}
+	else {
+		saveFile<<"n"<<endl;
+	}
+	
 	saveFile<<"Eco:\n";
 	saveFile<<params->eco<<endl;
 	saveFile<<"Species optimum Range:\n";
@@ -404,7 +422,16 @@ int loadSimParams(string savePath, simParams* params){
 		cout<<strerror(errno)<<endl;
 		return -1;
 	}
-
+	string test;
+	getline(saveFile, throwAway);
+	saveFile>>test;
+	if(test == "y"){
+		params->rk = true;
+	}
+	else {
+		params->rk = false;
+	}
+	getline(saveFile, throwAway);
 	getline(saveFile, throwAway);
 	saveFile>>params->eco;
 	getline(saveFile, throwAway);
@@ -588,6 +615,7 @@ int launchSim(string savePath, int runNumber, simParams params){
 			for(int j = 0; j<params.numSpecs; j++){
 				if(j<before || j>max){
 					(*(*sim.getEnvs())[i].getSpeciesList())[j]->setDensity(0);
+					(*(*sim.getEnvs())[i].getSpeciesList())[j]->setPreviousDensity(0);
 					(*(*sim.getEnvs())[i].getSpeciesList())[j]->setAllRoutes((*(*sim.getEnvs())[inEnv[j]].getSpeciesList())[j]->getAllRoutes());
 				}
 			}
@@ -664,6 +692,7 @@ int launchSim(string savePath, int runNumber, simParams params){
 			for(int j = 0; j<params.numSpecs; j++){
 				if(j<before || j>max){
 					(*(*sim.getEnvs())[i].getSpeciesList())[j]->setDensity(0);
+					(*(*sim.getEnvs())[i].getSpeciesList())[j]->setPreviousDensity(0);
 					(*(*sim.getEnvs())[i].getSpeciesList())[j]->setAllRoutes((*(*sim.getEnvs())[inEnv[j]].getSpeciesList())[j]->getAllRoutes());
 				}
 			}
@@ -717,6 +746,7 @@ int launchSim(string savePath, int runNumber, simParams params){
 			for(int j = 0; j<params.numSpecs; j++){
 				if(j<before || j>max){
 					(*(*sim.getEnvs())[i].getSpeciesList())[j]->setDensity(0);
+					(*(*sim.getEnvs())[i].getSpeciesList())[j]->setPreviousDensity(0);
 					(*(*sim.getEnvs())[i].getSpeciesList())[j]->setAllRoutes((*(*sim.getEnvs())[inEnv[j]].getSpeciesList())[j]->getAllRoutes());
 				}
 			}
@@ -771,6 +801,7 @@ int launchSim(string savePath, int runNumber, simParams params){
 			for(int j = 0; j<params.numSpecs; j++){
 				if(j<before || j>max){
 					(*(*sim.getEnvs())[i].getSpeciesList())[j]->setDensity(0);
+					(*(*sim.getEnvs())[i].getSpeciesList())[j]->setPreviousDensity(0);
 					(*(*sim.getEnvs())[i].getSpeciesList())[j]->setAllRoutes((*(*sim.getEnvs())[inEnv[j]].getSpeciesList())[j]->getAllRoutes());
 				}
 			}

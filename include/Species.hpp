@@ -42,6 +42,7 @@ class Species {
     double alpha;/**<Species growth rate*/
     double beta;/**<Species mortality rate*/
     double density;/**<Species density*/
+    double previousDensity;/**<Species density in the previous timeStep*/
     double cc;/**<Species carrying capacity (can be exceeded due to interactions with other species)*/
     double optimum; /**<Value of the environmental constant at which species thrives best (only needed in simulations with an environmental constant)**/
     double optRange; /**<Sigma parameter for generating optimums in indivudals (only needed in simulations with both evolution and environmental constant)**/
@@ -54,7 +55,7 @@ class Species {
   public:
     Species(int _numSelf, int _numTotal, int _genTime, int _indToDens, double _alpha, double _beta, double _dens, double _cc, double _opt, double _optRange,
         double* _envConst, vector<double> _interactions, vector<double> _range, vector<vector<vector<double>>> _migrationRoutes, unique_ptr<Change> _change, unique_ptr<Evo> _evo):
-        numSelf(_numSelf), numTotal(_numTotal), genTime(_genTime), indToDens(_indToDens), alpha(_alpha), beta(_beta), density(_dens), cc(_cc), optimum(_opt), optRange(_optRange),
+        numSelf(_numSelf), numTotal(_numTotal), genTime(_genTime), indToDens(_indToDens), alpha(_alpha), beta(_beta), density(_dens), previousDensity(_dens), cc(_cc), optimum(_opt), optRange(_optRange),
         envConst(_envConst), interactions(_interactions), range(_range), migrationRoutes(_migrationRoutes), change(move(_change)), evo(move(_evo)){}
     int getNumSelf() {return numSelf;}
     //void setNumSelf(int newVal) {numSelf = newVal;}
@@ -68,6 +69,8 @@ class Species {
     //void setBeta(double newVal) {beta = newVal;}
     double getDensity() {return density;}
     void setDensity(double newVal) {density = newVal;}
+    double getPreviousDensity() {return previousDensity;}
+    void setPreviousDensity(double newVal) {previousDensity = newVal;}
     double getCc() {return cc;}
     //void setCc(double newVal) {cc = newVal;}
     double getOptRange(){return optRange;}
@@ -75,7 +78,7 @@ class Species {
     int getIndToDens(){return indToDens;}
 
     vector<double> getRange(){return range;}
-    double *const getEnvConst(){return envConst;}
+    double *getEnvConst(){return envConst;}
     double getOptimum(){return optimum;}
     void setOptimum(double newVal) {optimum = newVal;}
     vector<double>* getInteractions() {return &interactions;}
@@ -106,7 +109,10 @@ class Species {
     *\brief Calls function of the Change object with the required parameters to calculate species density change (density remains unchanged after call).
     */
     double getChange(double delta, vector<unique_ptr<Species>>* speciesList){
-        return change->getChange(this, delta, speciesList);}
+        double densityChange = change->getChange(this, delta, speciesList);
+        previousDensity = density;
+        return densityChange;
+    }
     //~Species(){cout<<"~Species\n";}
     /**
     *\brief Calls function of the Evo object with the required parameters to calculate the change in interction values/optimums (interaction/optimum values changed after call). This method is only needed in simulations with evolution.

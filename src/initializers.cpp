@@ -17,6 +17,7 @@ using namespace std;
 #include "Change.hpp"
 #include "StdChange.hpp"
 #include "EcoChange.hpp"
+#include "RKChange.hpp"
 #include "Evo.hpp"
 #include "StdEvo.hpp"
 #include "EcoEvo.hpp"
@@ -91,6 +92,10 @@ int initSpecs(vector<unique_ptr<Species>>* speciesList, simParams params, double
 
 		}else{
 			change = make_unique<StdChange>();
+		}
+
+		if (params.rk) {
+			change = make_unique<RKChange>(move(change));
 		}
 
 		unique_ptr<Evo> evo;

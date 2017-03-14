@@ -23,6 +23,7 @@ using namespace std;
 struct simParams{
 	bool completeEnd = false;/**<Bool deciding wether or not there are complete saves made at the end of a simulation*/
 	bool completeStart = false;/**<Bool deciding wether or not there are complete saves made at the start of a simulation*/
+	bool rk = false;
 	double interRange[2];/**<Unfirom range from which Species interaction values are drawn*/
 	double densRange[2];/**<Unfirom range from which Species density values are drawn*/
 	double alphaRange[2];/**<Unfirom range from which Species alpha values are drawn*/
