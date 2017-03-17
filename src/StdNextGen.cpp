@@ -6,7 +6,8 @@
 #include "Environment.hpp"
 
 
-using namespace std;
+using std::vector;
+using std::unique_ptr;
 
 void StdNextGen::getNextGen(int stepNum, vector<unique_ptr<Species>>* speciesList, Environment* env){
 	//gets the change in density from all species,

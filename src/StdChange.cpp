@@ -20,7 +20,7 @@ double StdChange::getChange(Species* spec, double delta, vector<unique_ptr<Speci
         sumInteractions += (*speciesList)[i]->getDensity() * (*spec->getInteractions())[(*speciesList)[i]->getNumSelf()]; 
     }
 
-    double change = delta*spec->getDensity()*(spec->getAlpha()*(1-(spec->getDensity()/spec->getCc()) * (spec->getDensity()/spec->getCc())) + spec->getBeta() + sumInteractions);
+    double change = delta*spec->getDensity()*(spec->getAlpha()*(1 - (spec->getDensity()/spec->getCc())*(spec->getDensity()/spec->getCc())) + spec->getBeta() + sumInteractions);
 
     return change;
 

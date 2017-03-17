@@ -14,17 +14,21 @@ using namespace std;
 
 #include "Environment.hpp"
 #include "Species.hpp"
+
 #include "Change.hpp"
 #include "StdChange.hpp"
 #include "EcoChange.hpp"
-#include "RKChange.hpp"
+
 #include "Evo.hpp"
 #include "StdEvo.hpp"
 #include "EcoEvo.hpp"
 #include "NoEvo.hpp"
+
 #include "Save.hpp"
+
 #include "NextGen.hpp"
 #include "StdNextGen.hpp"
+#include "RKStdNextGen.hpp"
 #include "EcoNextGen.hpp"
 #include "EvoNextGen.hpp"
 #include "E2NextGen.hpp"
@@ -32,6 +36,7 @@ using namespace std;
 #include "EcoMultiNextGen.hpp"
 #include "EvoMultiNextGen.hpp"
 #include "E2MultiNextGen.hpp"
+
 #include "helpers.hpp"
 #include "interface.hpp"
 #include "initializers.hpp"
@@ -92,10 +97,6 @@ int initSpecs(vector<unique_ptr<Species>>* speciesList, simParams params, double
 
 		}else{
 			change = make_unique<StdChange>();
-		}
-
-		if (params.rk) {
-			change = make_unique<RKChange>(move(change));
 		}
 
 		unique_ptr<Evo> evo;
@@ -182,8 +183,12 @@ Environment getEnv(string savePath, simParams params, int numSelf, vector<Enviro
 
 	}else{
 		//save = make_unique<StdSave>();
-		nextGen = make_unique<StdNextGen>();
-
+		if (params.rk) {
+			nextGen = make_unique<RKStdNextGen>();
+		}
+		else {
+			nextGen = make_unique<StdNextGen>();
+		}
 	}
 	unique_ptr<Save> save(new Save(evo, eco, multi));
 	//cout<<save.get()<<endl;

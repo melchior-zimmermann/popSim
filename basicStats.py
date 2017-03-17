@@ -23,6 +23,7 @@ evo = False
 eco = False
 multi = False
 
+"""
 if lines[1] == 'y':
 	eco = True
 
@@ -38,7 +39,11 @@ numSpecs = int(lines[30])
 
 
 numSteps = int(lines[-11])
+"""
 
+numEnvs = 1
+numSpecs = 17
+numSteps = 100000
 
 
 
