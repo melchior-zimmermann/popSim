@@ -28,7 +28,6 @@ using namespace std;
 
 #include "NextGen.hpp"
 #include "StdNextGen.hpp"
-#include "RKStdNextGen.hpp"
 #include "EcoNextGen.hpp"
 #include "EvoNextGen.hpp"
 #include "E2NextGen.hpp"
@@ -36,11 +35,18 @@ using namespace std;
 #include "EcoMultiNextGen.hpp"
 #include "EvoMultiNextGen.hpp"
 #include "E2MultiNextGen.hpp"
+#include "RKStdNextGen.hpp"
+#include "RKEcoNextGen.hpp"
+#include "RKEvoNextGen.hpp"
+#include "RKE2NextGen.hpp"
+#include "RKStdMultiNextGen.hpp"
+#include "RKEcoMultiNextGen.hpp"
+#include "RKEvoMultiNextGen.hpp"
+#include "RKE2MultiNextGen.hpp"
 
 #include "helpers.hpp"
 #include "interface.hpp"
 #include "initializers.hpp"
-
 
 
 int initSpecs(vector<unique_ptr<Species>>* speciesList, simParams params, double* envConst){
@@ -114,13 +120,8 @@ int initSpecs(vector<unique_ptr<Species>>* speciesList, simParams params, double
 			envConst, interactions, range, routes, move(change), move(evo)));
 
 		speciesList->push_back(move(spec));
-
-
 	}
-
 	return 0;
-
-
 }
 
 
@@ -135,58 +136,105 @@ Environment getEnv(string savePath, simParams params, int numSelf, vector<Enviro
 	
 	unique_ptr<NextGen> nextGen;
 
+	if (params.rk) {
+		if(params.evo == 'y' && params.eco == 'y' && params.multi == 'y'){
+			//save = make_unique<E2Save>();
+			nextGen = make_unique<RKE2MultiNextGen>();
+			eco = true;
+			evo = true;
+			multi = true;
+			saveFile = saveFile + "Env" + to_string(numSelf);
 
-	if(params.evo == 'y' && params.eco == 'y' && params.multi == 'y'){
-		//save = make_unique<E2Save>();
-		nextGen = make_unique<E2MultiNextGen>();
-		eco = true;
-		evo = true;
-		multi = true;
-		saveFile = saveFile + "Env" + to_string(numSelf);
+		}else if(params.evo == 'y' && params.eco == 'y' ){
+			//save = make_unique<E2Save>();
+			nextGen = make_unique<RKE2NextGen>();
+			eco = true;
+			evo = true;
 
-	}else if(params.evo == 'y' && params.eco == 'y' ){
-		//save = make_unique<E2Save>();
-		nextGen = make_unique<E2NextGen>();
-		eco = true;
-		evo = true;
+		}else if (params.evo == 'y' && params.multi == 'y'){
+			//save = make_unique<EvoSave>();
+			nextGen = make_unique<RKEvoMultiNextGen>();
+			evo = true;
+			multi = true;
+			saveFile = saveFile + "Env" + to_string(numSelf);
 
-	}else if (params.evo == 'y' && params.multi == 'y'){
-		//save = make_unique<EvoSave>();
-		nextGen = make_unique<EvoMultiNextGen>();
-		evo = true;
-		multi = true;
-		saveFile = saveFile + "Env" + to_string(numSelf);
+		}else if (params.eco == 'y' && params.multi == 'y'){
+			//save = make_unique<EvoSave>();
+			nextGen = make_unique<RKEcoMultiNextGen>();
+			eco = true;
+			multi = true;
+			saveFile = saveFile + "Env" + to_string(numSelf);
 
-	}else if (params.eco == 'y' && params.multi == 'y'){
-		//save = make_unique<EvoSave>();
-		nextGen = make_unique<EcoMultiNextGen>();
-		eco = true;
-		multi = true;
-		saveFile = saveFile + "Env" + to_string(numSelf);
+		}else if (params.multi == 'y'){
+			//save = make_unique<EvoSave>();
+			nextGen = make_unique<RKStdMultiNextGen>();
+			multi = true;
+			saveFile = saveFile + "Env" + to_string(numSelf);
+			
 
-	}else if (params.multi == 'y'){
-		//save = make_unique<EvoSave>();
-		nextGen = make_unique<StdMultiNextGen>();
-		multi = true;
-		saveFile = saveFile + "Env" + to_string(numSelf);
-		
+		}else if (params.evo == 'y'){
+			//save = make_unique<EvoSave>();
+			nextGen = make_unique<RKEvoNextGen>();
+			evo = true;
 
-	}else if (params.evo == 'y'){
-		//save = make_unique<EvoSave>();
-		nextGen = make_unique<EvoNextGen>();
-		evo = true;
+		}else if (params.eco == 'y'){
+			//save = make_unique<EcoSave>();
+			nextGen = make_unique<RKEcoNextGen>();
+			eco = true;
 
-	}else if (params.eco == 'y'){
-		//save = make_unique<EcoSave>();
-		nextGen = make_unique<EcoNextGen>();
-		eco = true;
-
-	}else{
-		//save = make_unique<StdSave>();
-		if (params.rk) {
+		}else{
+			//save = make_unique<StdSave>();
 			nextGen = make_unique<RKStdNextGen>();
 		}
-		else {
+	}
+	else {
+		if(params.evo == 'y' && params.eco == 'y' && params.multi == 'y'){
+			//save = make_unique<E2Save>();
+			nextGen = make_unique<E2MultiNextGen>();
+			eco = true;
+			evo = true;
+			multi = true;
+			saveFile = saveFile + "Env" + to_string(numSelf);
+
+		}else if(params.evo == 'y' && params.eco == 'y' ){
+			//save = make_unique<E2Save>();
+			nextGen = make_unique<E2NextGen>();
+			eco = true;
+			evo = true;
+
+		}else if (params.evo == 'y' && params.multi == 'y'){
+			//save = make_unique<EvoSave>();
+			nextGen = make_unique<EvoMultiNextGen>();
+			evo = true;
+			multi = true;
+			saveFile = saveFile + "Env" + to_string(numSelf);
+
+		}else if (params.eco == 'y' && params.multi == 'y'){
+			//save = make_unique<EvoSave>();
+			nextGen = make_unique<EcoMultiNextGen>();
+			eco = true;
+			multi = true;
+			saveFile = saveFile + "Env" + to_string(numSelf);
+
+		}else if (params.multi == 'y'){
+			//save = make_unique<EvoSave>();
+			nextGen = make_unique<StdMultiNextGen>();
+			multi = true;
+			saveFile = saveFile + "Env" + to_string(numSelf);
+			
+
+		}else if (params.evo == 'y'){
+			//save = make_unique<EvoSave>();
+			nextGen = make_unique<EvoNextGen>();
+			evo = true;
+
+		}else if (params.eco == 'y'){
+			//save = make_unique<EcoSave>();
+			nextGen = make_unique<EcoNextGen>();
+			eco = true;
+
+		}else{
+			//save = make_unique<StdSave>();
 			nextGen = make_unique<StdNextGen>();
 		}
 	}

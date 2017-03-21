@@ -28,7 +28,7 @@ class RKStdNextGen: public NextGen{
   	*\brief Method used to update Species density at each timestep
   	*
   	* This method first calculates the change in species density for each species, then
-  	* updates densities for each species. Species whose density is <Envionrment.deathThreshold
+  	* updates densities for each species. Species whose density is < Envionrment.deathThreshold
   	* will have their density set to 0, and be moved from SpeciesList to deadSpecies. Used
   	* for standard simulation with and without evolution.
   	*

@@ -43,7 +43,7 @@ numSteps = int(lines[-11])
 
 numEnvs = 1
 numSpecs = 17
-numSteps = 100000
+numSteps = 200000
 
 
 
@@ -513,7 +513,7 @@ def survivalDiff(savePath, fDens, numEnvs, numSpecs, runs):
 
 
 if not multi:
-	fileName = savePath + '/rawSave'
+	fileName = savePath + '/rawSaveEnv0'
 	res = parseOne(fileName, savePath, numSteps, numSpecs, eco, evo, runs, multi, 0)
 	makeStats(res, eco, 0, savePath, extraSpecs)
 
