@@ -1,0 +1,59 @@
+\hypertarget{classRKEvoNextGen}{}\section{R\+K\+Evo\+Next\+Gen Class Reference}
+\label{classRKEvoNextGen}\index{R\+K\+Evo\+Next\+Gen@{R\+K\+Evo\+Next\+Gen}}
+
+
+Class containing a single method, used to control transition from one step to the next, and update Species/\+Environemnt attributes.  
+
+
+
+
+{\ttfamily \#include $<$R\+K\+Evo\+Next\+Gen.\+hpp$>$}
+
+Inheritance diagram for R\+K\+Evo\+Next\+Gen\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classRKEvoNextGen}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classRKEvoNextGen_a129cfd567dc8cacd95ca684b1378a43e}{get\+Next\+Gen} (int step\+Num, std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \hyperlink{classSpecies}{Species} $>$$>$ $\ast$species\+List, \hyperlink{classEnvironment}{Environment} $\ast$env)
+\begin{DoxyCompactList}\small\item\em Method used to update \hyperlink{classSpecies}{Species} density and interactions at each timestep. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class containing a single method, used to control transition from one step to the next, and update Species/\+Environemnt attributes. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classRKEvoNextGen_a129cfd567dc8cacd95ca684b1378a43e}\label{classRKEvoNextGen_a129cfd567dc8cacd95ca684b1378a43e}} 
+\index{R\+K\+Evo\+Next\+Gen@{R\+K\+Evo\+Next\+Gen}!get\+Next\+Gen@{get\+Next\+Gen}}
+\index{get\+Next\+Gen@{get\+Next\+Gen}!R\+K\+Evo\+Next\+Gen@{R\+K\+Evo\+Next\+Gen}}
+\subsubsection{\texorpdfstring{get\+Next\+Gen()}{getNextGen()}}
+{\footnotesize\ttfamily void R\+K\+Evo\+Next\+Gen\+::get\+Next\+Gen (\begin{DoxyParamCaption}\item[{int}]{step\+Num,  }\item[{std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \hyperlink{classSpecies}{Species} $>$$>$ $\ast$}]{species\+List,  }\item[{\hyperlink{classEnvironment}{Environment} $\ast$}]{env }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Method used to update \hyperlink{classSpecies}{Species} density and interactions at each timestep. 
+
+This method works much in the same way as that of \hyperlink{classStdNextGen}{Std\+Next\+Gen}, except that after calculating cahnge in \hyperlink{classSpecies}{Species} density for all species (and moving dead species), it calls spec.\+get\+Evo() on each \hyperlink{classSpecies}{Species} where {\ttfamily step\+Numspec.\+evo\+Rate == 0}
+
+
+\begin{DoxyParams}{Parameters}
+{\em step\+Num} & Values of the current step \\
+\hline
+{\em species\+List} & List containing all \hyperlink{classSpecies}{Species} of the environment \\
+\hline
+{\em env} & Pointer to current environment \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classNextGen_aa70da77e0ac03da1bd5414c5e3fd70c0}{Next\+Gen}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{RKEvoNextGen_8hpp}{R\+K\+Evo\+Next\+Gen.\+hpp}\item 
+R\+K\+Evo\+Next\+Gen.\+cpp\end{DoxyCompactItemize}

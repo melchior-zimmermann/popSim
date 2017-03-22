@@ -5,7 +5,7 @@
 %%For: 
 %Magnification: 1.00
 %%Orientation: Portrait
-%%BoundingBox: 0 0 500 769.230769
+%%BoundingBox: 0 0 500 1278.195489
 %%Pages: 0
 %%BeginSetup
 %%EndSetup
@@ -19,12 +19,12 @@
 /marginwidth 10 def
 /distx 20 def
 /disty 40 def
-/boundaspect 0.650000 def  % aspect ratio of the BoundingBox (width/height)
+/boundaspect 0.391176 def  % aspect ratio of the BoundingBox (width/height)
 /boundx 500 def
 /boundy boundx boundaspect div def
 /xspacing 0 def
 /yspacing 0 def
-/rows 9 def
+/rows 17 def
 /cols 2 def
 /scalefactor 0 def
 /boxfont /Times-Roman findfont fontheight scalefont def
@@ -180,6 +180,14 @@ boxfont setfont
 (EcoNextGen) cw
 (EvoMultiNextGen) cw
 (EvoNextGen) cw
+(RKE2MultiNextGen) cw
+(RKE2NextGen) cw
+(RKEcoMultiNextGen) cw
+(RKEcoNextGen) cw
+(RKEvoMultiNextGen) cw
+(RKEvoNextGen) cw
+(RKStdMultiNextGen) cw
+(RKStdNextGen) cw
 (StdMultiNextGen) cw
 (StdNextGen) cw
 /boxwidth boxwidth marginwidth 2 mul add def
@@ -193,20 +201,44 @@ boundx scalefactor div boundy scalefactor div scale
 
 % ----- classes -----
 
- (NextGen) 0.000000 8.000000 box
- (E2MultiNextGen) 1.000000 7.000000 box
- (E2NextGen) 1.000000 6.000000 box
- (EcoMultiNextGen) 1.000000 5.000000 box
- (EcoNextGen) 1.000000 4.000000 box
- (EvoMultiNextGen) 1.000000 3.000000 box
- (EvoNextGen) 1.000000 2.000000 box
+ (NextGen) 0.000000 16.000000 box
+ (E2MultiNextGen) 1.000000 15.000000 box
+ (E2NextGen) 1.000000 14.000000 box
+ (EcoMultiNextGen) 1.000000 13.000000 box
+ (EcoNextGen) 1.000000 12.000000 box
+ (EvoMultiNextGen) 1.000000 11.000000 box
+ (EvoNextGen) 1.000000 10.000000 box
+ (RKE2MultiNextGen) 1.000000 9.000000 box
+ (RKE2NextGen) 1.000000 8.000000 box
+ (RKEcoMultiNextGen) 1.000000 7.000000 box
+ (RKEcoNextGen) 1.000000 6.000000 box
+ (RKEvoMultiNextGen) 1.000000 5.000000 box
+ (RKEvoNextGen) 1.000000 4.000000 box
+ (RKStdMultiNextGen) 1.000000 3.000000 box
+ (RKStdNextGen) 1.000000 2.000000 box
  (StdMultiNextGen) 1.000000 1.000000 box
  (StdNextGen) 1.000000 0.000000 box
 
 % ----- relations -----
 
 solid
-1 0.000000 7.250000 out
+1 0.000000 15.250000 out
+solid
+0 0.000000 15.500000 hedge
+solid
+0 0.000000 14.500000 hedge
+solid
+0 0.000000 13.500000 hedge
+solid
+0 0.000000 12.500000 hedge
+solid
+0 0.000000 11.500000 hedge
+solid
+0 0.000000 10.500000 hedge
+solid
+0 0.000000 9.500000 hedge
+solid
+0 0.000000 8.500000 hedge
 solid
 0 0.000000 7.500000 hedge
 solid
@@ -224,4 +256,4 @@ solid
 solid
 0 0.000000 0.500000 hedge
 solid
-0.000000 8.000000 0.500000 vedge
+0.000000 16.000000 0.500000 vedge

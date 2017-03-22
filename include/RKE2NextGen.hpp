@@ -7,7 +7,7 @@ class Environment;
 class Species;
 
 /**
- * @file E2NextGen.hpp
+ * @file RKE2NextGen.hpp
  * @author Melchior Zimmermann
  * @date 24 Dec 2016
  * @brief File containing the definition of the implementation of the NextGen class using rk4 when evolution is on and environmental constant is taken into account

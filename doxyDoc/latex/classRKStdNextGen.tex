@@ -1,0 +1,59 @@
+\hypertarget{classRKStdNextGen}{}\section{R\+K\+Std\+Next\+Gen Class Reference}
+\label{classRKStdNextGen}\index{R\+K\+Std\+Next\+Gen@{R\+K\+Std\+Next\+Gen}}
+
+
+Class containing a single method, used to control transition from one step to the next, and update Species/\+Environemnt attributes.  
+
+
+
+
+{\ttfamily \#include $<$R\+K\+Std\+Next\+Gen.\+hpp$>$}
+
+Inheritance diagram for R\+K\+Std\+Next\+Gen\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classRKStdNextGen}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classRKStdNextGen_a6820716e3ffae252ab85591dc19ce337}{get\+Next\+Gen} (int step\+Num, std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \hyperlink{classSpecies}{Species} $>$$>$ $\ast$species\+List, \hyperlink{classEnvironment}{Environment} $\ast$env)
+\begin{DoxyCompactList}\small\item\em Method used to update \hyperlink{classSpecies}{Species} density at each timestep. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class containing a single method, used to control transition from one step to the next, and update Species/\+Environemnt attributes. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classRKStdNextGen_a6820716e3ffae252ab85591dc19ce337}\label{classRKStdNextGen_a6820716e3ffae252ab85591dc19ce337}} 
+\index{R\+K\+Std\+Next\+Gen@{R\+K\+Std\+Next\+Gen}!get\+Next\+Gen@{get\+Next\+Gen}}
+\index{get\+Next\+Gen@{get\+Next\+Gen}!R\+K\+Std\+Next\+Gen@{R\+K\+Std\+Next\+Gen}}
+\subsubsection{\texorpdfstring{get\+Next\+Gen()}{getNextGen()}}
+{\footnotesize\ttfamily void R\+K\+Std\+Next\+Gen\+::get\+Next\+Gen (\begin{DoxyParamCaption}\item[{int}]{step\+Num,  }\item[{std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \hyperlink{classSpecies}{Species} $>$$>$ $\ast$}]{species\+List,  }\item[{\hyperlink{classEnvironment}{Environment} $\ast$}]{env }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Method used to update \hyperlink{classSpecies}{Species} density at each timestep. 
+
+This method first calculates the change in species density for each species, then updates densities for each species. \hyperlink{classSpecies}{Species} whose density is $<$ Envionrment.\+death\+Threshold will have their density set to 0, and be moved from Species\+List to dead\+Species. Used for standard simulation with and without evolution.
+
+
+\begin{DoxyParams}{Parameters}
+{\em step\+Num} & Values of the current step \\
+\hline
+{\em species\+List} & List containing all \hyperlink{classSpecies}{Species} of the environment \\
+\hline
+{\em env} & Pointer to current environment \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classNextGen_aa70da77e0ac03da1bd5414c5e3fd70c0}{Next\+Gen}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{RKStdNextGen_8hpp}{R\+K\+Std\+Next\+Gen.\+hpp}\item 
+R\+K\+Std\+Next\+Gen.\+cpp\end{DoxyCompactItemize}

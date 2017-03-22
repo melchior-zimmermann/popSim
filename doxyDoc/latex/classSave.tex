@@ -12,10 +12,10 @@ Class containing methods responsible for saving any and all aspects of the simul
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classSave_af60832ca49a38a2569cc78182a2fe8e8}{}\label{classSave_af60832ca49a38a2569cc78182a2fe8e8} 
+\mbox{\Hypertarget{classSave_af60832ca49a38a2569cc78182a2fe8e8}\label{classSave_af60832ca49a38a2569cc78182a2fe8e8}} 
 {\bfseries Save} (bool \+\_\+evo, bool \+\_\+eco, bool \+\_\+multi)
 \item 
-\hypertarget{classSave_aa59686b2d793182bb2f2d5997f4f5927}{}\label{classSave_aa59686b2d793182bb2f2d5997f4f5927} 
+\mbox{\Hypertarget{classSave_aa59686b2d793182bb2f2d5997f4f5927}\label{classSave_aa59686b2d793182bb2f2d5997f4f5927}} 
 void \hyperlink{classSave_aa59686b2d793182bb2f2d5997f4f5927}{save\+Header} (int run\+Number, \hyperlink{classEnvironment}{Environment} $\ast$env)
 \begin{DoxyCompactList}\small\item\em Saves a header of the simulation, indicating which kind of simulation it is, as well as containing information on the \hyperlink{classEnvironment}{Environment}. \end{DoxyCompactList}\item 
 void \hyperlink{classSave_ae3cf638e17bf975565ccdd5188a5c156}{save\+All} (int step, vector$<$ unique\+\_\+ptr$<$ \hyperlink{classSpecies}{Species} $>$$>$ $\ast$species\+List, \hyperlink{classEnvironment}{Environment} $\ast$env)
@@ -50,7 +50,7 @@ void \hyperlink{classSave_a37a9c18eca58602daae9a9e48345c3ae}{save\+ID} (vector$<
 \begin{DoxyCompactList}\small\item\em Saves ID of all (live) species (mainly used to re\+Run simulations) \end{DoxyCompactList}\item 
 void \hyperlink{classSave_ab9cd9af13ec657f3189974d2d824d5cc}{save\+Final\+Dens} (int step, vector$<$ unique\+\_\+ptr$<$ \hyperlink{classSpecies}{Species} $>$$>$ $\ast$species\+List, vector$<$ unique\+\_\+ptr$<$ \hyperlink{classSpecies}{Species} $>$$>$ $\ast$dead\+Species, \hyperlink{classEnvironment}{Environment} $\ast$env)
 \begin{DoxyCompactList}\small\item\em Saves final densities of all species. \end{DoxyCompactList}\item 
-\hypertarget{classSave_a700a042e8a6029761f999eb3d373070d}{}\label{classSave_a700a042e8a6029761f999eb3d373070d} 
+\mbox{\Hypertarget{classSave_a700a042e8a6029761f999eb3d373070d}\label{classSave_a700a042e8a6029761f999eb3d373070d}} 
 bool {\bfseries get\+Eco} ()
 \end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
@@ -82,7 +82,7 @@ Saves are done directly to disk, and are not buffered in memory. This means high
 
 
 \subsection{Member Function Documentation}
-\hypertarget{classSave_a479ae37320e8aaaa98a5636071fb9c59}{}\label{classSave_a479ae37320e8aaaa98a5636071fb9c59} 
+\mbox{\Hypertarget{classSave_a479ae37320e8aaaa98a5636071fb9c59}\label{classSave_a479ae37320e8aaaa98a5636071fb9c59}} 
 \index{Save@{Save}!complete\+Save@{complete\+Save}}
 \index{complete\+Save@{complete\+Save}!Save@{Save}}
 \subsubsection{\texorpdfstring{complete\+Save()}{completeSave()}}
@@ -107,7 +107,7 @@ Complete saves are mainly used to re\+Run a simulation, perhaps after changing s
 {\em se} & Parameter indicating wheter the save happens at the start or the end of a simulation (to determine file name) \\
 \hline
 \end{DoxyParams}
-\hypertarget{classSave_ae3cf638e17bf975565ccdd5188a5c156}{}\label{classSave_ae3cf638e17bf975565ccdd5188a5c156} 
+\mbox{\Hypertarget{classSave_ae3cf638e17bf975565ccdd5188a5c156}\label{classSave_ae3cf638e17bf975565ccdd5188a5c156}} 
 \index{Save@{Save}!save\+All@{save\+All}}
 \index{save\+All@{save\+All}!Save@{Save}}
 \subsubsection{\texorpdfstring{save\+All()}{saveAll()}}
@@ -128,7 +128,7 @@ This method calls all other pertinent \hyperlink{classSave}{Save} methods to mak
 {\em env} & Pointer to the \hyperlink{classEnvironment}{Environment} \\
 \hline
 \end{DoxyParams}
-\hypertarget{classSave_affe306842b77c957b7d83b733fce3bb5}{}\label{classSave_affe306842b77c957b7d83b733fce3bb5} 
+\mbox{\Hypertarget{classSave_affe306842b77c957b7d83b733fce3bb5}\label{classSave_affe306842b77c957b7d83b733fce3bb5}} 
 \index{Save@{Save}!save\+Alphas@{save\+Alphas}}
 \index{save\+Alphas@{save\+Alphas}!Save@{Save}}
 \subsubsection{\texorpdfstring{save\+Alphas()}{saveAlphas()}}
@@ -145,7 +145,7 @@ Saves alphas of all species.
 {\em env} & Pointer to the \hyperlink{classEnvironment}{Environment} \\
 \hline
 \end{DoxyParams}
-\hypertarget{classSave_ab0b8e1f18d639016fa28f546c60de692}{}\label{classSave_ab0b8e1f18d639016fa28f546c60de692} 
+\mbox{\Hypertarget{classSave_ab0b8e1f18d639016fa28f546c60de692}\label{classSave_ab0b8e1f18d639016fa28f546c60de692}} 
 \index{Save@{Save}!save\+Betas@{save\+Betas}}
 \index{save\+Betas@{save\+Betas}!Save@{Save}}
 \subsubsection{\texorpdfstring{save\+Betas()}{saveBetas()}}
@@ -162,7 +162,7 @@ Saves betas of all species.
 {\em env} & Pointer to the \hyperlink{classEnvironment}{Environment} \\
 \hline
 \end{DoxyParams}
-\hypertarget{classSave_a76a537b2f22ae64e63ffaf00e625b955}{}\label{classSave_a76a537b2f22ae64e63ffaf00e625b955} 
+\mbox{\Hypertarget{classSave_a76a537b2f22ae64e63ffaf00e625b955}\label{classSave_a76a537b2f22ae64e63ffaf00e625b955}} 
 \index{Save@{Save}!save\+Cc@{save\+Cc}}
 \index{save\+Cc@{save\+Cc}!Save@{Save}}
 \subsubsection{\texorpdfstring{save\+Cc()}{saveCc()}}
@@ -181,7 +181,7 @@ Saves cc (carrying capacity) of all species.
 {\em env} & Pointer to the \hyperlink{classEnvironment}{Environment} \\
 \hline
 \end{DoxyParams}
-\hypertarget{classSave_a2e80fc292e7fcea2b327bc7016f34331}{}\label{classSave_a2e80fc292e7fcea2b327bc7016f34331} 
+\mbox{\Hypertarget{classSave_a2e80fc292e7fcea2b327bc7016f34331}\label{classSave_a2e80fc292e7fcea2b327bc7016f34331}} 
 \index{Save@{Save}!save\+Dens@{save\+Dens}}
 \index{save\+Dens@{save\+Dens}!Save@{Save}}
 \subsubsection{\texorpdfstring{save\+Dens()}{saveDens()}}
@@ -200,7 +200,7 @@ Saves densities of all species.
 {\em env} & Pointer to the \hyperlink{classEnvironment}{Environment} \\
 \hline
 \end{DoxyParams}
-\hypertarget{classSave_ae7ebfd1c8a546b95e6e99631686dbe41}{}\label{classSave_ae7ebfd1c8a546b95e6e99631686dbe41} 
+\mbox{\Hypertarget{classSave_ae7ebfd1c8a546b95e6e99631686dbe41}\label{classSave_ae7ebfd1c8a546b95e6e99631686dbe41}} 
 \index{Save@{Save}!save\+DtoI@{save\+DtoI}}
 \index{save\+DtoI@{save\+DtoI}!Save@{Save}}
 \subsubsection{\texorpdfstring{save\+Dto\+I()}{saveDtoI()}}
@@ -220,7 +220,7 @@ Saves the density to individuals of all species.
 \begin{DoxyNote}{Note}
 This method is only called when evolution occurs 
 \end{DoxyNote}
-\hypertarget{classSave_a32add352b829b078643bdd1172c18235}{}\label{classSave_a32add352b829b078643bdd1172c18235} 
+\mbox{\Hypertarget{classSave_a32add352b829b078643bdd1172c18235}\label{classSave_a32add352b829b078643bdd1172c18235}} 
 \index{Save@{Save}!save\+E\+E\+Params@{save\+E\+E\+Params}}
 \index{save\+E\+E\+Params@{save\+E\+E\+Params}!Save@{Save}}
 \subsubsection{\texorpdfstring{save\+E\+E\+Params()}{saveEEParams()}}
@@ -240,7 +240,7 @@ Saves evolution parameters in regards to optimum of all species.
 \begin{DoxyNote}{Note}
 This method is only called when the environmental constant influences \hyperlink{classSpecies}{Species} density change and evolution occurs 
 \end{DoxyNote}
-\hypertarget{classSave_a793a85379317ce9e5a08f7155a990fa8}{}\label{classSave_a793a85379317ce9e5a08f7155a990fa8} 
+\mbox{\Hypertarget{classSave_a793a85379317ce9e5a08f7155a990fa8}\label{classSave_a793a85379317ce9e5a08f7155a990fa8}} 
 \index{Save@{Save}!save\+Evo\+Params@{save\+Evo\+Params}}
 \index{save\+Evo\+Params@{save\+Evo\+Params}!Save@{Save}}
 \subsubsection{\texorpdfstring{save\+Evo\+Params()}{saveEvoParams()}}
@@ -260,7 +260,7 @@ Saves evolution parameters of all species.
 \begin{DoxyNote}{Note}
 This method is only called when evolution occurs 
 \end{DoxyNote}
-\hypertarget{classSave_ab9cd9af13ec657f3189974d2d824d5cc}{}\label{classSave_ab9cd9af13ec657f3189974d2d824d5cc} 
+\mbox{\Hypertarget{classSave_ab9cd9af13ec657f3189974d2d824d5cc}\label{classSave_ab9cd9af13ec657f3189974d2d824d5cc}} 
 \index{Save@{Save}!save\+Final\+Dens@{save\+Final\+Dens}}
 \index{save\+Final\+Dens@{save\+Final\+Dens}!Save@{Save}}
 \subsubsection{\texorpdfstring{save\+Final\+Dens()}{saveFinalDens()}}
@@ -281,7 +281,7 @@ This method is slighlty different from \hyperlink{classSave_a2e80fc292e7fcea2b32
 {\em env} & Pointer to the \hyperlink{classEnvironment}{Environment} \\
 \hline
 \end{DoxyParams}
-\hypertarget{classSave_a37a9c18eca58602daae9a9e48345c3ae}{}\label{classSave_a37a9c18eca58602daae9a9e48345c3ae} 
+\mbox{\Hypertarget{classSave_a37a9c18eca58602daae9a9e48345c3ae}\label{classSave_a37a9c18eca58602daae9a9e48345c3ae}} 
 \index{Save@{Save}!save\+ID@{save\+ID}}
 \index{save\+ID@{save\+ID}!Save@{Save}}
 \subsubsection{\texorpdfstring{save\+I\+D()}{saveID()}}
@@ -298,7 +298,7 @@ Saves ID of all (live) species (mainly used to re\+Run simulations)
 {\em env} & Pointer to the \hyperlink{classEnvironment}{Environment} \\
 \hline
 \end{DoxyParams}
-\hypertarget{classSave_af446df59d19910cd6042680d419b3948}{}\label{classSave_af446df59d19910cd6042680d419b3948} 
+\mbox{\Hypertarget{classSave_af446df59d19910cd6042680d419b3948}\label{classSave_af446df59d19910cd6042680d419b3948}} 
 \index{Save@{Save}!save\+Inter@{save\+Inter}}
 \index{save\+Inter@{save\+Inter}!Save@{Save}}
 \subsubsection{\texorpdfstring{save\+Inter()}{saveInter()}}
@@ -317,7 +317,7 @@ Saves interaction values of all species.
 {\em env} & Pointer to the \hyperlink{classEnvironment}{Environment} \\
 \hline
 \end{DoxyParams}
-\hypertarget{classSave_ad3f864b87a3e5d61b02c251a24a1e030}{}\label{classSave_ad3f864b87a3e5d61b02c251a24a1e030} 
+\mbox{\Hypertarget{classSave_ad3f864b87a3e5d61b02c251a24a1e030}\label{classSave_ad3f864b87a3e5d61b02c251a24a1e030}} 
 \index{Save@{Save}!save\+Last\+Turn\+Change@{save\+Last\+Turn\+Change}}
 \index{save\+Last\+Turn\+Change@{save\+Last\+Turn\+Change}!Save@{Save}}
 \subsubsection{\texorpdfstring{save\+Last\+Turn\+Change()}{saveLastTurnChange()}}
@@ -332,7 +332,7 @@ Saves the total amount of change in density (sum of absolute values) that happen
 {\em env} & Pointer to the \hyperlink{classEnvironment}{Environment} \\
 \hline
 \end{DoxyParams}
-\hypertarget{classSave_a1cea6473b4295efeb65f06895a24f5fb}{}\label{classSave_a1cea6473b4295efeb65f06895a24f5fb} 
+\mbox{\Hypertarget{classSave_a1cea6473b4295efeb65f06895a24f5fb}\label{classSave_a1cea6473b4295efeb65f06895a24f5fb}} 
 \index{Save@{Save}!save\+Opts@{save\+Opts}}
 \index{save\+Opts@{save\+Opts}!Save@{Save}}
 \subsubsection{\texorpdfstring{save\+Opts()}{saveOpts()}}
@@ -354,7 +354,7 @@ Saves optimums of all species.
 \begin{DoxyNote}{Note}
 This method is only called when the environmental constant influences \hyperlink{classSpecies}{Species} density change 
 \end{DoxyNote}
-\hypertarget{classSave_a92d188995ee68892b7631ab67c9b5a18}{}\label{classSave_a92d188995ee68892b7631ab67c9b5a18} 
+\mbox{\Hypertarget{classSave_a92d188995ee68892b7631ab67c9b5a18}\label{classSave_a92d188995ee68892b7631ab67c9b5a18}} 
 \index{Save@{Save}!save\+Perturbations@{save\+Perturbations}}
 \index{save\+Perturbations@{save\+Perturbations}!Save@{Save}}
 \subsubsection{\texorpdfstring{save\+Perturbations()}{savePerturbations()}}
@@ -372,7 +372,7 @@ Saves all perturbations of the \hyperlink{classEnvironment}{Environment} (when t
 \begin{DoxyNote}{Note}
 This method is only called when the environmental constant influences \hyperlink{classSpecies}{Species} density change 
 \end{DoxyNote}
-\hypertarget{classSave_ad66abd97a2e0b7d9dd61cb412cefd01e}{}\label{classSave_ad66abd97a2e0b7d9dd61cb412cefd01e} 
+\mbox{\Hypertarget{classSave_ad66abd97a2e0b7d9dd61cb412cefd01e}\label{classSave_ad66abd97a2e0b7d9dd61cb412cefd01e}} 
 \index{Save@{Save}!save\+Routes@{save\+Routes}}
 \index{save\+Routes@{save\+Routes}!Save@{Save}}
 \subsubsection{\texorpdfstring{save\+Routes()}{saveRoutes()}}
@@ -396,20 +396,20 @@ This method is only called when there are multiple environments
 \end{DoxyNote}
 
 
-\subsection{Member Data Documentation}
-\hypertarget{classSave_a1305b08b2fd9b8fd4add77e3effb594f}{}\label{classSave_a1305b08b2fd9b8fd4add77e3effb594f} 
+\subsection{Field Documentation}
+\mbox{\Hypertarget{classSave_a1305b08b2fd9b8fd4add77e3effb594f}\label{classSave_a1305b08b2fd9b8fd4add77e3effb594f}} 
 \index{Save@{Save}!eco@{eco}}
 \index{eco@{eco}!Save@{Save}}
 \subsubsection{\texorpdfstring{eco}{eco}}
 {\footnotesize\ttfamily bool Save\+::eco\hspace{0.3cm}{\ttfamily [protected]}}
 
-Used to determine wether to save parameters relating to environmental constant \hypertarget{classSave_abaa66610fa9870f1e400a58b8732a996}{}\label{classSave_abaa66610fa9870f1e400a58b8732a996} 
+Used to determine wether to save parameters relating to environmental constant \mbox{\Hypertarget{classSave_abaa66610fa9870f1e400a58b8732a996}\label{classSave_abaa66610fa9870f1e400a58b8732a996}} 
 \index{Save@{Save}!evo@{evo}}
 \index{evo@{evo}!Save@{Save}}
 \subsubsection{\texorpdfstring{evo}{evo}}
 {\footnotesize\ttfamily bool Save\+::evo\hspace{0.3cm}{\ttfamily [protected]}}
 
-Used to determine wether to save parameters relating to evolution \hypertarget{classSave_ad1d9db0d8c003efe9e29c497091771e6}{}\label{classSave_ad1d9db0d8c003efe9e29c497091771e6} 
+Used to determine wether to save parameters relating to evolution \mbox{\Hypertarget{classSave_ad1d9db0d8c003efe9e29c497091771e6}\label{classSave_ad1d9db0d8c003efe9e29c497091771e6}} 
 \index{Save@{Save}!multi@{multi}}
 \index{multi@{multi}!Save@{Save}}
 \subsubsection{\texorpdfstring{multi}{multi}}

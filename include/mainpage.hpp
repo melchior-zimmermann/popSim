@@ -8,7 +8,7 @@
  * which represents abiotic factors of the environent.
  * popSim comes with no warranty whatsoever, and I recommend that you do some simple tests with it
  * before using it for any serious work, to make sure it suits your needs.
- * popSim is open source, and is published under a (insert licence here) licence.
+ * popSim is open source, and is published under a GPL licence.
  * 
  * popSim was developped on Arch Linux (www.archlinux.org)
  *
@@ -17,8 +17,8 @@
  * This documentation describes most methods used in popSim. Getters and setters, as well as constructors, 
  * are not commented in detail, and neither are wrapper functions for library methods. Instead, this documentation
  * focues more on the role of each method, and the logic underpinning the inner workings of the pogram.
- * If you are interested by the details of implementations, refer to the source code you can find on (link to github here).
- * If you have questions or remarks, please send them to melchior.zimmermann \<at\> etu.unige.ch, or post them on the github
+ * If you are interested by the details of implementations, refer to the source code you can find at https://github.com/melchior-zimmermann/popSim.
+ * If you have questions or remarks, please send them to popsimproject \<at\> gmail.com, or post them on the github
  * comment section/forum.
  *
  *
