@@ -71,7 +71,7 @@ void RKEvoMultiNextGen::getNextGen(int stepNum, vector<unique_ptr<Species>>* spe
 	vector<double>* change = env->getChange();
 
 	for (i = 0; i<numSpecs; i++) {
-		(*speciesList)[i]->setDensity(currentDensities[i] + delta*(derivatives1[i] + 2*(derivatives2[i] + derivatives3[i]) + derivatives4[i]));
+		(*speciesList)[i]->setDensity(currentDensities[i] + delta*(derivatives1[i] + 2*(derivatives2[i] + derivatives3[i]) + derivatives4[i])/6);
 		(*change)[i] = currentDensities[i] - (*speciesList)[i]->getDensity();
 	}
 

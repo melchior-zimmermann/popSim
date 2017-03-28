@@ -25,12 +25,10 @@ vector<vector<double>> Environment::getMigrants(){
 
 
 	for(int i = 0; i<numSpecs; i++){
-		if(speciesList[i]->getDensity() == 0){
-			vector<double> v(numEnvs);
+		if(speciesList[i]->getDensity() <= 0){
 			for(int j = 0; j<numEnvs; j++){
-				v[j] = 0;
+				migrants[i][j] = 0;
 			}
-			migrants[i] = v;
 		}else{
 			migrants[i] = speciesList[i]->getMigration(numSelf, numEnvs);
 		}
@@ -51,7 +49,7 @@ void Environment::integrateMigrants(vector<vector<double>> migrants){
 			//cout<<"In second loop #"<<j<<endl;
 			//cout<<"totDensity is "<<totDensity<<endl;
 
-			if(totDensity != 0){
+			if(totDensity > 0){
 
 				for(int k = 0; k<numSpecs; k++){
 					//cout<<"Env is "<<allEnvs[i].getNumSelf()<<endl;
@@ -59,6 +57,9 @@ void Environment::integrateMigrants(vector<vector<double>> migrants){
 					double newInter = (speciesList[j]->getInteraction(k)*speciesList[j]->getDensity() + (*(*allEnvs)[i].getSpeciesList())[j]->getInteraction(k)*migrants[i][j])/totDensity;
 					
 					//cout<<"Before setInteraction\n";
+					if (newInter != newInter) {
+
+					}
 
 					speciesList[j]->setInteraction(k, newInter);
 

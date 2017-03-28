@@ -19,16 +19,18 @@ vector<double> Species::getMigration(int envNum, int numEnvs){
     //envNum is the ID of the environment the species is in, 
     //numEnvs is the total number of environments
 
-    vector<vector<double>> routes = migrationRoutes[envNum];
-
-    double effectiveCc = cc * exp(-(*envConst - optimum)*(*envConst - optimum));
-
-    double quotient = density/effectiveCc;           //used to calculate migration probability
-
     vector<double> migrants(numEnvs, 0);    //used to store the size of migrations (index is envNum)
-    if(density == 0){
+    if (density <= 0) {
         return migrants;
     }
+
+    vector<vector<double>> routes = migrationRoutes[envNum];
+
+    // double effectiveCc = cc * exp(-(*envConst - optimum)*(*envConst - optimum));
+    // cout<<effectiveCc<<endl;
+    // cout<<density<<endl;
+
+    double quotient = density/cc;           //used to calculate migration probability
 
     int i = 0;
 
@@ -45,6 +47,12 @@ vector<double> Species::getMigration(int envNum, int numEnvs){
 
     for (i = 0; i<numEnvs; i++){
         density -= migrants[i];
+        if (migrants[i] > density) {
+            cout<<"m>d !\n";
+            cout<<"d = "<<density<<endl;
+            cout<<"m = "<<migrants[i]<<endl;
+            exit(EXIT_FAILURE);
+        }
     }
 
     if(density<0){

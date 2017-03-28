@@ -232,6 +232,84 @@ void makeTemplate(string path){
 	saveSimParams(path, &params);
 }
 
+void printParams(simParams* params) {
+	if(params->rk){
+		cout<<"y"<<endl;
+	}
+	else {
+		cout<<"n"<<endl;
+	}
+	if(params->ws){
+		cout<<"y"<<endl;
+	}
+	else {
+		cout<<"n"<<endl;
+	}
+	cout<<params->wsBeta<<endl;;
+	cout<<params->K<<endl;
+	cout<<params->eco<<endl;
+	cout<<params->optRangeSpec[0]<<", ";
+	cout<<params->optRangeSpec[1]<<endl;
+	cout<<params->optRangeEnv[0]<<", ";
+	cout<<params->optRangeEnv[1]<<endl;
+	cout<<params->perturbationProb<<endl;
+	cout<<params->pertRange[0]<<", ";
+	cout<<params->pertRange[1]<<endl;
+	cout<<params->evo<<endl;
+	cout<<params->evoRangeRange[0]<<", ";
+	cout<<params->evoRangeRange[1]<<endl;
+	cout<<params->optEvoRange[0]<<", ";
+	cout<<params->optEvoRange[1]<<endl;
+	cout<<params->genTimeRange[0]<<", ";
+	cout<<params->genTimeRange[1]<<endl;
+	cout<<params->evoResRange[0]<<", ";
+	cout<<params->evoResRange[1]<<endl;
+	cout<<params->interSaveDiv<<endl;
+	cout<<params->numSpecs<<endl;
+	cout<<params->multi<<endl;
+	cout<<params->numEnvs<<endl;
+
+	for(int i = 0; i<params->numEnvs; i++){
+		cout<<params->specsPerEnv[i];
+		if (i != (params->numEnvs - 1)) {
+			cout<<", ";
+		}
+	}
+	cout<<endl;
+
+	cout<<params->migProbRange[0]<<", ";
+	cout<<params->migProbRange[1]<<endl;
+	cout<<params->migSizeRange[0]<<", ";
+	cout<<params->migSizeRange[1]<<endl;
+
+
+	cout<<params->interRange[0]<<", ";
+	cout<<params->interRange[1]<<endl;
+	cout<<params->cutoffThreshold<<endl;
+	cout<<params->densRange[0]<<", ";
+	cout<<params->densRange[1]<<endl;
+	cout<<params->ccRange[0]<<", ";
+	cout<<params->ccRange[1]<<endl;
+	cout<<params->alphaRange[0]<<", ";
+	cout<<params->alphaRange[1]<<endl;
+	cout<<params->betaRange[0]<<", ";
+	cout<<params->betaRange[1]<<endl;
+	cout<<params->numSteps<<endl;
+	cout<<params->delta<<endl;
+	cout<<params->deathThreshold<<endl;
+	cout<<params->saveDiv<<endl;
+	if(params->completeStart){
+		cout<<"y\n";
+	}else{
+		cout<<"n\n";
+	}
+	if(params->completeEnd){
+		cout<<"y\n";
+	}else{
+		cout<<"n\n";
+	}
+}
+
 int saveSimParams(string savePath, simParams* params){
 	string fileName;
 	if(!savePath.empty()){
@@ -382,8 +460,6 @@ int loadSimParams(string savePath, simParams* params){
 		cout<<strerror(errno)<<endl;
 		return -1;
 	}
-	cout<<"Opened file:\t"<<fileName<<endl;
-
 	string line;
 	// while (getline(saveFile, line) && saveFile.good()) {
 	// 	cout<<line<<endl;
@@ -647,7 +723,7 @@ int loadSimParams(string savePath, simParams* params){
 
 	saveFile.close();
 
-
+	//printParams(params);
 
 	return 0;
 

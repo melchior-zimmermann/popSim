@@ -8,8 +8,11 @@ compiler: g++ (if you are trying to compile this on macOS, change the compiler t
 
 Compiler flags: -std=c++14 -Wall -Wextra -g
 
+Changes:
+    - Adaption to current environment does not play a role in migration anymore (too many 'nan's)
+
 Known issues:
 
     - Folders are not created recursively
-    - Fragile parsing
+    - somewhat fragile parsing
     

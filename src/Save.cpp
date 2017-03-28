@@ -5,6 +5,7 @@
 #include <errno.h>
 #include <string.h>
 #include <cmath>
+
 #include "Environment.hpp"
 #include "Species.hpp"
 #include "Save.hpp"
@@ -126,6 +127,7 @@ void Save::saveFinalDens(int step, vector<unique_ptr<Species>>* speciesList, vec
 	saveFile<<"Densities at step "+to_string(step)+":\n";
 	for(int i = 0; i<numSpecs; i++){
 		saveFile<<"Species "<<(*speciesList)[i]->getNumSelf()<<": "<<(*speciesList)[i]->getDensity()<<endl;
+		if ((*speciesList)[i]->getDensity() != (*speciesList)[i]->getDensity()) {}
 	}
 	for(int i = 0; i<numDead; i++){
 		saveFile<<"Species "<<(*deadSpecies)[i]->getNumSelf()<<": "<<(*deadSpecies)[i]->getDensity()<<endl;

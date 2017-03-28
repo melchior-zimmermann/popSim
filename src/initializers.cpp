@@ -107,6 +107,7 @@ int initSpecs(vector<unique_ptr<Species>>* speciesList, simParams& params, doubl
 
 		}else{
 			change = make_unique<StdChange>();
+			// cout<<"Using stdChange\n";
 		}
 
 		unique_ptr<Evo> evo;
@@ -239,6 +240,7 @@ Environment getEnv(string savePath, simParams params, int numSelf, vector<Enviro
 
 		}else{
 			//save = make_unique<StdSave>();
+			// cout<<"Using stdNextGen\n";
 			nextGen = make_unique<StdNextGen>();
 		}
 	}

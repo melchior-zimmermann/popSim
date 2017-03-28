@@ -21,9 +21,7 @@ double EcoChange::getChange(Species* spec, double delta, vector<unique_ptr<Speci
 
 
 	if(change > 0 ){
-		change *= exp(-((*spec->getEnvConst())-spec->getOptimum())*((*spec->getEnvConst())-spec->getOptimum()));
-        //change *= exp(-(spec->getOptimum())*(spec->getOptimum()));
-		
+		change *= exp(-((*spec->getEnvConst())-spec->getOptimum())*((*spec->getEnvConst())-spec->getOptimum()));		
 	}
 
     return change;

@@ -2,12 +2,15 @@
 #include <vector>
 #include <memory>
 #include <iostream>
-#include "StdChange.hpp"
-#include "Species.hpp"
+#include <cmath>
 
 using std::vector;
 using std::unique_ptr;
+using std::cout;
+using std::endl;
 
+#include "StdChange.hpp"
+#include "Species.hpp"
 
 double StdChange::getChange(Species* spec, double delta, vector<unique_ptr<Species>>* speciesList){
 	//gets the change in density after a given timestep, uses the list of all species (for their densities)
@@ -21,6 +24,11 @@ double StdChange::getChange(Species* spec, double delta, vector<unique_ptr<Speci
     }
 
     double change = delta*spec->getDensity()*(spec->getAlpha()*(1 - (spec->getDensity()/spec->getCc())*(spec->getDensity()/spec->getCc())) + spec->getBeta() + sumInteractions);
+
+    if (std::isnan(change)) {
+    	cout<<"Got nan for species "<<spec->getNumSelf()<<endl;
+    	exit(EXIT_FAILURE);
+    }
 
     return change;
 

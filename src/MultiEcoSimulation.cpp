@@ -12,7 +12,7 @@ int MultiEcoSimulation::runSim(int runNumber){
 	//cout<<"multiEco Start\n";
 	//cout<<"Size of vector 'envs' is "<<envs.size()<<endl;
 
-		int j = 0;
+	int j = 0;
 
 	vector< vector< vector <double> > > migrants(numEnvs, vector< vector<double> >(numEnvs, vector<double>(numSpecs)));
 	//cout<<"Intiated migrant vector.\n";
@@ -49,7 +49,6 @@ int MultiEcoSimulation::runSim(int runNumber){
 		}
 
 		//cout<<"multi Got next gen\n";
-
 		for(j = 0; j<numEnvs; j++){
 			tempMigrants = envs[j].getMigrants();
 			//cout<<"Got Temp\n";
@@ -61,7 +60,7 @@ int MultiEcoSimulation::runSim(int runNumber){
 					migrants[l][j][k] = tempMigrants[k][l];
 				}
 			}
-		}
+		}	
 
 /*
 		for(int i = 0; i<3; i++ ){
@@ -93,8 +92,6 @@ int MultiEcoSimulation::runSim(int runNumber){
 
 //			cout<<"multi after Dens save\n";
 		}
-
-
 		//cout<<"multi At step "<<i<<endl;
 
 
