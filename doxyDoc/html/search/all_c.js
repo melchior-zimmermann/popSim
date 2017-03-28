@@ -1,10 +1,12 @@
 var searchData=
 [
-  ['oldspec',['oldSpec',['../structsimValues.html#a409841bd1a747a200c99c86bfd11a78a',1,'simValues']]],
-  ['optevorange',['optEvoRange',['../structsimParams.html#a2822e99362ed71f123e812a8fd9ad443',1,'simParams']]],
-  ['optimum',['optimum',['../classI2.html#a5f022bb4d32b5ee96e117b72e17b262a',1,'I2::optimum()'],['../classIndividual.html#adc6dbb93690c48fbba745ce0fcf6d5b0',1,'Individual::optimum()'],['../classSpecies.html#a234d375e63c9be61d756b7e70d7d9397',1,'Species::optimum()']]],
-  ['optimums',['optimums',['../structsimValues.html#ab00d0541616bb1d309639954b90b3e1d',1,'simValues']]],
-  ['optrange',['optRange',['../structsimValues.html#a8b045e15d8493873f87bbfb99cc6c10d',1,'simValues::optRange()'],['../classSpecies.html#ab7103281892ef74944f3f10df5ecbe69',1,'Species::optRange()']]],
-  ['optrangeenv',['optRangeEnv',['../structsimParams.html#ab59d469330753aebd7ce7ab893a6eda4',1,'simParams']]],
-  ['optrangespec',['optRangeSpec',['../structsimParams.html#a169d5e6c66da8b477bb7e384fe4c90b8',1,'simParams']]]
+  ['nextgen',['NextGen',['../classNextGen.html',1,'NextGen'],['../classEnvironment.html#ad696c5a7be91ffc89586abb10281e181',1,'Environment::nextGen()']]],
+  ['nextgen_2ehpp',['NextGen.hpp',['../NextGen_8hpp.html',1,'']]],
+  ['noevo',['NoEvo',['../classNoEvo.html',1,'']]],
+  ['noevo_2ehpp',['NoEvo.hpp',['../NoEvo_8hpp.html',1,'']]],
+  ['numenvs',['numEnvs',['../classEnvironment.html#ab9b14bfdd2e25805a6e67463e948da4a',1,'Environment::numEnvs()'],['../structsimParams.html#a5d284deecb9cbd1b2680670822cae29a',1,'simParams::numEnvs()'],['../classMultiSimulation.html#ac49cc927d6f96d4fda4ff010abc5041a',1,'MultiSimulation::numEnvs()'],['../structsimValues.html#ae28b0e24d2b560548b1f4ba0eea035ee',1,'simValues::numEnvs()']]],
+  ['numself',['numSelf',['../classEnvironment.html#a2563f570023ff1e17f87549bcf2fab59',1,'Environment::numSelf()'],['../classSpecies.html#a11e7aac3c4a85723e8a9d00d00452508',1,'Species::numSelf()']]],
+  ['numspecs',['numSpecs',['../structsimParams.html#a83b3c9f8e5dee0b7b4e63a17dc2646bd',1,'simParams::numSpecs()'],['../classMultiSimulation.html#a383fa1e045cf0e1e7314708c89cb6312',1,'MultiSimulation::numSpecs()']]],
+  ['numsteps',['numSteps',['../structsimParams.html#a027234312109ab21e3f8dacda4039c9f',1,'simParams::numSteps()'],['../classSimulation.html#a999ce13c1a3d4dca2bf92e346d8b709f',1,'Simulation::numSteps()']]],
+  ['numtotal',['numTotal',['../classIndividual.html#a78e6327a339aa73f73d81e991b3fede2',1,'Individual::numTotal()'],['../classSpecies.html#af13ccb1fc01cff22d7a47201c1002fbc',1,'Species::numTotal()']]]
 ];

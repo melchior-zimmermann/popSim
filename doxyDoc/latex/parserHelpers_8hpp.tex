@@ -1,0 +1,57 @@
+\hypertarget{parserHelpers_8hpp}{}\section{parser\+Helpers.\+hpp File Reference}
+\label{parserHelpers_8hpp}\index{parser\+Helpers.\+hpp@{parser\+Helpers.\+hpp}}
+
+
+File containing helper functions used for parsing parameter files.  
+
+
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{parserHelpers_8hpp_a655a1ee50b6680130272a6dd8347df12}\label{parserHelpers_8hpp_a655a1ee50b6680130272a6dd8347df12}} 
+vector$<$ string $>$ {\bfseries split} (const string \&line, char delimiter)
+\item 
+\mbox{\Hypertarget{parserHelpers_8hpp_a37389e9ceb4e2e2933806b6e4137e359}\label{parserHelpers_8hpp_a37389e9ceb4e2e2933806b6e4137e359}} 
+string {\bfseries prune} (const string \&line, char delimiter)
+\item 
+\mbox{\Hypertarget{parserHelpers_8hpp_a9397f70b20af5782f761f6f6b2398005}\label{parserHelpers_8hpp_a9397f70b20af5782f761f6f6b2398005}} 
+bool {\bfseries find\+Name} (ifstream \&file, const string name, string \&line)
+\item 
+\mbox{\Hypertarget{parserHelpers_8hpp_a6eb33bd47f1e5e34957df3d25428527f}\label{parserHelpers_8hpp_a6eb33bd47f1e5e34957df3d25428527f}} 
+bool {\bfseries read\+Value} (const string \&line, double \&d)
+\item 
+\mbox{\Hypertarget{parserHelpers_8hpp_ad7890b5405d7e8de606bc37de5dbf1d0}\label{parserHelpers_8hpp_ad7890b5405d7e8de606bc37de5dbf1d0}} 
+bool {\bfseries read\+Value} (const string \&line, vector$<$ double $>$ \&d)
+\item 
+\mbox{\Hypertarget{parserHelpers_8hpp_af42b6d6b1f277dc61027f3f1ee1ba1b0}\label{parserHelpers_8hpp_af42b6d6b1f277dc61027f3f1ee1ba1b0}} 
+bool {\bfseries read\+Value} (const string \&line, int \&d)
+\item 
+\mbox{\Hypertarget{parserHelpers_8hpp_ae8e2b046e2f0085323e2e1436db73de7}\label{parserHelpers_8hpp_ae8e2b046e2f0085323e2e1436db73de7}} 
+bool {\bfseries read\+Value} (const string \&line, vector$<$ int $>$ \&d)
+\item 
+\mbox{\Hypertarget{parserHelpers_8hpp_a3ef5b9a8c2df98b49879926cccfc81c1}\label{parserHelpers_8hpp_a3ef5b9a8c2df98b49879926cccfc81c1}} 
+bool {\bfseries read\+Value} (const string \&line, char \&d)
+\item 
+\mbox{\Hypertarget{parserHelpers_8hpp_a34084eaf2c2e271e41f3c5409cbc4402}\label{parserHelpers_8hpp_a34084eaf2c2e271e41f3c5409cbc4402}} 
+bool {\bfseries read\+Value} (const string \&line, bool \&b)
+\item 
+\mbox{\Hypertarget{parserHelpers_8hpp_afd77547a0e1b2148f14176697a8a463a}\label{parserHelpers_8hpp_afd77547a0e1b2148f14176697a8a463a}} 
+void {\bfseries rewind} (ifstream \&file)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+File containing helper functions used for parsing parameter files. 
+
+\begin{DoxyAuthor}{Author}
+Melchior Zimmermann 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+28 Mar 2017 The methods in this file are used to parse paramter values into a \hyperlink{structsimParams}{sim\+Params} struct from a parameter file. 
+\end{DoxyDate}

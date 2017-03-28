@@ -7,6 +7,7 @@ File containing helper functions used throughout the pogramm.
 
 {\ttfamily \#include $<$string$>$}\newline
 {\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include \char`\"{}interface.\+hpp\char`\"{}}\newline
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -37,6 +38,9 @@ double {\bfseries get\+Uniform} (double range\mbox{[}2\mbox{]})
 \mbox{\Hypertarget{helpers_8hpp_a215cd49eba0cf8d7beed99782102aae8}\label{helpers_8hpp_a215cd49eba0cf8d7beed99782102aae8}} 
 double {\bfseries get\+UniformV} (std\+::vector$<$ double $>$ range)
 \item 
+\mbox{\Hypertarget{helpers_8hpp_a9972545cfd021cac23281267ac56c0b4}\label{helpers_8hpp_a9972545cfd021cac23281267ac56c0b4}} 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \hyperlink{helpers_8hpp_a9972545cfd021cac23281267ac56c0b4}{get\+W\+S\+Graph} (\hyperlink{structsimParams}{sim\+Params} \&params)
+\begin{DoxyCompactList}\small\item\em Method used to create an interaction graph using the Watts-\/\+Strogatz method. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{helpers_8hpp_a544595ad6569977b61b5e458d345bcb8}\label{helpers_8hpp_a544595ad6569977b61b5e458d345bcb8}} 
 int \hyperlink{helpers_8hpp_a544595ad6569977b61b5e458d345bcb8}{init\+Save} (std\+::string file\+Name)
 \begin{DoxyCompactList}\small\item\em Method used to initiate save files makes sure they exist and are empty before launching simulations. \end{DoxyCompactList}\end{DoxyCompactItemize}
