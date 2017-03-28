@@ -1,5 +1,7 @@
 #include <string>
 #include <vector>
+
+#include "interface.hpp"
 /**
  * @file helpers.hpp
  * @author Melchior Zimmermann
@@ -24,6 +26,10 @@ void getRange(double range[2]);
 void getIntRange(int range[2]);
 double getUniform(double range[2]);
 double getUniformV(std::vector<double> range);
+/**
+*\brief Method used to create an interaction graph using the Watts-Strogatz method.
+*/
+std::vector<std::vector<double>> getWSGraph(simParams& params);
 /**
 *\brief Method used to initiate save files makes sure they exist and are empty before launching simulations.
 */

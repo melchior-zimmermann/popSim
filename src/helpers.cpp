@@ -140,4 +140,48 @@ int initSave(string fileName){
 	return 0;
 }
 
+void rewire(int i, int j, int N, vector<vector<double>>& interactionMatrix) {
+	bool check = true;
+	int newDest;
 
+	while (check) {
+		newDest = rand()%N;
+		if ((newDest != i) && (interactionMatrix[i][newDest] != 1)) {
+			interactionMatrix[i][newDest] = interactionMatrix[i][j];
+			interactionMatrix[newDest][i] = interactionMatrix[j][i];
+			interactionMatrix[i][j] = 0;
+			interactionMatrix[j][i] = 0;
+			check = false;
+		}
+	}
+
+}
+
+std::vector<std::vector<double>> getWSGraph(simParams& params) {
+	int N = params.numSpecs;
+	int K = params.K;
+	double beta = params.wsBeta;
+
+	vector<vector<double>> interactionMatrix(N, vector<double>(N));
+
+	for (int i = 0; i<N; i++) {
+		for (int j = 0; j<N; j++) {
+			if (((abs(i-j)%(N-(K/2))) <= (K/2)) && (i!=j)) {
+				interactionMatrix[i][j] = getUniform(params.interRange);
+			}
+			else {
+				interactionMatrix[i][j] = 0;
+			}
+		}
+	}
+	for (int i = 0; i<N; i++) {
+		for (int j = 0; j<N; j++) {
+			if (interactionMatrix[i][j] != 0) {
+				if (getRandom() < beta) {
+					rewire(i, j, N, interactionMatrix);
+				}
+			}
+		}
+	}
+	return interactionMatrix;
+}

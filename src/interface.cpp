@@ -1,3 +1,19 @@
+
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <errno.h>
+#include <string.h>
+#include <stdlib.h>
+#include <numeric>
+#include <sstream>
+#include <utility>
+#include <vector>
+
+using std::cout;
+using std::endl;
+using std::vector;
+
 #include "Environment.hpp"
 #include "Species.hpp"
 #include "Simulation.hpp"
@@ -9,22 +25,9 @@
 #include "MultiEvoSimulation.hpp"
 #include "E2MSimulation.hpp"
 #include "helpers.hpp"
+#include "parserHelpers.hpp"
 #include "interface.hpp"
 #include "initializers.hpp"
-#include <iostream>
-#include <string>
-#include <fstream>
-#include <errno.h>
-#include <string.h>
-#include <stdlib.h>
-#include <numeric>
-#include <sstream>
-
-
-
-using namespace std;
-
-
 
 int getSimParams(string savePath, simParams* params){
 	//populates a simParams struct from user input, and saves params
@@ -34,6 +37,7 @@ int getSimParams(string savePath, simParams* params){
 	char evo = 'n';
 	char multi = 'n';
 	char method = 'x';
+	char ws = 'n';
 	cout<<"Do you want to use the explicit euler scheme or RK4 ('e' or 'r')?\n";
 	method = getChar();
 	while(method != 'e' && method != 'r'){
@@ -43,7 +47,19 @@ int getSimParams(string savePath, simParams* params){
 	if(method == 'r'){
 		params->rk = true;
 	}
-
+	cout<<"Do you want to construct the interaction graph using the Watts-Strogatz model? ('y' or  'n', otherwise graph will be random & complete):\n";
+	ws = getChar();
+	if (ws == 'y') {
+		params->ws = true;
+		cout<<"Enter the mean degree of vertices (K):\n";
+		params->K = getInt();
+		cout<<"Enter the value for the beta paramter (between 0 and 1):\n";
+		params->wsBeta = getDouble();
+	}
+	else {
+		params->K = 0;
+		params->wsBeta = 0;
+	}
 	cout<<"Will there be an environmental constant in this simulation ('y' or 'n')?\n";
 	eco = getChar();
 	if(eco == 'y' || eco == 'Y'){
@@ -161,6 +177,16 @@ int getSimParams(string savePath, simParams* params){
 	}
 	cout<<"Enter range of interaction values:\n";
 	getRange(params->interRange);
+	if (!params->ws) {
+		cout<<"Enter interaction cutoff threshold (interactions with an absolute value below this threshold"<<endl<<"will be set to 0):\n";
+		params->cutoffThreshold = getDouble();
+		if (params->cutoffThreshold < 0) {
+			params->cutoffThreshold = 0;
+		}
+	}
+	else {
+		params->cutoffThreshold = 0;
+	}
 	cout<<"Enter range of initial densities:\n";
 	getRange(params->densRange);
 	cout<<"Enter range of carrying capacity:\n";
@@ -200,199 +226,130 @@ int getSimParams(string savePath, simParams* params){
 }
 
 void makeTemplate(string path){
-	string fileName;
-	if(!path.empty()){
-		fileName = path+"/simParams";
-	}else{
-		fileName = "simParams";
-	}
-	ofstream saveFile(fileName);
-	if (! saveFile.is_open()){
-		cout<<"Failed to open file in interface::saveSimParams:\n";
-		cout<<strerror(errno)<<endl;
-		return;
-	}
 
-	saveFile<<"rk:\n";
-	saveFile<<"n"<<endl;
-	saveFile<<"Eco:\n";
-	saveFile<<"y"<<endl;
-	saveFile<<"Species optimum Range:\n";
-	saveFile<<"-1"<<endl;
-	saveFile<<"1"<<endl;
-	saveFile<<"Environment optimum Range:\n";
-	saveFile<<"-1"<<endl;
-	saveFile<<"1"<<endl;
-	saveFile<<"Perturbation probability:\n";
-	saveFile<<"0.0001"<<endl;
-	saveFile<<"Perturbation intensity range:\n";
-	saveFile<<"0.0001"<<endl;
-	saveFile<<"0.001"<<endl;
-	saveFile<<"Evo:\n";
-	saveFile<<"y"<<endl;
-	saveFile<<"Species evo range Range:\n";
-	saveFile<<"0.0001"<<endl;
-	saveFile<<"0.01"<<endl;
-	saveFile<<"Species opt evo Range:\n";
-	saveFile<<"0.001"<<endl;
-	saveFile<<"0.1"<<endl;
-	saveFile<<"Gen time Range:\n";
-	saveFile<<"100"<<endl;
-	saveFile<<"2000"<<endl;
-	saveFile<<"Evo resolution Range:\n";
-	saveFile<<"10"<<endl;
-	saveFile<<"100"<<endl;
-	saveFile<<"Inter save Div:\n";
-	saveFile<<"100000"<<endl;
-	saveFile<<"Number species:\n";
-	saveFile<<"27"<<endl;
-	saveFile<<"Multi:\n";
-	saveFile<<"y"<<endl;
-	saveFile<<"Number of environments:\n";
-	saveFile<<"3"<<endl;
+	simParams params;
 
-	for(int i = 0; i<3; i++){
-		saveFile<<"Number species in env #"<<i<<":\n";
-		saveFile<<"9"<<endl;
-	}
-	saveFile<<"Mig prob Range:\n";
-	saveFile<<"0.0001"<<endl;
-	saveFile<<"0.01"<<endl;
-	saveFile<<"Mig size Range:\n";
-	saveFile<<"0.0001"<<endl;
-	saveFile<<"0.01"<<endl;
-
-
-	saveFile<<"Interaction range:\n";
-	saveFile<<"-0.2"<<endl;
-	saveFile<<"0.2"<<endl;
-	saveFile<<"Initial density range:\n";
-	saveFile<<"8"<<endl;
-	saveFile<<"10"<<endl;
-	saveFile<<"Carrying capacity range:\n";
-	saveFile<<"8"<<endl;
-	saveFile<<"10"<<endl;
-	saveFile<<"Alpha range:\n";
-	saveFile<<"0.05"<<endl;
-	saveFile<<"0.2"<<endl;
-	saveFile<<"Beta range:\n";
-	saveFile<<"-0.2"<<endl;
-	saveFile<<"0"<<endl;
-	saveFile<<"Number of steps:\n";
-	saveFile<<"200000"<<endl;
-	saveFile<<"Delta (stepSize):\n";
-	saveFile<<"0.0001"<<endl;
-	saveFile<<"Death threshold:\n";
-	saveFile<<"0.0001"<<endl;
-	saveFile<<"Each how many steps density-values are saved:\n";
-	saveFile<<"100000"<<endl;
-	saveFile<<"CompleteStart:\n";
-	saveFile<<"y"<<endl;;
-
-	saveFile<<"CompleteEnd:\n";
-	saveFile<<"y"<<endl;
-
-
-	saveFile.close();
+	saveSimParams(path, &params);
 }
 
 int saveSimParams(string savePath, simParams* params){
-
-	string fileName = savePath+"/simParams";
+	string fileName;
+	if(!savePath.empty()){
+		fileName = savePath+"/simParams";
+	}else{
+		fileName = "simParams";
+	}
 
 	ofstream saveFile(fileName);
 	if (! saveFile.is_open()){
-		cout<<"Failed to open file in interface::saveSimParams:\n";
+		cout<<"Failed to open file '"<<fileName<<"' in interface::saveSimParams:\n";
 		cout<<strerror(errno)<<endl;
 		return -1;
 	}
 
-	saveFile<<"rk:\n";
+	saveFile<<"rk, ";
 	if(params->rk){
 		saveFile<<"y"<<endl;
 	}
 	else {
 		saveFile<<"n"<<endl;
 	}
-	
-	saveFile<<"Eco:\n";
+	saveFile<<"ws, ";
+	if(params->ws){
+		saveFile<<"y"<<endl;
+	}
+	else {
+		saveFile<<"n"<<endl;
+	}
+	saveFile<<"ws-Beta, ";
+	saveFile<<params->wsBeta<<endl;;
+	saveFile<<"ws-K, ";
+	saveFile<<params->K<<endl;
+	saveFile<<"Eco, ";
 	saveFile<<params->eco<<endl;
-	saveFile<<"Species optimum Range:\n";
-	saveFile<<params->optRangeSpec[0]<<endl;
+	saveFile<<"Species optimum Range, ";
+	saveFile<<params->optRangeSpec[0]<<", ";
 	saveFile<<params->optRangeSpec[1]<<endl;
-	saveFile<<"Environment optimum Range:\n";
-	saveFile<<params->optRangeEnv[0]<<endl;
+	saveFile<<"Environment optimum Range, ";
+	saveFile<<params->optRangeEnv[0]<<", ";
 	saveFile<<params->optRangeEnv[1]<<endl;
-	saveFile<<"Perturbation probability:\n";
+	saveFile<<"Perturbation probability, ";
 	saveFile<<params->perturbationProb<<endl;
-	saveFile<<"Perturbation intensity range:\n";
-	saveFile<<params->pertRange[0]<<endl;
+	saveFile<<"Perturbation intensity range, ";
+	saveFile<<params->pertRange[0]<<", ";
 	saveFile<<params->pertRange[1]<<endl;
-	saveFile<<"Evo:\n";
+	saveFile<<"Evo, ";
 	saveFile<<params->evo<<endl;
-	saveFile<<"Species evo range Range:\n";
-	saveFile<<params->evoRangeRange[0]<<endl;
+	saveFile<<"Species evo range Range, ";
+	saveFile<<params->evoRangeRange[0]<<", ";
 	saveFile<<params->evoRangeRange[1]<<endl;
-	saveFile<<"Species opt evo Range:\n";
-	saveFile<<params->optEvoRange[0]<<endl;
+	saveFile<<"Species opt evo Range, ";
+	saveFile<<params->optEvoRange[0]<<", ";
 	saveFile<<params->optEvoRange[1]<<endl;
-	saveFile<<"Gen time Range:\n";
-	saveFile<<params->genTimeRange[0]<<endl;
+	saveFile<<"Gen time Range, ";
+	saveFile<<params->genTimeRange[0]<<", ";
 	saveFile<<params->genTimeRange[1]<<endl;
-	saveFile<<"Evo resolution Range:\n";
-	saveFile<<params->evoResRange[0]<<endl;
+	saveFile<<"Evo resolution Range, ";
+	saveFile<<params->evoResRange[0]<<", ";
 	saveFile<<params->evoResRange[1]<<endl;
-	saveFile<<"Inter save Div:\n";
+	saveFile<<"Inter save Div, ";
 	saveFile<<params->interSaveDiv<<endl;
-	saveFile<<"Number species:\n";
+	saveFile<<"Number species, ";
 	saveFile<<params->numSpecs<<endl;
-	saveFile<<"Multi:\n";
+	saveFile<<"Multi, ";
 	saveFile<<params->multi<<endl;
-	saveFile<<"Number of environments:\n";
+	saveFile<<"Number of environments, ";
 	saveFile<<params->numEnvs<<endl;
 
+	saveFile<<"Specs per env, ";
 	for(int i = 0; i<params->numEnvs; i++){
-		saveFile<<"Number species in env #"<<i<<":\n";
-		saveFile<<params->specsPerEnv[i]<<endl;
+		saveFile<<params->specsPerEnv[i];
+		if (i != (params->numEnvs - 1)) {
+			saveFile<<", ";
+		}
 	}
-	saveFile<<"Mig prob Range:\n";
-	saveFile<<params->migProbRange[0]<<endl;
+	saveFile<<endl;
+
+	saveFile<<"Mig prob Range, ";
+	saveFile<<params->migProbRange[0]<<", ";
 	saveFile<<params->migProbRange[1]<<endl;
-	saveFile<<"Mig size Range:\n";
-	saveFile<<params->migSizeRange[0]<<endl;
+	saveFile<<"Mig size Range, ";
+	saveFile<<params->migSizeRange[0]<<", ";
 	saveFile<<params->migSizeRange[1]<<endl;
 
 
-	saveFile<<"Interaction range:\n";
-	saveFile<<params->interRange[0]<<endl;
+	saveFile<<"Interaction Range, ";
+	saveFile<<params->interRange[0]<<", ";
 	saveFile<<params->interRange[1]<<endl;
-	saveFile<<"Initial density range:\n";
-	saveFile<<params->densRange[0]<<endl;
+	saveFile<<"Interaction cutoff threshold, ";
+	saveFile<<params->cutoffThreshold<<endl;
+	saveFile<<"Initial density Range, ";
+	saveFile<<params->densRange[0]<<", ";
 	saveFile<<params->densRange[1]<<endl;
-	saveFile<<"Carrying capacity range:\n";
-	saveFile<<params->ccRange[0]<<endl;
+	saveFile<<"Carrying capacity Range, ";
+	saveFile<<params->ccRange[0]<<", ";
 	saveFile<<params->ccRange[1]<<endl;
-	saveFile<<"Alpha range:\n";
-	saveFile<<params->alphaRange[0]<<endl;
+	saveFile<<"Alpha Range, ";
+	saveFile<<params->alphaRange[0]<<", ";
 	saveFile<<params->alphaRange[1]<<endl;
-	saveFile<<"Beta range:\n";
-	saveFile<<params->betaRange[0]<<endl;
+	saveFile<<"Beta Range, ";
+	saveFile<<params->betaRange[0]<<", ";
 	saveFile<<params->betaRange[1]<<endl;
-	saveFile<<"Number of steps:\n";
+	saveFile<<"Number of steps, ";
 	saveFile<<params->numSteps<<endl;
-	saveFile<<"Delta (stepSize):\n";
+	saveFile<<"Delta (stepSize), ";
 	saveFile<<params->delta<<endl;
-	saveFile<<"Death threshold:\n";
+	saveFile<<"Death threshold, ";
 	saveFile<<params->deathThreshold<<endl;
-	saveFile<<"Each how many steps density-values are saved:\n";
+	saveFile<<"Each how many steps density-values are saved, ";
 	saveFile<<params->saveDiv<<endl;
-	saveFile<<"CompleteStart:\n";
+	saveFile<<"CompleteStart, ";
 	if(params->completeStart){
 		saveFile<<"y\n";
 	}else{
 		saveFile<<"n\n";
 	}
-	saveFile<<"CompleteEnd:\n";
+	saveFile<<"CompleteEnd, ";
 	if(params->completeEnd){
 		saveFile<<"y\n";
 	}else{
@@ -410,147 +367,285 @@ int loadSimParams(string savePath, simParams* params){
 	//populates a simParam struct from params save 
 	//in savePath+"/simParams"
 
-	string throwAway;
+	string fileName;
 
-
-	string fileName = savePath+"/simParams";
+	if(!savePath.empty()){
+		fileName = savePath+"/simParams";
+	}else{
+		fileName = "simParams";
+	}
 	
 
 	ifstream saveFile(fileName);
 	if (! saveFile.is_open()){
-		cout<<"Failed to open file in interface::loadSimParams:\n";
+		cout<<"Failed to open file "<<fileName<<" in interface::loadSimParams:\n";
 		cout<<strerror(errno)<<endl;
 		return -1;
 	}
-	string test;
-	getline(saveFile, throwAway);
-	saveFile>>test;
-	if(test == "y"){
-		params->rk = true;
-	}
-	else {
-		params->rk = false;
-	}
-	getline(saveFile, throwAway);
-	getline(saveFile, throwAway);
-	saveFile>>params->eco;
-	getline(saveFile, throwAway);
-	getline(saveFile, throwAway);
-	saveFile>>params->optRangeSpec[0];
-	saveFile>>params->optRangeSpec[1];
-	getline(saveFile, throwAway);
-	getline(saveFile, throwAway);
-	saveFile>>params->optRangeEnv[0];
-	saveFile>>params->optRangeEnv[1];
-	getline(saveFile, throwAway);
-	getline(saveFile, throwAway);
-	saveFile>>params->perturbationProb;
-	getline(saveFile, throwAway);
-	getline(saveFile, throwAway);
-	saveFile>>params->pertRange[0];
-	saveFile>>params->pertRange[1];
-	getline(saveFile, throwAway);
-	getline(saveFile, throwAway);
-	saveFile>>params->evo;
-	getline(saveFile, throwAway);
-	getline(saveFile, throwAway);
-	saveFile>>params->evoRangeRange[0];
-	saveFile>>params->evoRangeRange[1];
-	getline(saveFile, throwAway);
-	getline(saveFile, throwAway);
-	saveFile>>params->optEvoRange[0];
-	saveFile>>params->optEvoRange[1];
-	getline(saveFile, throwAway);
-	getline(saveFile, throwAway);
-	saveFile>>params->genTimeRange[0];
-	saveFile>>params->genTimeRange[1];
-	getline(saveFile, throwAway);
-	getline(saveFile, throwAway);
-	saveFile>>params->evoResRange[0];
-	saveFile>>params->evoResRange[1];
-	getline(saveFile, throwAway);
-	getline(saveFile, throwAway);
-	saveFile>>params->interSaveDiv;
-	getline(saveFile, throwAway);
-	getline(saveFile, throwAway);
-	//cout<<throwAway<<endl;
-	saveFile>>params->numSpecs;
-	getline(saveFile, throwAway);
-	getline(saveFile, throwAway);
-	saveFile>>params->multi;
-	getline(saveFile, throwAway);
-	getline(saveFile, throwAway);
-	saveFile>>params->numEnvs;
-	getline(saveFile, throwAway);
-	getline(saveFile, throwAway);
-	int temp;
-	for(int i = 0; i<params->numEnvs; i++){
-		saveFile>>temp;
-		params->specsPerEnv.push_back(temp);
-		getline(saveFile, throwAway);
-		getline(saveFile, throwAway);
+	cout<<"Opened file:\t"<<fileName<<endl;
 
+	string line;
+	// while (getline(saveFile, line) && saveFile.good()) {
+	// 	cout<<line<<endl;
+	// }
+	// rewind(saveFile);
+	vector<int> tempVecI;
+	vector<double> tempVecD;
+
+	if(!findName(saveFile, "rk", line)) {
+		cout<<"Could not find parameter 'rk'!\nAborting...\n";
+		cout<<line<<endl;
+		exit(EXIT_FAILURE);
 	}
-	saveFile>>params->migProbRange[0];
-	saveFile>>params->migProbRange[1];
-	getline(saveFile, throwAway);
-	getline(saveFile, throwAway);
-	saveFile>>params->migSizeRange[0];
-	saveFile>>params->migSizeRange[1];
-	getline(saveFile, throwAway);
-	getline(saveFile, throwAway);
-	//cout<<throwAway<<endl;
-	saveFile>>params->interRange[0];
-	saveFile>>params->interRange[1];
-	getline(saveFile, throwAway);
-	getline(saveFile, throwAway);
-	//cout<<throwAway<<endl;
-	saveFile>>params->densRange[0];
-	saveFile>>params->densRange[1];
-	getline(saveFile, throwAway);
-	getline(saveFile, throwAway);
-	saveFile>>params->ccRange[0];
-	saveFile>>params->ccRange[1];
-	getline(saveFile, throwAway);
-	getline(saveFile, throwAway);
-	saveFile>>params->alphaRange[0];
-	saveFile>>params->alphaRange[1];
-	getline(saveFile, throwAway);
-	getline(saveFile, throwAway);
-	saveFile>>params->betaRange[0];
-	saveFile>>params->betaRange[1];
-	getline(saveFile, throwAway);
-	getline(saveFile, throwAway);
-	saveFile>>params->numSteps;
-	getline(saveFile, throwAway);
-	getline(saveFile, throwAway);
-	saveFile>>params->delta;
-	getline(saveFile, throwAway);
-	getline(saveFile, throwAway);
-	saveFile>>params->deathThreshold;
-	getline(saveFile, throwAway);
-	getline(saveFile, throwAway);
-	saveFile>>params->saveDiv;
-	getline(saveFile, throwAway);
-	getline(saveFile, throwAway);
-	string complete;
-	saveFile>>complete;
-	if(complete == "y"){
-		params->completeStart = true;
-	}else{
-		params->completeStart = false;
+	readValue(prune(line, ' '), params->rk);
+
+	if(!findName(saveFile, "ws", line)) {
+		cout<<"Could not find parameter 'ws'!\nAborting...\n";
+		exit(EXIT_FAILURE);
 	}
-	getline(saveFile, throwAway);
-	getline(saveFile, throwAway);
-	saveFile>>complete;
-	if(complete == "y"){
-		params->completeEnd = true;
-	}else{
-		params->completeEnd = false;
+	readValue(prune(line, ' '), params->ws);
+
+	if(!findName(saveFile, "ws-Beta", line)) {
+		cout<<"Could not find parameter 'ws-Beta'!\nAborting...\n";
+		exit(EXIT_FAILURE);
 	}
+	readValue(prune(line, ' '), params->wsBeta);
+
+	if(!findName(saveFile, "ws-K", line)) {
+		cout<<"Could not find parameter 'ws-K'!\nAborting...\n";
+		exit(EXIT_FAILURE);
+	}
+	readValue(prune(line, ' '), params->K);
+
+	if(!findName(saveFile, "Eco", line)) {
+		cout<<"Could not find parameter 'Eco'!\nAborting...\n";
+		exit(EXIT_FAILURE);
+	}
+	readValue(prune(line, ' '), params->eco);
+
+	if(!findName(saveFile, "Species optimum Range", line)) {
+		cout<<"Could not find parameter 'Species optimum Range'!\nAborting...\n";
+		exit(EXIT_FAILURE);
+	}
+	readValue(prune(line, ' '), tempVecD);
+	params->optRangeSpec[0] = tempVecD[0];
+	params->optRangeSpec[1] = tempVecD[1];
+	tempVecD.clear();
+
+	if(!findName(saveFile, "Environment optimum Range", line)) {
+		cout<<"Could not find parameter 'Environment optimum Range'!\nAborting...\n";
+		exit(EXIT_FAILURE);
+	}
+	readValue(prune(line, ' '), tempVecD);
+	params->optRangeEnv[0] = tempVecD[0];
+	params->optRangeEnv[1] = tempVecD[1];
+	tempVecD.clear();
+
+	if(!findName(saveFile, "Perturbation probability", line)) {
+		cout<<"Could not find parameter 'Environment optimum range'!\nAborting...\n";
+		exit(EXIT_FAILURE);
+	}
+	readValue(prune(line, ' '), params->perturbationProb);
+
+	if(!findName(saveFile, "Perturbation intensity range", line)) {
+		cout<<"Could not find parameter 'Perturbation intensity range'!\nAborting...\n";
+		exit(EXIT_FAILURE);
+	}
+	readValue(prune(line, ' '), tempVecD);
+	params->pertRange[0] = tempVecD[0];
+	params->pertRange[1] = tempVecD[1];
+	tempVecD.clear();
+
+	if(!findName(saveFile, "Evo", line)) {
+		cout<<"Could not find parameter 'Evo'!\nAborting...\n";
+		exit(EXIT_FAILURE);
+	}
+	readValue(prune(line, ' '), params->evo);
+
+	if(!findName(saveFile, "Species evo range Range", line)) {
+		cout<<"Could not find parameter 'Species evo range Range'!\nAborting...\n";
+		exit(EXIT_FAILURE);
+	}
+	readValue(prune(line, ' '), tempVecD);
+	params->evoRangeRange[0] = tempVecD[0];
+	params->evoRangeRange[1] = tempVecD[1];
+	tempVecD.clear();
+
+	if(!findName(saveFile, "Species opt evo Range", line)) {
+		cout<<"Could not find parameter 'Species opt evo Range'!\nAborting...\n";
+		exit(EXIT_FAILURE);
+	}
+	readValue(prune(line, ' '), tempVecD);
+	params->optEvoRange[0] = tempVecD[0];
+	params->optEvoRange[1] = tempVecD[1];
+	tempVecD.clear();
+
+	if(!findName(saveFile, "Gen time Range", line)) {
+		cout<<"Could not find parameter 'Gen time Range'!\nAborting...\n";
+		exit(EXIT_FAILURE);
+	}
+	readValue(prune(line, ' '), tempVecI);
+	params->genTimeRange[0] = tempVecI[0];
+	params->genTimeRange[1] = tempVecI[1];
+	tempVecI.clear();
+
+	if(!findName(saveFile, "Evo resolution Range", line)) {
+		cout<<"Could not find parameter 'Evo resolution Range'!\nAborting...\n";
+		exit(EXIT_FAILURE);
+	}
+	readValue(prune(line, ' '), tempVecI);
+	params->evoResRange[0] = tempVecI[0];
+	params->evoResRange[1] = tempVecI[1];
+	tempVecI.clear();
+
+	if(!findName(saveFile, "Inter save Div", line)) {
+		cout<<"Could not find parameter 'Inter save Div'!\nAborting...\n";
+		exit(EXIT_FAILURE);
+	}
+	readValue(prune(line, ' '), params->interSaveDiv);
+
+	if(!findName(saveFile, "Number species", line)) {
+		cout<<"Could not find parameter 'Number species'!\nAborting...\n";
+		exit(EXIT_FAILURE);
+	}
+	readValue(prune(line, ' '), params->numSpecs);
+
+	if(!findName(saveFile, "Multi", line)) {
+		cout<<"Could not find parameter 'Multi'!\nAborting...\n";
+		exit(EXIT_FAILURE);
+	}
+	readValue(prune(line, ' '), params->multi);
+
+	if(!findName(saveFile, "Number of environments", line)) {
+		cout<<"Could not find parameter 'Number of environments'!\nAborting...\n";
+		exit(EXIT_FAILURE);
+	}
+	readValue(prune(line, ' '), params->numEnvs);
+
+	if(!findName(saveFile, "Specs per env", line)) {
+		cout<<"Could not find parameter 'Specs per env'!\nAborting...\n";
+		exit(EXIT_FAILURE);
+	}
+	readValue(prune(line, ' '), params->specsPerEnv);
+	if (params->specsPerEnv.size() < params->numEnvs) {
+		cout<<"Nbr of environments does not match between params->numEnvs & params->specsPerEnv!\nAborting...\n";
+		exit(EXIT_FAILURE);
+	}
+	int totSpecs = 0;
+	for (size_t i = 0; i<params->specsPerEnv.size(); i++) {
+		totSpecs += params->specsPerEnv[i];
+	}
+	if (totSpecs < params->numSpecs) {
+		cout<<"Too few species intialized in environments! (specsPerEnv.sum() < numSpecs)\nAborting...\n";
+		exit(EXIT_FAILURE);
+	}
+
+	if(!findName(saveFile, "Mig prob Range", line)) {
+		cout<<"Could not find parameter 'Mig prob Range'!\nAborting...\n";
+		exit(EXIT_FAILURE);
+	}
+	readValue(prune(line, ' '), tempVecD);
+	params->migProbRange[0] = tempVecD[0];
+	params->migProbRange[1] = tempVecD[1];
+	tempVecD.clear();
+
+	if(!findName(saveFile, "Mig size Range", line)) {
+		cout<<"Could not find parameter 'Mig size Range'!\nAborting...\n";
+		exit(EXIT_FAILURE);
+	}
+	readValue(prune(line, ' '), tempVecD);
+	params->migSizeRange[0] = tempVecD[0];
+	params->migSizeRange[1] = tempVecD[1];
+	tempVecD.clear();
+
+	if(!findName(saveFile, "Interaction Range", line)) {
+		cout<<"Could not find parameter 'Interaction Range'!\nAborting...\n";
+		exit(EXIT_FAILURE);
+	}
+	readValue(prune(line, ' '), tempVecD);
+	params->interRange[0] = tempVecD[0];
+	params->interRange[1] = tempVecD[1];
+	tempVecD.clear();
+
+	if(!findName(saveFile, "Interaction cutoff threshold", line)) {
+		cout<<"Could not find parameter 'Interaction cutoff threshold'!\nAborting...\n";
+		exit(EXIT_FAILURE);
+	}
+	readValue(prune(line, ' '), params->cutoffThreshold);
+
+	if(!findName(saveFile, "Initial density Range", line)) {
+		cout<<"Could not find parameter 'Initial density Range'!\nAborting...\n";
+		exit(EXIT_FAILURE);
+	}
+	readValue(prune(line, ' '), tempVecD);
+	params->densRange[0] = tempVecD[0];
+	params->densRange[1] = tempVecD[1];
+	tempVecD.clear();
+
+	if(!findName(saveFile, "Carrying capacity Range", line)) {
+		cout<<"Could not find parameter 'Carrying capacity Range'!\nAborting...\n";
+		exit(EXIT_FAILURE);
+	}
+	readValue(prune(line, ' '), tempVecD);
+	params->ccRange[0] = tempVecD[0];
+	params->ccRange[1] = tempVecD[1];
+	tempVecD.clear();
+
+	if(!findName(saveFile, "Alpha Range", line)) {
+		cout<<"Could not find parameter 'Alpha Range'!\nAborting...\n";
+		exit(EXIT_FAILURE);
+	}
+	readValue(prune(line, ' '), tempVecD);
+	params->alphaRange[0] = tempVecD[0];
+	params->alphaRange[1] = tempVecD[1];
+	tempVecD.clear();
+
+	if(!findName(saveFile, "Beta Range", line)) {
+		cout<<"Could not find parameter 'Beta Range'!\nAborting...\n";
+		exit(EXIT_FAILURE);
+	}
+	readValue(prune(line, ' '), tempVecD);
+	params->betaRange[0] = tempVecD[0];
+	params->betaRange[1] = tempVecD[1];
+	tempVecD.clear();
+
+	if(!findName(saveFile, "Number of steps", line)) {
+		cout<<"Could not find parameter 'Number of steps'!\nAborting...\n";
+		exit(EXIT_FAILURE);
+	}
+	readValue(prune(line, ' '), params->numSteps);
+
+	if(!findName(saveFile, "Delta (stepSize)", line)) {
+		cout<<"Could not find parameter 'Delta (stepSize)'!\nAborting...\n";
+		exit(EXIT_FAILURE);
+	}
+	readValue(prune(line, ' '), params->delta);
+
+	if(!findName(saveFile, "Death threshold", line)) {
+		cout<<"Could not find parameter 'Death threshold'!\nAborting...\n";
+		exit(EXIT_FAILURE);
+	}
+	readValue(prune(line, ' '), params->deathThreshold);
+
+	if(!findName(saveFile, "Each how many steps density-values are saved", line)) {
+		cout<<"Could not find parameter 'Each how many steps density-values are saved'!\nAborting...\n";
+		exit(EXIT_FAILURE);
+	}
+	readValue(prune(line, ' '), params->saveDiv);
+
+	if(!findName(saveFile, "CompleteStart", line)) {
+		cout<<"Could not find parameter 'CompleteStart'!\nAborting...\n";
+		exit(EXIT_FAILURE);
+	}
+	readValue(prune(line, ' '), params->completeStart);
+
+	if(!findName(saveFile, "CompleteEnd", line)) {
+		cout<<"Could not find parameter 'CompleteEnd'!\nAborting...\n";
+		exit(EXIT_FAILURE);
+	}
+	readValue(prune(line, ' '), params->completeEnd);
 
 	saveFile.close();
-
 
 
 

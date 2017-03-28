@@ -9,6 +9,7 @@
 #include <sstream>
 #include <memory>
 #include <vector>
+#include <cmath>
 
 using namespace std;
 
@@ -49,7 +50,7 @@ using namespace std;
 #include "initializers.hpp"
 
 
-int initSpecs(vector<unique_ptr<Species>>* speciesList, simParams params, double* envConst){
+int initSpecs(vector<unique_ptr<Species>>* speciesList, simParams& params, double* envConst){
 
 	for(int i = 0; i<params.numSpecs; i++){
 		int numSelf = i;
@@ -68,6 +69,9 @@ int initSpecs(vector<unique_ptr<Species>>* speciesList, simParams params, double
 
 		for(int j = 0; j<params.numSpecs; j++){
 			interactions[j] = getUniform(params.interRange);
+			if (abs(interactions[j]) < params.cutoffThreshold) {
+				interactions[j] = 0;
+			}
 		}
 
 		interactions[i] = 0;
@@ -252,6 +256,14 @@ Environment getEnv(string savePath, simParams params, int numSelf, vector<Enviro
 
 
 	initSpecs(env.getSpeciesList(), params, env.getEnvConstPtr());
+
+	if (params.ws) {
+		vector<vector<double>> interactionGraph = getWSGraph(params);
+		vector<unique_ptr<Species>>* speciesList = env.getSpeciesList();
+		for (int i = 0; i<params.numSpecs; i++) {
+			(*speciesList)[i]->setInteractions(interactionGraph[i]);
+		}
+	}
 	//env->setSpeciesList(speciesList);
 	env.initChange();
 	

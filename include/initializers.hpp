@@ -28,7 +28,7 @@ using namespace std;
 *\params envConst pointer to attribute envConst of the Environment for which we are generating species
 */
 
-int initSpecs(vector<unique_ptr<Species>>* speciesList, simParams params, double* envConst);
+int initSpecs(vector<unique_ptr<Species>>* speciesList, simParams& params, double* envConst);
 /**
 *\brief Populates Environment with all parameters, based on informaiton in simParams (see simParams in interface.hpp)
 *
