@@ -47,12 +47,12 @@ vector<double> Species::getMigration(int envNum, int numEnvs){
 
     for (i = 0; i<numEnvs; i++){
         density -= migrants[i];
-        if (migrants[i] > density) {
-            cout<<"m>d !\n";
-            cout<<"d = "<<density<<endl;
-            cout<<"m = "<<migrants[i]<<endl;
-            exit(EXIT_FAILURE);
-        }
+        // if (migrants[i] > density) {
+        //     cout<<"m>d !\n";
+        //     cout<<"d = "<<density<<endl;
+        //     cout<<"m = "<<migrants[i]<<endl;
+        //     exit(EXIT_FAILURE);
+        // }
     }
 
     if(density<0){
