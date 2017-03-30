@@ -66,8 +66,14 @@ string prune(const string& line, char delimiter) {
 }
 
 bool findName(ifstream& file, const string name, string& line) {
+	int j;
+	auto it = line.begin();
 	do {
 		getline(file, line);
+		it = line.begin();
+		j = 0;
+		advance(it, j);
+		
 	} while (file.good() && line.compare(0, name.size(), name));
 
 	if (!file.good()) {

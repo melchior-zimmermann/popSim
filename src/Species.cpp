@@ -27,8 +27,8 @@ vector<double> Species::getMigration(int envNum, int numEnvs){
     vector<vector<double>> routes = migrationRoutes[envNum];
 
     double effectiveCc = cc * exp(-(*envConst - optimum)*(*envConst - optimum));
-    cout<<effectiveCc<<endl;
-    cout<<density<<endl;
+    // cout<<effectiveCc<<endl;
+    // cout<<density<<endl;
 
     double quotient = density/cc;           //used to calculate migration probability
 
