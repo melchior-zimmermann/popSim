@@ -1,4 +1,4 @@
-This software comes with absolutely no warranty.
+This software is published under a GPL license, and comes with absolutely no warranty.
 
 For all questions and comments, please send an e-mail to popsimproject<at>gmail.com
 
