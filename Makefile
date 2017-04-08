@@ -22,7 +22,7 @@ DCOMPILE_FLAGS = -D DEBUG
 # Add additional include paths
 INCLUDES = -I ./include
 # General linker settings
-LINK_FLAGS = -lSDL2 -lSDL2_image -lSDL2_mixer
+LINK_FLAGS =
 # Additional release-specific linker settings
 RLINK_FLAGS =
 # Additional profiling-specific linker settings
