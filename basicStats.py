@@ -15,37 +15,30 @@ simParams = open(savePath+'/simParams', 'r')
 
 lines = []
 for line in simParams:
-	lines.append(line.strip('\n'))
+	lines.append(line.strip('\n').split(", "))
 
 #getting sim params to know how to parse rawSaves
-
 evo = False
 eco = False
 multi = False
-
-"""
-if lines[1] == 'y':
-	eco = True
-
-if lines[14] == 'y':
-	evo = True
-
-if lines[32] == 'y':
-	multi = True
-
-numEnvs = int(lines[34])
-
-numSpecs = int(lines[30])
-
-
-numSteps = int(lines[-11])
-"""
-
 numEnvs = 1
 numSpecs = 17
 numSteps = 200000
 
 
+for line in lines:
+    if (line[0] == "Eco") and (line[1] == "y"):
+        eco = True
+    elif (line[0] == "Evo") and (line[1] == "y"):
+        evo = True
+    elif (line[0] == "Multi") and (line[1] == "y"):
+        multi = True
+    elif line[0] == "Number of environments":
+        numEnvs = int(line[1])
+    elif line[0] == "Number species":
+        numSpecs = int(line[1])
+    elif line[0] == "Number of steps":
+        numSteps = int(line[1])
 
 def parseOne(fileName, savePath, numSteps, numSpecs, eco, evo, runs, multi, numEnv):	
 	#initiating np.arrays to hold values
